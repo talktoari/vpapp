@@ -2,6 +2,11 @@ body{
 	background-color:#e4dab8;
 }
 
+#alert
+{
+color:red;
+}
+
 /* Donor List Display */
 #donors
 {
@@ -12,7 +17,7 @@ border-collapse:collapse;
 #donors td, #donors th 
 {
 font-size:1em;
-border:1px solid #98bf21;
+border:1px solid #7c5b47;
 padding:3px 7px 2px 7px;
 }
 #donors th 
@@ -21,8 +26,9 @@ font-size:1.1em;
 text-align:left;
 padding-top:5px;
 padding-bottom:4px;
-background-color:#A7C942;
-color:#ffffff;
+background-color:#7c5b47;
+border:1px solid #ffcc99;
+color:#fff9e7;
 }
 #donors tr.alt td 
 {
@@ -34,26 +40,26 @@ background-color:#EAF2D3;
 input[type="email"]
 {
 padding: 5px;
-width:200px;
+width:300px;
 display:block;
 margin-bottom:10px;
-background-color:#DDFFDD;
+background-color:#F5ECDB;
 }
 input[type="password"]
 {
 padding: 5px;
-width:200px;
+width:300px;
 display:block;
 margin-bottom:10px;
-background-color:#FFDFDF;
+background-color:#FFCC99;
 }
 input[type="text"]
 {
 padding: 5px;
-width:200px;
+width:300px;
 display:block;
 margin-bottom:10px;
-background-color:#DDFFDD;
+background-color:#F5ECDB;
 }
 input[type="button"]
 {
@@ -68,6 +74,11 @@ width:120px;
 margin-left:35px;
 display:block;
 }
+input:focus {
+	background-color:#CCFF99;
+	color:#000000;
+}
+
 textarea
 {
 width: 95%;
@@ -75,7 +86,11 @@ height: 50px;
 border: 3px solid #cccccc;
 padding: 5px;
 font-family: Tahoma, sans-serif;
-background-color:#DDFFDD;
+background-color:#F5ECDB;
+}
+textarea:focus {
+	background-color:#CCFF99;
+	color:#000000;
 }
 
 form fieldset{
@@ -88,9 +103,10 @@ form fieldset{
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:15px;
 		
-	margin:20px 0px 20px 0px;
+	margin:20px 10px 20px 0px;
 	width:450px;
 	position:relative;
+	float:left;
 	display:block;
 	padding: 0px 10px 10px 10px;
 }
@@ -127,4 +143,15 @@ form fieldset legend img{
 	
 	font-weight:bold;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+label{
+	color:#bf311b;
+	font-size:90%;
+	
+	display:block;
+	width:100px;
+	float:left;
+	text-align:left;
+	margin:4px 5px 0px 0px;
 }

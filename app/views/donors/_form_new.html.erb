@@ -12,74 +12,75 @@
   <% end %>
 
 <fieldset>
-<legend>Login Information</legend>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= password_field(:pwd, :size => 30) %>
-  </div>
-  <div class="field">
-    <%= f.label "Confirm Password" %><br />
-    <%= f.password_field :password, :size => 30 %>
-  </div>
-</fieldset>
-
-<fieldset>
 <legend>Personal Information</legend>
   <div class="field">
-    <%= f.label :first_name %><br />
+    <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
   <div class="field">
-    <%= f.label :last_name %><br />
+    <%= f.label :last_name %>
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.label "Male" %>
+    <%= f.label :gender %>
+    Male
     <%= f.radio_button :gender, "Male" %>
-    <%= f.label "Female" %>
+    Female
     <%= f.radio_button :gender, "Female" %>
   </div>
   <br />
   <div class="field">
-    <%= f.label :date_of_birth %><br />
+    <%= f.label :date_of_birth %>
     <%= f.date_select :date_of_birth %>
   </div>
+
   <div class="field">
-    <%= f.label :address_first_line %><br />
+    <%= f.label "Suite/Apt No." %>
     <%= f.text_field :address_first_line %>
   </div>
   <div class="field">
-    <%= f.label :address_second_line %><br />
+    <%= f.label "Street/Road" %>
     <%= f.text_field :address_second_line %>
   </div>
   <div class="field">
-    <%= f.label :address_landmark %><br />
+    <%= f.label :"Landmark" %>
     <%= f.text_field :address_landmark %>
   </div>
   <div class="field">
-    <%= f.label :city %>
+   City
     <%= f.select(:city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
-    <%= f.label :state %>
+   State
     <%= f.select(:state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
-    <%= f.label :country %>
+   Country
     <%= f.select(:country, %w{India USA China}) %>
   </div>
   <div class="field">
-    <%= f.label :pincode %><br />
+    <%= f.label :pincode %>
     <%= f.text_field :pincode %>
   </div>
   <div class="field">
-    <%= f.label :phone %><br />
+    <%= f.label :phone %>
     <%= f.text_field :phone %>
   </div>
   <div class="field">
-    <%= f.label :mobile %><br />
+    <%= f.label :mobile %>
     <%= f.text_field :mobile %>
+  </div>
+</fieldset>
+
+<fieldset>
+<legend>Login Information</legend>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :password %>
+    <%= password_field(:pwd, :size => 30) %>
+  </div>
+  <div class="field">
+    <%= f.label "Confirm Password" %>
+    <%= f.password_field :password, :size => 30 %>
   </div>
 </fieldset>
 
@@ -87,7 +88,7 @@
 <legend> Want to remain Anonymous?</legend>
     <div class="field">
     <%= f.check_box :anonymous %>
-    <%= f.label "I want to remain Anonymous. I do not want my information to be shown publically." %>
+    I want to remain Anonymous. I do not want my information to be shown publically.
   </div>
 </fieldset>
 

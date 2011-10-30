@@ -4,5 +4,40 @@
 <h2>A sample app post has been added with database support. Confirm the working by accessing the below</h2>
 <%= link_to "All Posts", posts_path %>
 <hr/>
+<h2>The DONOR main framework has been made ready and can be accessed below</h2>
+<%= link_to "All Donors", donors_path %>
+<hr/>
+<h2>Useful GIT and Heroku Instructions</h2>
+<p>
+<pre>
+Global setup:
+ Set up git
+  git config --global user.name "Your Name"
+  git config --global user.email talktoari@gmail.com
+      
+Next steps:
+  mkdir vpapp
+  cd vpapp
+  git init
+  touch README
+  git add README
+  git commit -m 'first commit'
+  git remote add origin git@github.com:talktoari/vpapp.git
+  git push -u origin master
+      
+Existing Git Repo?
+  cd existing_git_repo
+  git remote add origin git@github.com:talktoari/vpapp.git
+  git push -u origin master
+  
+Heroku Commands
+  git push heroku master
+  heroku db:push
+
+Precompile Assets
+  bundle exec rake assets:precompile
+</pre>
+</p>
+<hr/>
 <h3>I am Home#index</h3>
 <p>Find me in app/views/home/index.html.erb</p>
