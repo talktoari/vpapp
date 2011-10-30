@@ -63,14 +63,14 @@ display:block;
 }
 input[type="submit"]
 {
-height:50px;
+height:30px;
 width:120px;
 margin-left:35px;
 display:block;
 }
 textarea
 {
-width: 360px;
+width: 95%;
 height: 50px;
 border: 3px solid #cccccc;
 padding: 5px;
@@ -86,10 +86,10 @@ form fieldset{
 	border-color:#7c5b47;
 	
 	font-family:Verdana, Arial, Helvetica, sans-serif;
-	font-size:12px;
+	font-size:15px;
 		
 	margin:20px 0px 20px 0px;
-	width:380px;
+	width:450px;
 	position:relative;
 	display:block;
 	padding: 0px 10px 10px 10px;
@@ -105,7 +105,7 @@ form fieldset legend{
 	color:#ffcc99;
 	font-weight:bold;
 	font-variant:small-caps;
-	font-size:110%;
+	font-size:120%;
 		
 	padding:2px 5px;
 	margin:0px 0px 10px 0px;
@@ -118,3 +118,13 @@ form fieldset legend img{
 	padding:0px 5px 0px 5px;	
 }
 
+.button{
+	background-color:#fff9e7;
+	
+	border-width:1px;
+	border-style:solid;
+	border-color:#7c5b47;
+	
+	font-weight:bold;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
