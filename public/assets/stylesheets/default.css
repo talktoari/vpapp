@@ -93,6 +93,29 @@ textarea:focus {
 	color:#000000;
 }
 
+
+.button{
+	background-color:#fff9e7;
+	
+	border-width:1px;
+	border-style:solid;
+	border-color:#7c5b47;
+	
+	font-weight:bold;
+	font-family:Verdana, Arial, Helvetica, sans-serif;
+}
+
+label{
+	color:#bf311b;
+	font-size:90%;
+	
+	display:block;
+	width:100px;
+	float:left;
+	text-align:left;
+	margin:4px 5px 0px 0px;
+}
+
 form fieldset{
 	background-color:#fff9e7;
 	
@@ -134,24 +157,3 @@ form fieldset legend img{
 	padding:0px 5px 0px 5px;	
 }
 
-.button{
-	background-color:#fff9e7;
-	
-	border-width:1px;
-	border-style:solid;
-	border-color:#7c5b47;
-	
-	font-weight:bold;
-	font-family:Verdana, Arial, Helvetica, sans-serif;
-}
-
-label{
-	color:#bf311b;
-	font-size:90%;
-	
-	display:block;
-	width:100px;
-	float:left;
-	text-align:left;
-	margin:4px 5px 0px 0px;
-}
