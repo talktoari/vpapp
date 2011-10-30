@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111028080109) do
+ActiveRecord::Schema.define(:version => 20111030054617) do
+
+  create_table "donors", :force => true do |t|
+    t.string   "email"
+    t.string   "password"
+    t.string   "gender"
+    t.date     "date_of_birth"
+    t.string   "address_first_line"
+    t.string   "address_second_line"
+    t.string   "address_landmark"
+    t.string   "city"
+    t.string   "state"
+    t.string   "country"
+    t.string   "pincode"
+    t.string   "phone"
+    t.string   "mobile"
+    t.text     "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "anonymous"
+  end
 
   create_table "posts", :force => true do |t|
     t.string   "name"

@@ -1,0 +1,79 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Email:</b>
+  <%= @donor.email %>
+</p>
+
+<p>
+  <b>Password:</b>
+  <%= @donor.password %>
+</p>
+
+<p>
+  <b>Gender:</b>
+  <%= @donor.gender %>
+</p>
+
+<p>
+  <b>Date of birth:</b>
+  <%= @donor.date_of_birth %>
+</p>
+
+<p>
+  <b>Address first line:</b>
+  <%= @donor.address_first_line %>
+</p>
+
+<p>
+  <b>Address second line:</b>
+  <%= @donor.address_second_line %>
+</p>
+
+<p>
+  <b>Address landmark:</b>
+  <%= @donor.address_landmark %>
+</p>
+
+<p>
+  <b>City:</b>
+  <%= @donor.city %>
+</p>
+
+<p>
+  <b>State:</b>
+  <%= @donor.state %>
+</p>
+
+<p>
+  <b>Country:</b>
+  <%= @donor.country %>
+</p>
+
+<p>
+  <b>Pincode:</b>
+  <%= @donor.pincode %>
+</p>
+
+<p>
+  <b>Phone:</b>
+  <%= @donor.phone %>
+</p>
+
+<p>
+  <b>Mobile:</b>
+  <%= @donor.mobile %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @donor.comment %>
+</p>
+
+<p>
+  <b>Anonymous:</b>
+  <%= @donor.anonymous %>
+</p>
+
+<%= link_to 'Edit', edit_donor_path(@donor) %> |
+<%= link_to 'Back', donors_path %>

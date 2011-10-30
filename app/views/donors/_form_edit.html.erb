@@ -1,0 +1,84 @@
+<%= form_for(@donor) do |f| %>
+  <% if @donor.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donor.errors.count, "error") %> prohibited this donor from being saved:</h2>
+
+      <ul>
+      <% @donor.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<fieldset>
+<legend>Personal Information</legend>
+  <div class="field">
+    <%= f.label :gender %><br />
+    <%= f.label "Male" %>
+    <%= f.radio_button :gender, "Male" %>
+    <%= f.label "Female" %>
+    <%= f.radio_button :gender, "Female" %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br />
+    <%= f.date_select :date_of_birth %>
+  </div>
+  <div class="field">
+    <%= f.label :address_first_line %><br />
+    <%= f.text_field :address_first_line %>
+  </div>
+  <div class="field">
+    <%= f.label :address_second_line %><br />
+    <%= f.text_field :address_second_line %>
+  </div>
+  <div class="field">
+    <%= f.label :address_landmark %><br />
+    <%= f.text_field :address_landmark %>
+  </div>
+  <div class="field">
+    <%= f.label :city %><br />
+    <%= f.select(:city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
+  </div>
+  <div class="field">
+    <%= f.label :state %><br />
+    <%= f.select(:state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
+  </div>
+  <div class="field">
+    <%= f.label :country %><br />
+    <%= f.select(:country, %w{India USA China}) %>
+  </div>
+  <div class="field">
+    <%= f.label :pincode %><br />
+    <%= f.text_field :pincode %>
+  </div>
+  <div class="field">
+    <%= f.label :phone %><br />
+    <%= f.text_field :phone %>
+  </div>
+  <div class="field">
+    <%= f.label :mobile %><br />
+    <%= f.text_field :mobile %>
+  </div>
+</fieldset>
+
+<fieldset>
+<legend> Want to remain Anonymous?</legend>
+    <div class="field">
+    <%= f.check_box :anonymous %>
+    <%= f.label "I want to remain Anonymous. I do not want my information to be shown publically." %>
+  </div>
+</fieldset>
+
+<fieldset>
+<legend> Your comment here</legend>
+  <div class="field">
+    <%= f.text_area :comment %>
+  </div>
+</fieldset>
+<br />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

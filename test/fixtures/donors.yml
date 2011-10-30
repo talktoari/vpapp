@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  email: MyString
+  password: MyString
+  gender: MyString
+  date_of_birth: 2011-10-30
+  address_first_line: MyString
+  address_second_line: MyString
+  address_landmark: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  pincode: MyString
+  phone: MyString
+  mobile: MyString
+  comment: MyText
+
+two:
+  email: MyString
+  password: MyString
+  gender: MyString
+  date_of_birth: 2011-10-30
+  address_first_line: MyString
+  address_second_line: MyString
+  address_landmark: MyString
+  city: MyString
+  state: MyString
+  country: MyString
+  pincode: MyString
+  phone: MyString
+  mobile: MyString
+  comment: MyText

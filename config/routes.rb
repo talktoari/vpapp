@@ -1,4 +1,6 @@
 Vpapp::Application.routes.draw do
+  resources :donors
+
   get "home/index"
 
   resources :posts
