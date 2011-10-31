@@ -1,6 +1,6 @@
 <h1>
 SHOWING DONOR INFORMATION FOR 
-NAME: <%= @donor.first_name %> <%= @donor.last_name %>
+<%= @donor.first_name %> <%= @donor.last_name %>
 ID: <%= @donor.id %>
 </h1>
 <h3 id="alert">NOTE: You cannot change any information here.</h3>
@@ -88,6 +88,7 @@ ID: <%= @donor.id %>
   </div>
 </fieldset>
 <% end %>
-
+<% if can? :update, @donor %>
 <%= link_to 'Edit', edit_donor_path(@donor) %> |
+<% end %>
 <%= link_to 'Back', donors_path %>

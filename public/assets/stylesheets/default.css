@@ -7,6 +7,21 @@ body{
 color:red;
 }
 
+/*this is what we want the div to look like*/
+div.topright{
+ display:block;
+
+ /*set the div in the top right corner*/
+ position:absolute;
+ top:0;
+ right:0;
+ margin:10px 10px 20px 0px;
+
+ /*give it some background and border*/
+ background:#eee;
+ border:1px solid #ddd;
+}
+
 /* Donor List Display */
 #donors
 {
@@ -75,14 +90,12 @@ background-color:#F5ECDB;
 }
 input[type="button"]
 {
-width:120px;
 margin-left:35px;
 display:block;
 }
 input[type="submit"]
 {
 height:30px;
-width:120px;
 margin-left:35px;
 display:block;
 }

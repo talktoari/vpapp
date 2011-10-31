@@ -10,18 +10,31 @@ p, ol, ul, td {
   font-size: 13px;
   line-height: 18px; }
 
+p.notice {
+  background-color: #99FF99;
+  width: 450px;
+  border: 2px solid green;
+  padding: 7px;
+}
+p.alert {
+  background-color: #FFCC99;
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+}
+
 pre {
   background-color: #eee;
   padding: 10px;
   font-size: 11px; }
 
 a {
-  color: #000;
+  color: #3366FF;
   &:visited {
-    color: #666; }
+    color: #990066; }
   &:hover {
     color: #fff;
-    background-color: #000; } }
+    background-color: #3366FF; } }
 
 div {
   &.field, &.actions {

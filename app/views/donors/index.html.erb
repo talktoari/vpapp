@@ -1,5 +1,7 @@
 <h1>LISTING ALL DONORS INFORMATION</h1>
+<% if can? :create, @donor %>
 <%= link_to 'Add New Donor', new_donor_path %>
+<% end %>
 <hr />
 
 <table id="donors">
@@ -76,10 +78,14 @@
           <td><%= link_to 'Show', donor %></td>
           </tr>
           <tr>
+          <% if can? :update, donor %>
           <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
+          <% end %>
           </tr>
           <tr>
+          <% if can? :destroy, donor %>
           <td><%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %></td>
+          <% end %>
           </tr>
        </table>
     </td> 

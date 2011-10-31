@@ -1,9 +1,18 @@
 Vpapp::Application.routes.draw do
+  # Custom route for satisfying devise authentication user sign_out
+  devise_scope :user do
+    get 'users/sign_out', :to => 'devise/sessions#destroy', as: 'destroy_user_session'
+  end
+  
+  devise_for :users
+
   resources :donors
 
   get "home/index"
 
   resources :posts
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

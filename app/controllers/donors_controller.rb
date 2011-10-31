@@ -1,8 +1,13 @@
 class DonorsController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+  
   # GET /donors
   # GET /donors.json
   def index
-    @donors = Donor.all
+  @donors = Donor.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class DonorsController < ApplicationController
   # GET /donors/1
   # GET /donors/1.json
   def show
-    @donor = Donor.find(params[:id])
+  #  @donor = Donor.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class DonorsController < ApplicationController
   # GET /donors/new
   # GET /donors/new.json
   def new
-    @donor = Donor.new
+  #  @donor = Donor.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class DonorsController < ApplicationController
 
   # GET /donors/1/edit
   def edit
-    @donor = Donor.find(params[:id])
+  #  @donor = Donor.find(params[:id])
   end
 
   # POST /donors
   # POST /donors.json
   def create
-    @donor = Donor.new(params[:donor])
+  #  @donor = Donor.new(params[:donor])
 
     respond_to do |format|
       if @donor.save
@@ -56,7 +61,7 @@ class DonorsController < ApplicationController
   # PUT /donors/1
   # PUT /donors/1.json
   def update
-    @donor = Donor.find(params[:id])
+  #  @donor = Donor.find(params[:id])
 
     respond_to do |format|
       if @donor.update_attributes(params[:donor])
@@ -72,7 +77,7 @@ class DonorsController < ApplicationController
   # DELETE /donors/1
   # DELETE /donors/1.json
   def destroy
-    @donor = Donor.find(params[:id])
+  #  @donor = Donor.find(params[:id])
     @donor.destroy
 
     respond_to do |format|

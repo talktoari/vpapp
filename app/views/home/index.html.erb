@@ -6,6 +6,17 @@
 <hr/>
 <h2>The DONOR main framework has been made ready and can be accessed below</h2>
 <%= link_to "All Donors", donors_path %>
+<h3>Authentication Mechanism is also incorporated for Login/Register for users and admins. The privillege levels are also setup. Use the following details to see the demonstration of privillege levels.</h3>
+<pre>
+Login               Privillege        Permissions
+------------------------------------------------------------------------------
+ari@de.com          General User      Read All. Update his own data
+de@ari.com          Moderator         Read All. Update All. No Create/Destroy
+arijit@admin.com    Admin             All permissions
+
+Password same for all accounts - "arijit"
+
+</pre>
 <hr/>
 <h2>Useful GIT and Heroku Instructions</h2>
 <p>
