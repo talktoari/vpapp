@@ -2,10 +2,11 @@
 <p> Seeing this page means you have successfully configured your rails to the github. Now get familiar with the git working instructions to operate and use it in an efficient way</p>
 <hr/>
 <h2>A sample app post has been added with database support. Confirm the working by accessing the below</h2>
-<%= link_to "All Posts", posts_path %>
+<%= link_to "All Posts", posts_path, :class => "choose" %>
 <hr/>
 <h2>The DONOR main framework has been made ready and can be accessed below</h2>
-<%= link_to "All Donors", donors_path %>
+<h2 class="choose"><%= link_to "All Donors", donors_path, :class => "choose" %></h2>
+<h2 class="choose"><%= link_to "User Page", { :controller=>"home", :action => "choosepage" }, :class => "choose" %></h2>
 <h3>Authentication Mechanism is also incorporated for Login/Register for users and admins. The privillege levels are also setup. Use the following details to see the demonstration of privillege levels.</h3>
 <pre>
 Login               Privillege        Permissions

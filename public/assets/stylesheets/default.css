@@ -7,7 +7,7 @@ body{
 color:red;
 }
 
-/*this is what we want the div to look like*/
+/*this is what we want the signup signin link div to look like*/
 div.topright{
  display:block;
 
@@ -20,6 +20,51 @@ div.topright{
  /*give it some background and border*/
  background:#eee;
  border:1px solid #ddd;
+}
+
+/* CHOOSE PAGE */
+/*For choosepage Left*/
+div.pageleft{
+ display:block;
+ float:left;
+ width:47%;
+ margin:10px 10px 10px 10px;
+ /*give it some background and border*/
+ background:#7c5b47;
+ border:5px solid #ffcc99;
+}
+
+/*For choosepage Right*/
+div.pageright{
+ display:block;
+ float:right;
+ width:47%;
+ margin:10px 10px 10px 10px;
+
+ /*give it some background and border*/
+ background:#7c5b47;
+ border:5px solid #ffcc99;
+}
+
+h2.choose{
+  text-align:center;
+  color:#fff;
+}
+h3.choose{
+  text-align:center;
+  color:#ffcc99;
+}
+a.choose{
+  background:#fff;
+  text-align:center;
+  color:#7c5b47;
+}
+a.choose:hover {
+    color: #fff;
+    background-color: #3366FF;
+}
+p.choose{
+  text-align:center;
 }
 
 /* Donor List Display */

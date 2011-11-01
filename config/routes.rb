@@ -1,4 +1,6 @@
 Vpapp::Application.routes.draw do
+  get "home/choosepage"
+
   # Custom route for satisfying devise authentication user sign_out
   devise_scope :user do
     get 'users/sign_out', :to => 'devise/sessions#destroy', as: 'destroy_user_session'
@@ -70,4 +72,5 @@ Vpapp::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
+  match ':action' => 'home#:action'
 end

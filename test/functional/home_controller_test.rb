@@ -5,5 +5,10 @@ class HomeControllerTest < ActionController::TestCase
     get :index
     assert_response :success
   end
+  
+  test "should get choosepage" do
+    get :choosepage
+    assert_response :success
+  end
 
 end
