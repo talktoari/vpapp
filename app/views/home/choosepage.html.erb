@@ -8,17 +8,15 @@
   <div class="pageleft">
     <h2 class="choose">Are you an Existing User?</h2>
     <h3 class="choose">Login by clicking below</h3>
-    <h2 class="sameline"><%= link_to "DONOR LOGIN", new_user_session_path, :class => "choose" %></h2>
-    <h2 class="sameline"><%= link_to "STUDENT LOGIN", new_user_session_path, :class => "choose" %></h2>
-    <h2 class="sameline"><%= link_to "ADMIN LOGIN", new_user_session_path, :class => "choose" %></h2>
+    <h2 class="choose"><%= link_to "LOGIN", new_user_session_path, :class => "choose" %></h2>
   </div>
 
   <div class="pageright">
     <h2 class="choose">Are you a New User?</h2>
     <h3 class="choose">Register by clicking below</h3>
     <%# Can pass like new_user_registration_path (:role => "donor") as well %>
-    <h2 class="sameline"><%= link_to "REGISTER as DONOR", { :controller => "my_devise/registrations", :action => "new", :role => "donor" }, :class => "choose" %></h2>
-    <h2 class="sameline"><%= link_to "REGISTER as STUDENT", new_user_registration_path, :class => "choose" %></h2>
+    <h2 class="choose"><%= link_to "REGISTER as DONOR", { :controller => "my_devise/registrations", :action => "new", :role => "donor" }, :class => "choose" %></h2>
+    <h2 class="choose"><%= link_to "REGISTER as STUDENT", new_user_registration_path, :class => "choose" %></h2>
   </div>
 <% end %>
 
