@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  donor_id: 1
+  student_id: 1
+  amount: 9.99
+  status: MyString
+  type: 
+  comment: MyText
+
+two:
+  donor_id: 1
+  student_id: 1
+  amount: 9.99
+  status: MyString
+  type: 
+  comment: MyText

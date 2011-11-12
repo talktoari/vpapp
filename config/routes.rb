@@ -1,12 +1,14 @@
 Vpapp::Application.routes.draw do
+  resources :donations
+
   get "home/choosepage"
 
+  devise_for :users, :controllers  => { :registrations => 'my_devise/registrations' }
   # Custom route for satisfying devise authentication user sign_out
   devise_scope :user do
+    match 'users' => 'my_devise/registrations#index'
     get 'users/sign_out', :to => 'devise/sessions#destroy', as: 'destroy_user_session'
   end
-  
-  devise_for :users
 
   resources :donors
 
@@ -74,3 +76,4 @@ Vpapp::Application.routes.draw do
   # match ':controller(/:action(/:id(.:format)))'
   match ':action' => 'home#:action'
 end
+

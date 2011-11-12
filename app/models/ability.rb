@@ -26,24 +26,30 @@ class Ability
     # See the wiki for details: https://github.com/ryanb/cancan/wiki/Defining-Abilities
     # Define abilities for the passed in user here. Could be a Nil user
     user ||= User.new # guest user (not logged in)
-    
+
     # Define different abilities
     # Admin     = All permissions including create and delete
     # Moderator = Read all, Edit all
     # Others    = Only update if user and donor email matches
     if user.role == "admin"
       can :manage, :all
+    elsif user.role == "moderator"
+      can :read, :all
+      can :update, :all
     else
-      if user.role == "moderator"
-        can :read, :all
-        can :update, :all
-      else
-        can :read, :all
-        can :update, Donor do |donor|
-          donor.try(:email) == user.email
-        end   # can end
-      end   # if moderator
+      can :read, Donor do |donor|
+        donor.try(:email) == user.email
+      end
+      can :update, Donor do |donor|
+        donor.try(:email) == user.email
+      end
+      # Only see donor's donations
+#      can :read, Donation do |donation|
+#        donor.try(:email) == user.email &&
+#        donor.id == donation.donor_id
+#      end
     end   # if admin
-    
+
   end
 end
+

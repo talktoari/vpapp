@@ -1,0 +1,19 @@
+<h1> Listing All Users </h1>
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Confirm_Password</th>
+    <th>Role</th>
+    <th>Created_At</th>
+  </tr>
+<% @users.each do |user| %>
+  <tr>
+    <td><%= user.email %></td>
+    <td><%= user.password %></td>
+    <td><%= user.password_confirmation %></td>
+    <td><%= user.role %></td>
+    <td><%= user.created_at %></td>
+  </tr>
+<% end %>
+</table>

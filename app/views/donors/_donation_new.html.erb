@@ -1,0 +1,45 @@
+<%= form_for(donation) do |f| %>
+  <% if donation.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(donation.errors.count, "error") %> prohibited this donation from being saved:</h2>
+
+      <ul>
+      <% donation.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<fieldset>
+<legend> Add New Donation</legend>
+  <%= f.hidden_field :donor_id %>
+  <div class="field">
+    <%= f.label :amount %>
+    <%= f.text_field :amount %>
+  </div>
+
+  <%-# Status and Type should be visible only to admins -%>
+  <% if can? :create, donation %>
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.select(:status, %w{Donated Approved Failed}) %>
+  </div>
+  <div class="field">
+    <%= f.label :donation_type %>
+    <%= f.select(:donation_type, %w{Online Cash Cheque DD}) %>
+  </div>
+  <% else %>
+    <%= f.hidden_field :status, :value => "Donated" %>
+    <%= f.hidden_field :donation_type, :value => "Online" %>
+  <% end %>
+  <div class="field">
+    <%= f.label :comment %>
+    <%= f.text_area :comment %>
+  </div>
+  <div class="actions">
+    <%= f.submit "DONATE NOW" %>
+  </div>
+</fieldset>
+<% end %>
+

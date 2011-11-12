@@ -8,19 +8,75 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <!-- Common Menu for all pages of the application -->
+    <ul id="nav">
+      <li class="current"><a href="#">Home</a></li>
+      <li><a href="#">Actions</a>
+        <ul>
+          <li><a href="#">Donors</a>
+            <ul>
+              <li><a href="#">Add Donor</a></li>
+              <li><a href="#">List Donors</a></li>
+              <li><a href="#">Find Donors</a></li>
+              <li><a href="#">Delete Donors</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Donations</a>
+            <ul>
+              <li><a href="#">Add Donation</a></li>
+              <li><a href="#">List Donation</a></li>
+              <li><a href="#">Find Donation</a></li>
+              <li><a href="#">Delete Donation</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Student</a></li>
+          <li><a href="#">Donor Student Link</a></li>
+        </ul>
+      </li>
+      <li><a href="#">Multi-Levels</a>
+        <ul>
+          <li><a href="#">Level 1</a>
+            <ul>
+              <li><a href="#">Sub-Level Item</a></li>
+              <li><a href="#">Sub-Level Item</a>
+                <ul>
+                  <li><a href="#">Sub-Level Item</a></li>
+                  <li><a href="#">Sub-Level Item</a></li>
+                  <li><a href="#">Sub-Level Item</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Sub-Level Item</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Other Actions</a></li>
+          <li><a href="#">Another Link</a></li>
+          <li><a href="#">Another Level 1</a>
+            <ul>
+              <li><a href="#">Sub-Level Item</a></li>
+              <li><a href="#">Sub-Level Item</a></li>
+              <li><a href="#">Sub-Level Item</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+  <!-- Common Menu for all pages of the application -->
+
 <%  if notice  %>
   <p class="notice"><%= notice %></p>
 <% end %>
 <%  if alert  %>
   <p class="alert"><%= alert %></p>
 <% end %>
-  
+
 <div class="topright">
   <% if user_signed_in? %>
     Signed in as <%= current_user.email %>. Not you?
     <%= link_to "Sign Out", destroy_user_session_path %><br />
-    You have 
-    <% if current_user.role %>
+    You have
+    <% if current_user.role != "" %>
       <%= current_user.role %>
     <% else %>
       General User
@@ -34,3 +90,4 @@
 
 </body>
 </html>
+
