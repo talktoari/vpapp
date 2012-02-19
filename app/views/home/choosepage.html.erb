@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
   <h1>You are already signed in as <%= current_user.email %> </h1>
-  <h2><%= link_to "SIGN OUT HERE", destroy_user_session_path, :class => "choose" %></h2>
+  <h2><%= link_to "SIGN OUT HERE", destroy_user_session_path, :method => :delete, :class => "choose" %></h2>
 <% else %>
   <h1>Please Sign In or Register</h1>
   <hr />
@@ -15,11 +15,8 @@
     <h2 class="choose">Are you a New User?</h2>
     <h3 class="choose">Register by clicking below</h3>
     <%# Can pass like new_user_registration_path (:role => "donor") as well %>
-    <h2 class="choose"><%= link_to "REGISTER as DONOR", { :controller => "my_devise/registrations", :action => "new", :role => "donor" }, :class => "choose" %></h2>
-    <h2 class="choose"><%= link_to "REGISTER as STUDENT", new_user_registration_path, :class => "choose" %></h2>
+    <h2 class="choose"><%= link_to "REGISTER", { :controller => "users/registrations", :action => "new" }, :class => "choose" %></h2>
   </div>
 <% end %>
-
-<h1>Home#choosepage</h1>
-<p>Find me in app/views/home/choosepage.html.erb</p>
+<hr />
 

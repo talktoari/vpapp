@@ -15,7 +15,7 @@
 <% @donors.each do |donor| %>
   <!-- Only show the list of donors for the current user -->
   <!-- But all needs to be shown for admin and moderator -->
-  <% if (user_signed_in? && current_user.email == donor.email) || current_user.role == "admin" || current_user.role == "moderator" %>
+  <% if (user_signed_in?) && (can? :read, donor) %>
 
   <tr onMouseOver="this.className='highlight'" onMouseOut="this.className='normal'">
     <td>
@@ -27,6 +27,10 @@
           <tr>
           <td>DOB:</td>
           <td colspan="4"><%= donor.date_of_birth %></td>
+          </tr>
+          <tr>
+          <td>Donor Type:</td>
+          <td colspan="4"><%= donor.donor_type %></td>
           </tr>
           <tr>
           <td>Gender:</td>
@@ -77,21 +81,14 @@
        </table>
     </td>
     <td>
-       <table id="container">
-          <tr>
-          <td><%= link_to 'Show', donor %></td>
-          </tr>
-          <tr>
-          <% if can? :update, donor %>
-          <td><%= link_to 'Edit', edit_donor_path(donor) %></td>
-          <% end %>
-          </tr>
-          <tr>
-          <% if can? :destroy, donor %>
-          <td><%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %></td>
-          <% end %>
-          </tr>
-       </table>
+        <%= link_to 'Show', donor %>
+
+        <% if can? :update, donor %>
+          | <%= link_to 'Edit', edit_donor_path(donor) %>
+        <% end %>
+        <% if can? :destroy, donor %>
+          | <%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %>
+        <% end %>
     </td>
   <tr>
 

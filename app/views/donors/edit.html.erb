@@ -1,9 +1,10 @@
-<h1>CHANGE DONOR INFORMATION FOR 
+<h1>CHANGE DONOR INFORMATION FOR
 <%= @donor.first_name %> <%= @donor.last_name %>
 ID: <%= @donor.id %>
 </h1>
 
-<%= render 'form_edit' %>
+<%= render 'form' %>
 
 <%= link_to 'Show', @donor %> |
 <%= link_to 'Back', donors_path %>
+

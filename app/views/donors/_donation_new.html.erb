@@ -34,11 +34,15 @@
     <%= f.hidden_field :donation_type, :value => "Online" %>
   <% end %>
   <div class="field">
+    <%= f.label :purpose %>
+    <%= f.select(:purpose, %w{Nurture_Merit Library Camp GFS}) %>
+  </div>
+  <div class="field">
     <%= f.label :comment %>
     <%= f.text_area :comment %>
   </div>
   <div class="actions">
-    <%= f.submit "DONATE NOW" %>
+    <%= f.submit "Add Donation" %>
   </div>
 </fieldset>
 <% end %>

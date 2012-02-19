@@ -16,10 +16,6 @@
     <%= f.number_field :donor_id %>
   </div>
   <div class="field">
-    <%= f.label :student_id %>
-    <%= f.number_field :student_id %>
-  </div>
-  <div class="field">
     <%= f.label :amount %>
     <%= f.text_field :amount %>
   </div>
@@ -30,6 +26,10 @@
   <div class="field">
     <%= f.label :donation_type %>
     <%= f.select(:donation_type, %w{Online Cash Cheque DD}) %>
+  </div>
+  <div class="field">
+    <%= f.label :purpose %>
+    <%= f.select(:purpose, %w{Nurture_Merit Library Camp GFS}) %>
   </div>
   <div class="field">
     <%= f.label :comment %>

@@ -1,11 +1,11 @@
+<p id="notice"><%= notice %></p>
+
 <h1>
 SHOWING DONOR INFORMATION FOR
 <%= @donor.first_name %> <%= @donor.last_name %>
 ID: <%= @donor.id %>
 </h1>
 <h3 id="alert">NOTE: You cannot change any Profile information here. However, you can DONATE newly</h3>
-
-<p id="notice"><%= notice %></p>
 
 <%= form_for(@donor) do |f| %>
 <fieldset>
@@ -17,6 +17,14 @@ ID: <%= @donor.id %>
   <div class="field">
     <%= f.label :last_name %>
     <%= f.text_field :last_name, :disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :email %>
+    <%= f.email_field :email, :disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label :donor_type %><br />
+    <%= f.text_field :donor_type, :disabled => true %>
   </div>
   <div class="field">
     <%= f.label :gender %>
@@ -62,18 +70,6 @@ ID: <%= @donor.id %>
 </fieldset>
 
 <fieldset>
-<legend>Login Information</legend>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.email_field :email, :disabled => true %>
-  </div>
-  <div class="field">
-    <%= f.label "Password" %>
-    <%= f.text_field :password, :disabled => true %>
-  </div>
-</fieldset>
-
-<fieldset>
 <legend> Want to remain Anonymous?</legend>
     <div class="field">
     <%= f.check_box :anonymous, :disabled => true %>
@@ -95,6 +91,18 @@ ID: <%= @donor.id %>
 <%= link_to 'Back', donors_path %>
 
 <%= render :partial => 'donation_index', :locals => {:donations=>@donor.donations} %>
-
 <%= render :partial => 'donation_new', :locals => {:donation=>Donation.new(:donor_id => @donor.id)} %>
+
+<%-# Get the list of all unique students for this donor using the below logic -%>
+<% all_donations = @donor.donations %>
+<% all_student_ids = [] %>
+<% all_donations.each do |this_donation| %>
+  <% students = this_donation.students %>
+  <% students.each do |this_student| %>
+    <% unless all_student_ids.include?(this_student.id) %>
+      <% all_student_ids << this_student.id %>
+    <% end %>
+  <% end %>
+<% end %>
+<%= render :partial => 'student_index', :locals => {:students=>Student.find_all_by_id(all_student_ids).uniq} %>
 

@@ -22,6 +22,10 @@
     <%= f.text_field :last_name %>
   </div>
   <div class="field">
+    <%= f.label :donor_type %><br />
+    <%= f.select(:donor_type, %w{Individual Alumni Institution Company Volunteer Overseas}) %>
+  </div>
+  <div class="field">
     <%= f.label :gender %>
     Male
     <%= f.radio_button :gender, "Male" %>
@@ -33,7 +37,6 @@
     <%= f.label :date_of_birth %>
     <%= f.date_select :date_of_birth %>
   </div>
-
   <div class="field">
     <%= f.label "Suite/Apt No." %>
     <%= f.text_field :address_first_line %>
@@ -74,14 +77,6 @@
     <%= f.label :email %>
     <%= f.email_field :email %>
   </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= password_field(:pwd, :size => 30) %>
-  </div>
-  <div class="field">
-    <%= f.label "Confirm Password" %>
-    <%= f.password_field :password, :size => 30 %>
-  </div>
 </fieldset>
 
 <fieldset>
@@ -98,9 +93,10 @@
     <%= f.text_area :comment %>
   </div>
 </fieldset>
-  
+
 <br />
   <div class="actions">
     <%= f.submit :class => "button"%>
   </div>
 <% end %>
+

@@ -1,13 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Donor:</b>
-  <%= @donation.donor_id %>
-</p>
+<% donor = @donation.donor %>
+
+<h2>Donated By: <%= link_to "#{donor.first_name} #{donor.last_name}", donor %></h2>
 
 <p>
-  <b>Student:</b>
-  <%= @donation.student_id %>
+  <b>Donor ID:</b>
+  <%= @donation.donor_id %>
 </p>
 
 <p>
@@ -26,11 +25,25 @@
 </p>
 
 <p>
+  <b>Purpose:</b>
+  <%= @donation.purpose %>
+</p>
+
+<p>
   <b>Comment:</b>
   <%= @donation.comment %>
 </p>
 
-
 <%= link_to 'Edit', edit_donation_path(@donation) %> |
 <%= link_to 'Back', donations_path %>
+
+<% all_student_ids = [] %>
+<% students = @donation.students %>
+<% students.each do |this_student| %>
+  <% unless all_student_ids.include?(this_student.id) %>
+    <% all_student_ids << this_student.id %>
+  <% end %>
+<% end %>
+
+<%= render :partial => 'student_index', :locals => {:students=>Student.find_all_by_id(all_student_ids).uniq} %>
 

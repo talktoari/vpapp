@@ -1,12 +1,14 @@
 <h1>Listing donations</h1>
 
-<table>
+<table id="donations">
   <tr>
-    <th>Donor</th>
-    <th>Student</th>
+    <th>Donation ID</th>
+    <th>Donor ID</th>
+    <th>Donor Name</th>
     <th>Amount</th>
     <th>Status</th>
     <th>Donation Type</th>
+    <th>Purpose</th>
     <th>Comment</th>
     <th></th>
     <th></th>
@@ -15,11 +17,13 @@
 
 <% @donations.each do |donation| %>
   <tr>
+    <td><%= donation.id %></td>
     <td><%= donation.donor_id %></td>
-    <td><%= donation.student_id %></td>
+    <td><%= link_to "#{donation.donor.first_name} #{donation.donor.last_name}", donation.donor %></td>
     <td><%= donation.amount %></td>
     <td><%= donation.status %></td>
     <td><%= donation.donation_type %></td>
+    <td><%= donation.purpose %></td>
     <td><%= donation.comment %></td>
     <td><%= link_to 'Show', donation %></td>
     <td><%= link_to 'Edit', edit_donation_path(donation) %></td>

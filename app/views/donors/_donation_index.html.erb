@@ -6,6 +6,7 @@
     <th>Amount</th>
     <th>Status</th>
     <th>Donation Type</th>
+    <th>Purpose</th>
     <th>Comment</th>
     <th>Donated At</th>
     <% if can? :update, @donation %>
@@ -18,14 +19,15 @@
     <td><%= donation.amount %></td>
     <td><%= donation.status %></td>
     <td><%= donation.donation_type %></td>
+    <td><%= donation.purpose %></td>
     <td><%= donation.comment %></td>
     <td><%= donation.created_at %></td>
-
+    <td>
     <% if can? :update, donation %>
-      <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
+      <%= link_to 'Edit', edit_donation_path(donation) %>
     <% end %>
     <% if can? :destroy, donation %>
-      <td><%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
+      | <%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %>
     <% end %>
     </td>
   </tr>

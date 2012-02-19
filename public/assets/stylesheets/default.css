@@ -190,6 +190,10 @@ div.pageright{
  border:5px solid #ffcc99;
 }
 
+div.pagebottom{
+ clear:both;
+}
+
 h2.choose{
   text-align:center;
   color:#fff;

@@ -28,21 +28,32 @@ class Ability
     user ||= User.new # guest user (not logged in)
 
     # Define different abilities
+    # Can See timestamps
+    if user.role == "super_admin" || user.role == "admin"
+      can :see_timestamps, User
+    elsif
+      can :see_timestamps, User, :id => user.id
+    end
+
     # Admin     = All permissions including create and delete
     # Moderator = Read all, Edit all
     # Others    = Only update if user and donor email matches
-    if user.role == "admin"
+    if user.role == "super_admin"
+      can :manage, :all
+    elsif user.role == "admin"
       can :manage, :all
     elsif user.role == "moderator"
       can :read, :all
       can :update, :all
+    elsif user.role == "general"
+      can :read, :all
     else
-      can :read, Donor do |donor|
-        donor.try(:email) == user.email
-      end
-      can :update, Donor do |donor|
-        donor.try(:email) == user.email
-      end
+#      can :read, Donor do |donor|
+#        donor.try(:email) == user.email
+#      end
+#      can :update, Donor do |donor|
+#        donor.try(:email) == user.email
+#      end
       # Only see donor's donations
 #      can :read, Donation do |donation|
 #        donor.try(:email) == user.email &&

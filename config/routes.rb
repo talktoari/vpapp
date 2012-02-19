@@ -1,9 +1,30 @@
 Vpapp::Application.routes.draw do
+  get "donors/upload_validate_donor"
+
+  get "users/index"
+
+  get "users/new"
+
+  get "users/show"
+
+  get "users/edit"
+
+  resources :student_donation_links
+
+  resources :students
+
   resources :donations
 
   get "home/choosepage"
 
-  devise_for :users, :controllers  => { :registrations => 'my_devise/registrations' }
+  #devise_for :users, :controllers  => { :registrations => 'my_devise/registrations' }
+  devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+
+  devise_for :users, :controllers  => { :registrations => 'users/registrations' }
+  # http://www.tonyamoyal.com/2010/09/29/rails-authentication-with-devise-and-cancan-part-2-restful-resources-for-administrators/
+  devise_for :users
+  resources :users
+
   # Custom route for satisfying devise authentication user sign_out
   devise_scope :user do
     match 'users' => 'my_devise/registrations#index'
