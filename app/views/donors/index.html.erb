@@ -1,3 +1,5 @@
+<%= link_to "Upload Donors", upload_donor_donors_path %>
+
 <h1>LISTING ALL DONORS INFORMATION</h1>
 <% if can? :create, @donor %>
 <%= link_to 'Add New Donor', new_donor_path %>
@@ -22,7 +24,7 @@
        <table id="container">
           <tr>
           <td>Name:</td>
-          <td colspan="4"><%= donor.first_name %> <%= donor.last_name %></td>
+          <td colspan="4"><%= donor.title %> <%= donor.first_name %> <%= donor.last_name %></td>
           </tr>
           <tr>
           <td>DOB:</td>
@@ -51,6 +53,10 @@
           <td><%= donor.phone %></td>
           <td>Mobile:</td>
           <td><%= donor.mobile %></td>
+          </tr>
+          <tr>
+          <td>District:</td>
+          <td colspan="4"><%= donor.district %></td>
           </tr>
           <tr>
           <td>Comment:</td>

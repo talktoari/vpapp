@@ -11,6 +11,14 @@ gem 'sqlite3'
 gem 'devise'
 gem 'cancan'
 
+# Work with Excels Gems
+gem 'spreadsheet'
+gem 'to_xls'
+gem 'carrierwave'
+
+# Binding Gem
+gem "pry"
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do

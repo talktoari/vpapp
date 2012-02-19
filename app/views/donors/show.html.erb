@@ -11,6 +11,10 @@ ID: <%= @donor.id %>
 <fieldset>
 <legend>Personal Information</legend>
   <div class="field">
+    <%= f.label :title %>
+    <%= f.text_field :title, :disabled => true %>
+  </div>
+  <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name, :disabled => true %>
   </div>
@@ -46,6 +50,10 @@ ID: <%= @donor.id %>
   <div class="field">
     <%= f.label "Landmark" %>
     <%= f.text_field :address_landmark, :disabled => true %>
+  </div>
+  <div class="field">
+    <%= f.label "District" %>
+    <%= f.text_field :district, :disabled => true %>
   </div>
   <div class="field">
     <%= f.label :city %>

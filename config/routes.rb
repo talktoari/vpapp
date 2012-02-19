@@ -1,12 +1,8 @@
 Vpapp::Application.routes.draw do
-  get "donors/upload_validate_donor"
 
   get "users/index"
-
   get "users/new"
-
   get "users/show"
-
   get "users/edit"
 
   resources :student_donation_links
@@ -31,7 +27,17 @@ Vpapp::Application.routes.draw do
     get 'users/sign_out', :to => 'devise/sessions#destroy', as: 'destroy_user_session'
   end
 
+  resources :donors do
+    get "upload_donor", :on => :collection
+    get "upload_validate_donor", :on => :collection
+    #get "remove_all", :on => :collection
+    post "upload_donor", :on => :collection
+    post "upload_validate_donor", :on => :collection
+    #post "remove_all", :on => :collection
+  end
+
   resources :donors
+
 
   get "home/index"
 

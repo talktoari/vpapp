@@ -13,7 +13,7 @@
        <table id="container">
           <tr>
           <td>Name:</td>
-          <td colspan="4"><%= link_to "#{donor.first_name} #{donor.last_name}", donor %></td>
+          <td colspan="4"><%= link_to "#{donor.title} #{donor.first_name} #{donor.last_name}", donor %></td>
           </tr>
           <tr>
           <td>Donor Type:</td>
@@ -43,7 +43,7 @@
           <td><%= donor.address_landmark %></td>
           </tr>
           <tr>
-          <td><%= donor.city %>, <%= donor.state %>, <%= donor.country %>, <%= donor.pincode %></td>
+          <td><%= donor.district %>, <%= donor.city %>, <%= donor.state %>, <%= donor.country %>, <%= donor.pincode %></td>
           </tr>
        </table>
     </td>

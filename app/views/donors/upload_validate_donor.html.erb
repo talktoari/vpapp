@@ -1,2 +1,51 @@
-<h1>Donors#upload_validate_donor</h1>
-<p>Find me in app/views/donors/upload_validate_donor.html.erb</p>
+<%= link_to 'All Donors', donors_path %>
+
+<% unless @errors.empty? %>
+<h1>Failure Entries</h1>
+				<ul>
+					<% @errors.each do |error| %>
+					<li>
+						Problems in line number <%= error[0] %>:
+						<% error[1].full_messages.each do |msg|%>
+						<p><%= msg %> </p>
+						<%end%>
+					</li>
+
+				<% end %>
+				</ul>
+<%else%>
+<h1>ALL SUCCESS</h1>
+<% end %>
+<h1>Success Entries</h1>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Email</th>
+    <th>Address</th>
+    <th>District</th>
+    <th>More Address</th>
+    <th>Phone</th>
+    <th>Type</th>
+    <th>Comment</th>
+  </tr>
+
+<% @donors.each do |donor| %>
+  <tr>
+    <td><%= donor.title %> <%= donor.first_name %> <%= donor.last_name %></td>
+    <td><%= donor.gender %></td>
+    <td><%= donor.email %></td>
+    <td>
+      <%= donor.address_first_line %>,
+      <%= donor.address_second_line %>,
+      <%= donor.address_landmark %>
+    </td>
+    <td><%= donor.district %></td>
+    <td><%= donor.city %>, <%= donor.state %>, <%= donor.country %>, <%= donor.pincode %></td>
+    <td><%= donor.phone %>, <%= donor.mobile %></td>
+    <td><%= donor.donor_type %></td>
+    <td><%= donor.comment %></td>
+  </tr>
+<% end %>
+</table>
+

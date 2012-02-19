@@ -14,6 +14,10 @@
 <fieldset>
 <legend>Personal Information</legend>
   <div class="field">
+    <%= f.label :title %><br />
+    <%= f.select(:title, %w{Mr. Mrs. Ms. Sri. Smt. Dr.}) %>
+  </div>
+  <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %>
   </div>
@@ -52,6 +56,10 @@
   <div class="field">
     <%= f.label "Landmark" %>
     <%= f.text_field :address_landmark %>
+  </div>
+  <div class="field">
+    <%= f.label "District" %>
+    <%= f.text_field :district, :disabled => true %>
   </div>
   <div class="field">
     <%= f.label :city %>
