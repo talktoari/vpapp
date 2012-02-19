@@ -1,0 +1,27 @@
+<fieldset>
+<legend> Your Linked Students</legend>
+
+<table id="donations">
+  <tr>
+    <th>District</th>
+    <th>Taluka</th>
+    <th>VP ID</th>
+    <th>Student Name</th>
+    <th>Father Name</th>
+    <th>Date of birth</th>
+  </tr>
+
+<% students.each do |student| %>
+  <tr>
+    <td><%= student.district %></td>
+    <td><%= student.taluka %></td>
+    <td><%= student.vp_id %></td>
+    <td><%= link_to "#{student.first_name} #{student.last_name}", student %></td>
+    <td><%= student.father_name %></td>
+    <td><%= student.date_of_birth %></td>
+  </tr>
+<% end %>
+</table>
+</fieldset>
+<br />
+

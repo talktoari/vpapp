@@ -1,0 +1,36 @@
+<h1>Listing Student and Donation Links</h1>
+
+<table id="donations">
+  <tr>
+    <th>Student ID</th>
+    <th>Student Name</th>
+    <th>Donation ID</th>
+    <th>Donor Name</th>
+    <th>Linked At</th>
+    <th>Linked by</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @student_donation_links.each do |student_donation_link| %>
+  <tr>
+    <td><%= student_donation_link.student_id %></td>
+    <td><%= link_to "#{student_donation_link.student.first_name} #{student_donation_link.student.last_name}", student_donation_link.student %></td>
+    <td><%= student_donation_link.donation_id %></td>
+        <td><%= link_to "#{student_donation_link.donation.donor.first_name} #{student_donation_link.donation.donor.last_name}", student_donation_link.donation.donor %></td>
+    <td><%= student_donation_link.created_at %></td>
+    <td><%= student_donation_link.linked_by %></td>
+    <td><%= student_donation_link.comment %></td>
+    <td><%= link_to 'Show', student_donation_link %></td>
+    <td><%= link_to 'Edit', edit_student_donation_link_path(student_donation_link) %></td>
+    <td><%= link_to 'Destroy', student_donation_link, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Create New Student-Donation Link', new_student_donation_link_path %>
+

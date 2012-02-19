@@ -1,0 +1,179 @@
+<h1>Listing students</h1>
+
+<table>
+  <tr>
+    <th>District</th>
+    <th>Taluka</th>
+    <th>Vp</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Father name</th>
+    <th>Date of birth</th>
+    <th>Email</th>
+    <th>Pmt address line1</th>
+    <th>Pmt address line2</th>
+    <th>Pmt landmark</th>
+    <th>Pmt city</th>
+    <th>Pmt state</th>
+    <th>Pmt country</th>
+    <th>Pmt pincode</th>
+    <th>Pmt full address</th>
+    <th>Cur address line1</th>
+    <th>Cur address line2</th>
+    <th>Cur landmark</th>
+    <th>Cur city</th>
+    <th>Cur state</th>
+    <th>Cur country</th>
+    <th>Cur pincode</th>
+    <th>Cur full address</th>
+    <th>Primary phone</th>
+    <th>Additional phone</th>
+    <th>Father occupation</th>
+    <th>Mother occupation</th>
+    <th>Total family income</th>
+    <th>Gender</th>
+    <th>Area type</th>
+    <th>Caste</th>
+    <th>Category</th>
+    <th>Studied medium</th>
+    <th>Sslc percentage</th>
+    <th>Coll name</th>
+    <th>Coll address line1</th>
+    <th>Coll address line2</th>
+    <th>Coll landmark</th>
+    <th>Coll city</th>
+    <th>Coll state</th>
+    <th>Coll country</th>
+    <th>Coll pincode</th>
+    <th>Coll full address</th>
+    <th>Coll primary phone</th>
+    <th>Coll additional phone</th>
+    <th>Result odd</th>
+    <th>Result even</th>
+    <th>Result aggregate</th>
+    <th>Result year</th>
+    <th>Course</th>
+    <th>Stream</th>
+    <th>Amount fees</th>
+    <th>Amount donation</th>
+    <th>Amount bus pass</th>
+    <th>Amount add on</th>
+    <th>Amount total</th>
+    <th>Chalan number</th>
+    <th>Vr number</th>
+    <th>Books given</th>
+    <th>Books given center</th>
+    <th>Camp invited</th>
+    <th>Camp attended</th>
+    <th>Camp date</th>
+    <th>Camp place</th>
+    <th>Fac name</th>
+    <th>Fac address line1</th>
+    <th>Fac address line2</th>
+    <th>Fac landmark</th>
+    <th>Fac city</th>
+    <th>Fac state</th>
+    <th>Fac country</th>
+    <th>Fac pincode</th>
+    <th>Fac full address</th>
+    <th>Fac primary phone</th>
+    <th>Fac additional phone</th>
+    <th>Letter1 sent</th>
+    <th>Letter2 sent</th>
+    <th>Comments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @students.each do |student| %>
+  <tr>
+    <td><%= student.district %></td>
+    <td><%= student.taluka %></td>
+    <td><%= student.vp_id %></td>
+    <td><%= student.first_name %></td>
+    <td><%= student.last_name %></td>
+    <td><%= student.father_name %></td>
+    <td><%= student.date_of_birth %></td>
+    <td><%= student.email %></td>
+    <td><%= student.pmt_address_line1 %></td>
+    <td><%= student.pmt_address_line2 %></td>
+    <td><%= student.pmt_landmark %></td>
+    <td><%= student.pmt_city %></td>
+    <td><%= student.pmt_state %></td>
+    <td><%= student.pmt_country %></td>
+    <td><%= student.pmt_pincode %></td>
+    <td><%= student.pmt_full_address %></td>
+    <td><%= student.cur_address_line1 %></td>
+    <td><%= student.cur_address_line2 %></td>
+    <td><%= student.cur_landmark %></td>
+    <td><%= student.cur_city %></td>
+    <td><%= student.cur_state %></td>
+    <td><%= student.cur_country %></td>
+    <td><%= student.cur_pincode %></td>
+    <td><%= student.cur_full_address %></td>
+    <td><%= student.primary_phone %></td>
+    <td><%= student.additional_phone %></td>
+    <td><%= student.father_occupation %></td>
+    <td><%= student.mother_occupation %></td>
+    <td><%= student.total_family_income %></td>
+    <td><%= student.gender %></td>
+    <td><%= student.area_type %></td>
+    <td><%= student.caste %></td>
+    <td><%= student.category %></td>
+    <td><%= student.studied_medium %></td>
+    <td><%= student.sslc_percentage %></td>
+    <td><%= student.coll_name %></td>
+    <td><%= student.coll_address_line1 %></td>
+    <td><%= student.coll_address_line2 %></td>
+    <td><%= student.coll_landmark %></td>
+    <td><%= student.coll_city %></td>
+    <td><%= student.coll_state %></td>
+    <td><%= student.coll_country %></td>
+    <td><%= student.coll_pincode %></td>
+    <td><%= student.coll_full_address %></td>
+    <td><%= student.coll_primary_phone %></td>
+    <td><%= student.coll_additional_phone %></td>
+    <td><%= student.result_odd %></td>
+    <td><%= student.result_even %></td>
+    <td><%= student.result_aggregate %></td>
+    <td><%= student.result_year %></td>
+    <td><%= student.course %></td>
+    <td><%= student.stream %></td>
+    <td><%= student.amount_fees %></td>
+    <td><%= student.amount_donation %></td>
+    <td><%= student.amount_bus_pass %></td>
+    <td><%= student.amount_add_on %></td>
+    <td><%= student.amount_total %></td>
+    <td><%= student.chalan_number %></td>
+    <td><%= student.vr_number %></td>
+    <td><%= student.books_given %></td>
+    <td><%= student.books_given_center %></td>
+    <td><%= student.camp_invited %></td>
+    <td><%= student.camp_attended %></td>
+    <td><%= student.camp_date %></td>
+    <td><%= student.camp_place %></td>
+    <td><%= student.fac_name %></td>
+    <td><%= student.fac_address_line1 %></td>
+    <td><%= student.fac_address_line2 %></td>
+    <td><%= student.fac_landmark %></td>
+    <td><%= student.fac_city %></td>
+    <td><%= student.fac_state %></td>
+    <td><%= student.fac_country %></td>
+    <td><%= student.fac_pincode %></td>
+    <td><%= student.fac_full_address %></td>
+    <td><%= student.fac_primary_phone %></td>
+    <td><%= student.fac_additional_phone %></td>
+    <td><%= student.letter1_sent %></td>
+    <td><%= student.letter2_sent %></td>
+    <td><%= student.comments %></td>
+    <td><%= link_to 'Show', student %></td>
+    <td><%= link_to 'Edit', edit_student_path(student) %></td>
+    <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student', new_student_path %>

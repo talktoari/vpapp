@@ -1,0 +1,55 @@
+<h1>DONORS for this Student </h1>
+
+<table id="donors">
+  <tr>
+    <th>Donor Details</th>
+    <th>Address Details</th>
+  </tr>
+
+<% donors.each do |donor| %>
+
+  <tr>
+    <td>
+       <table id="container">
+          <tr>
+          <td>Name:</td>
+          <td colspan="4"><%= link_to "#{donor.first_name} #{donor.last_name}", donor %></td>
+          </tr>
+          <tr>
+          <td>Donor Type:</td>
+          <td colspan="4"><%= donor.donor_type %></td>
+          </tr>
+          <tr>
+          <td>Phone:</td>
+          <td><%= donor.phone %></td>
+          <td>Mobile:</td>
+          <td><%= donor.mobile %></td>
+          </tr>
+          <tr>
+          <td>Email:</td>
+          <td colspan="4"><%= donor.email %></td>
+          </tr>
+       </table>
+    </td>
+    <td>
+       <table id="container">
+          <tr>
+          <td><%= donor.address_first_line %></td>
+          </tr>
+          <tr>
+          <td><%= donor.address_second_line %></td>
+          </tr>
+          <tr>
+          <td><%= donor.address_landmark %></td>
+          </tr>
+          <tr>
+          <td><%= donor.city %>, <%= donor.state %>, <%= donor.country %>, <%= donor.pincode %></td>
+          </tr>
+       </table>
+    </td>
+  <tr>
+
+<% end %>
+</table>
+<hr />
+
