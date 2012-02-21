@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Donation:</b>
+  <%= @donation_year_link.donation_id %>
+</p>
+
+<p>
+  <b>Yearly detail:</b>
+  <%= @donation_year_link.yearly_detail_id %>
+</p>
+
+<p>
+  <b>Linked by:</b>
+  <%= @donation_year_link.linked_by %>
+</p>
+
+<p>
+  <b>Linked amount:</b>
+  <%= @donation_year_link.linked_amount %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @donation_year_link.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_donation_year_link_path(@donation_year_link) %> |
+<%= link_to 'Back', donation_year_links_path %>

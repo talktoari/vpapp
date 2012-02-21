@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  donation_id: 1
+  yearly_detail_id: 1
+  linked_by: MyString
+  linked_amount: 9.99
+  comments: MyText
+
+two:
+  donation_id: 1
+  yearly_detail_id: 1
+  linked_by: MyString
+  linked_amount: 9.99
+  comments: MyText

@@ -1,0 +1,32 @@
+<h1>Listing donation_year_links</h1>
+
+<table id="donations">
+  <tr>
+    <th>Donation</th>
+    <th>Yearly detail</th>
+    <th>Linked by</th>
+    <th>Linked amount</th>
+    <th>Comments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donation_year_links.each do |donation_year_link| %>
+  <tr>
+    <td><%= donation_year_link.donation_id %></td>
+    <td><%= donation_year_link.yearly_detail_id %></td>
+    <td><%= donation_year_link.linked_by %></td>
+    <td><%= donation_year_link.linked_amount %></td>
+    <td><%= donation_year_link.comments %></td>
+    <td><%= link_to 'Show', donation_year_link %></td>
+    <td><%= link_to 'Edit', edit_donation_year_link_path(donation_year_link) %></td>
+    <td><%= link_to 'Destroy', donation_year_link, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donation year link', new_donation_year_link_path %>
+

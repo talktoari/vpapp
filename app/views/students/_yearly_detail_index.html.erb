@@ -1,0 +1,25 @@
+<h1>Listing yearly_details</h1>
+<h3 id="alert">Click Year below to add more details</h3>
+
+<table id="donations">
+  <tr>
+    <th>Year</th>
+    <th>Coll name</th>
+    <th>Aggregate (Year)</th>
+    <th>Amount total</th>
+    <th>Comments</th>
+  </tr>
+
+<% yearly_details.each do |yearly_detail| %>
+  <tr>
+    <td><%= link_to "#{yearly_detail.year}", yearly_detail %></td>
+    <td><%= yearly_detail.coll_name %></td>
+    <td><%= yearly_detail.result_aggregate %> (<%= yearly_detail.result_year %>)</td>
+    <td><%= yearly_detail.amount_total %></td>
+    <td><%= yearly_detail.comments %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

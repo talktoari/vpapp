@@ -1,14 +1,22 @@
 <p id="notice"><%= notice %></p>
 
-<%-# Commenting this render as of now to create the better model -%>
 <%-# Get the list of all unique students for this donor using the below logic -%>
-<% all_donations = @student.donations %>
+<% all_yearly_details = @student.yearly_details %>
 <% all_donor_ids = [] %>
-<% all_donations.each do |this_donation| %>
-  <% all_donor_ids << this_donation.donor_id %>
+<% all_yearly_details.each do |this_yearly_detail| %>
+  <% all_donations = this_yearly_detail.donations %>
+  <% all_donations.each do |this_donation| %>
+    <% unless all_donor_ids.include?(this_donation.donor_id) %>
+      <% all_donor_ids << this_donation.donor_id %>
+    <% end %>
+  <% end %>
 <% end %>
 
 <%= render :partial => 'donor_index', :locals => {:donors=>Donor.find_all_by_id(all_donor_ids).uniq} %>
+
+<%= render :partial => 'yearly_detail_index', :locals => {:yearly_details => @student.yearly_details} %>
+
+<%= render :partial => 'yearly_detail_new', :locals => {:yearly_detail=>YearlyDetail.new(:student_id => @student.id)} %>
 
 <h1>Student Information</h1>
 
@@ -185,221 +193,6 @@
 <p>
   <b>Sslc percentage:</b>
   <%= @student.sslc_percentage %>
-</p>
-
-<p>
-  <b>Coll name:</b>
-  <%= @student.coll_name %>
-</p>
-
-<p>
-  <b>Coll address line1:</b>
-  <%= @student.coll_address_line1 %>
-</p>
-
-<p>
-  <b>Coll address line2:</b>
-  <%= @student.coll_address_line2 %>
-</p>
-
-<p>
-  <b>Coll landmark:</b>
-  <%= @student.coll_landmark %>
-</p>
-
-<p>
-  <b>Coll city:</b>
-  <%= @student.coll_city %>
-</p>
-
-<p>
-  <b>Coll state:</b>
-  <%= @student.coll_state %>
-</p>
-
-<p>
-  <b>Coll country:</b>
-  <%= @student.coll_country %>
-</p>
-
-<p>
-  <b>Coll pincode:</b>
-  <%= @student.coll_pincode %>
-</p>
-
-<p>
-  <b>Coll full address:</b>
-  <%= @student.coll_full_address %>
-</p>
-
-<p>
-  <b>Coll primary phone:</b>
-  <%= @student.coll_primary_phone %>
-</p>
-
-<p>
-  <b>Coll additional phone:</b>
-  <%= @student.coll_additional_phone %>
-</p>
-
-<p>
-  <b>Result odd:</b>
-  <%= @student.result_odd %>
-</p>
-
-<p>
-  <b>Result even:</b>
-  <%= @student.result_even %>
-</p>
-
-<p>
-  <b>Result aggregate:</b>
-  <%= @student.result_aggregate %>
-</p>
-
-<p>
-  <b>Result year:</b>
-  <%= @student.result_year %>
-</p>
-
-<p>
-  <b>Course:</b>
-  <%= @student.course %>
-</p>
-
-<p>
-  <b>Stream:</b>
-  <%= @student.stream %>
-</p>
-
-<p>
-  <b>Amount fees:</b>
-  <%= @student.amount_fees %>
-</p>
-
-<p>
-  <b>Amount donation:</b>
-  <%= @student.amount_donation %>
-</p>
-
-<p>
-  <b>Amount bus pass:</b>
-  <%= @student.amount_bus_pass %>
-</p>
-
-<p>
-  <b>Amount add on:</b>
-  <%= @student.amount_add_on %>
-</p>
-
-<p>
-  <b>Amount total:</b>
-  <%= @student.amount_total %>
-</p>
-
-<p>
-  <b>Chalan number:</b>
-  <%= @student.chalan_number %>
-</p>
-
-<p>
-  <b>Vr number:</b>
-  <%= @student.vr_number %>
-</p>
-
-<p>
-  <b>Books given:</b>
-  <%= @student.books_given %>
-</p>
-
-<p>
-  <b>Books given center:</b>
-  <%= @student.books_given_center %>
-</p>
-
-<p>
-  <b>Camp invited:</b>
-  <%= @student.camp_invited %>
-</p>
-
-<p>
-  <b>Camp attended:</b>
-  <%= @student.camp_attended %>
-</p>
-
-<p>
-  <b>Camp date:</b>
-  <%= @student.camp_date %>
-</p>
-
-<p>
-  <b>Camp place:</b>
-  <%= @student.camp_place %>
-</p>
-
-<p>
-  <b>Fac name:</b>
-  <%= @student.fac_name %>
-</p>
-
-<p>
-  <b>Fac address line1:</b>
-  <%= @student.fac_address_line1 %>
-</p>
-
-<p>
-  <b>Fac address line2:</b>
-  <%= @student.fac_address_line2 %>
-</p>
-
-<p>
-  <b>Fac landmark:</b>
-  <%= @student.fac_landmark %>
-</p>
-
-<p>
-  <b>Fac city:</b>
-  <%= @student.fac_city %>
-</p>
-
-<p>
-  <b>Fac state:</b>
-  <%= @student.fac_state %>
-</p>
-
-<p>
-  <b>Fac country:</b>
-  <%= @student.fac_country %>
-</p>
-
-<p>
-  <b>Fac pincode:</b>
-  <%= @student.fac_pincode %>
-</p>
-
-<p>
-  <b>Fac full address:</b>
-  <%= @student.fac_full_address %>
-</p>
-
-<p>
-  <b>Fac primary phone:</b>
-  <%= @student.fac_primary_phone %>
-</p>
-
-<p>
-  <b>Fac additional phone:</b>
-  <%= @student.fac_additional_phone %>
-</p>
-
-<p>
-  <b>Letter1 sent:</b>
-  <%= @student.letter1_sent %>
-</p>
-
-<p>
-  <b>Letter2 sent:</b>
-  <%= @student.letter2_sent %>
 </p>
 
 <p>

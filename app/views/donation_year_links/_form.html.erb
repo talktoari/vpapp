@@ -1,0 +1,37 @@
+<%= form_for(@donation_year_link) do |f| %>
+  <% if @donation_year_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_year_link.errors.count, "error") %> prohibited this donation_year_link from being saved:</h2>
+
+      <ul>
+      <% @donation_year_link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :donation_id %><br />
+    <%= f.number_field :donation_id %>
+  </div>
+  <div class="field">
+    <%= f.label :yearly_detail_id %><br />
+    <%= f.number_field :yearly_detail_id %>
+  </div>
+  <div class="field">
+    <%= f.label :linked_by %><br />
+    <%= f.text_field :linked_by %>
+  </div>
+  <div class="field">
+    <%= f.label :linked_amount %><br />
+    <%= f.text_field :linked_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

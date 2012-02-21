@@ -101,16 +101,17 @@ ID: <%= @donor.id %>
 <%= render :partial => 'donation_index', :locals => {:donations=>@donor.donations} %>
 <%= render :partial => 'donation_new', :locals => {:donation=>Donation.new(:donor_id => @donor.id)} %>
 
-<%-# Get the list of all unique students for this donor using the below logic -%>
+<%# Get the list of all unique students for this donor using the below logic -%>
 <% all_donations = @donor.donations %>
 <% all_student_ids = [] %>
 <% all_donations.each do |this_donation| %>
-  <% students = this_donation.students %>
-  <% students.each do |this_student| %>
-    <% unless all_student_ids.include?(this_student.id) %>
-      <% all_student_ids << this_student.id %>
+  <% all_yearly_details = this_donation.yearly_details %>
+  <% all_yearly_details.each do |this_yearly_detail| %>
+    <% unless all_student_ids.include?(this_yearly_detail.student_id) %>
+      <% all_student_ids << this_yearly_detail.student_id %>
     <% end %>
   <% end %>
 <% end %>
+
 <%= render :partial => 'student_index', :locals => {:students=>Student.find_all_by_id(all_student_ids).uniq} %>
 

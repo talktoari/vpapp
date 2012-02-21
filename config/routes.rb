@@ -1,11 +1,13 @@
 Vpapp::Application.routes.draw do
 
+  resources :donation_year_links
+
+  resources :yearly_details
+
   get "users/index"
   get "users/new"
   get "users/show"
   get "users/edit"
-
-  resources :student_donation_links
 
   resources :students
 
@@ -40,8 +42,6 @@ Vpapp::Application.routes.draw do
 
 
   get "home/index"
-
-  resources :posts
 
 
 

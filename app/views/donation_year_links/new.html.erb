@@ -1,0 +1,43 @@
+<h1>Link Donation with Student Year</h1>
+<hr />
+
+<%= form_for(@donation_year_link) do |f| %>
+  <% if @donation_year_link.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_year_link.errors.count, "error") %> prohibited this donation_year_link from being saved:</h2>
+
+      <ul>
+      <% @donation_year_link.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+<div class="pageleft">
+  <h2 class="choose">Listing Donors and their Donations</h2>
+  <%= render :partial => 'donation_index', :locals => {:donations=>Donation.find(:all, :order => "created_at DESC"), :f => f} %>
+</div>
+
+<div class="pageleft">
+  <h2 class="choose">Listing Students and their Years</h2>
+  <%= render :partial => 'yearly_detail_index', :locals => {:yearly_details=>YearlyDetail.find(:all, :order => "created_at DESC"), :f => f} %>
+</div>
+
+  <div class="field">
+    <%= f.label :linked_by %><br />
+    <%= f.text_field :linked_by %>
+  </div>
+  <div class="field">
+    <%= f.label :linked_amount %><br />
+    <%= f.text_field :linked_amount %>
+  </div>
+  <div class="field">
+    <%= f.label :comments %><br />
+    <%= f.text_area :comments %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
