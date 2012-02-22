@@ -1,4 +1,9 @@
 class DonationYearLinksController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /donation_year_links
   # GET /donation_year_links.json
   def index
@@ -13,7 +18,7 @@ class DonationYearLinksController < ApplicationController
   # GET /donation_year_links/1
   # GET /donation_year_links/1.json
   def show
-    @donation_year_link = DonationYearLink.find(params[:id])
+  #  @donation_year_link = DonationYearLink.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class DonationYearLinksController < ApplicationController
   # GET /donation_year_links/new
   # GET /donation_year_links/new.json
   def new
-    @donation_year_link = DonationYearLink.new
+  #  @donation_year_link = DonationYearLink.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class DonationYearLinksController < ApplicationController
 
   # GET /donation_year_links/1/edit
   def edit
-    @donation_year_link = DonationYearLink.find(params[:id])
+  #  @donation_year_link = DonationYearLink.find(params[:id])
   end
 
   # POST /donation_year_links
   # POST /donation_year_links.json
   def create
-    @donation_year_link = DonationYearLink.new(params[:donation_year_link])
+  #  @donation_year_link = DonationYearLink.new(params[:donation_year_link])
 
     respond_to do |format|
       if @donation_year_link.save
@@ -56,7 +61,7 @@ class DonationYearLinksController < ApplicationController
   # PUT /donation_year_links/1
   # PUT /donation_year_links/1.json
   def update
-    @donation_year_link = DonationYearLink.find(params[:id])
+  #  @donation_year_link = DonationYearLink.find(params[:id])
 
     respond_to do |format|
       if @donation_year_link.update_attributes(params[:donation_year_link])
@@ -72,7 +77,7 @@ class DonationYearLinksController < ApplicationController
   # DELETE /donation_year_links/1
   # DELETE /donation_year_links/1.json
   def destroy
-    @donation_year_link = DonationYearLink.find(params[:id])
+  #  @donation_year_link = DonationYearLink.find(params[:id])
     @donation_year_link.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class DonationYearLinksController < ApplicationController
     end
   end
 end
+

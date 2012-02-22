@@ -10,152 +10,188 @@
       </ul>
     </div>
   <% end %>
+
+  <fieldset>
+  <legend>Official Information</legend>
+    <div class="field">
+      <%= f.label :district %>
+      <%= f.select(:district, %w{Dharwad Bengaluru Belgaum Raigad Kolhapur Hubli}) %>
+    </div>
+    <div class="field">
+      <%= f.label :taluka %>
+      <%= f.select(:taluka, %w{Taluka1 Taluka2 Taluka3 Taluka4 Taluka5 Taluka6}) %>
+    </div>
+    <div class="field">
+      <%= f.label "VP ID" %>
+      <%= f.text_field :vp_id %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Personal Information</legend>
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :gender %>
+      Male
+      <%= f.radio_button :gender, "Male" %>
+      Female
+      <%= f.radio_button :gender, "Female" %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :date_of_birth %>
+      <%= f.date_select :date_of_birth %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Parental Information</legend>
+    <div class="field">
+      <%= f.label :father_name %>
+      <%= f.text_field :father_name %>
+    </div>
+    <div class="field">
+      <%= f.label :father_occupation %>
+      <%= f.select(:father_occupation, %w{Occupation1 Occupation2 Occupation3 Occupation4 Occupation5 Occupation6}) %>
+    </div><br />
+    <div class="field">
+      <%= f.label :mother_occupation %>
+      <%= f.select(:mother_occupation, %w{Occupation1 Occupation2 Occupation3 Occupation4 Occupation5 Occupation6}) %>
+    </div><br />
+    <div class="field">
+      <%= f.label "Total Income" %>
+      <%= f.text_field :total_family_income %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Additional Information</legend>
+    <div class="field">
+      <%= f.label :area_type %>
+      <%= f.select(:area_type, %w{Area1 Area2 Area3 Area4 Area5 Area6}) %>
+    </div>
+    <div class="field">
+      <%= f.label :caste %>
+      <%= f.select(:caste, %w{Caste1 Caste2 Caste3 Caste4 Caste5 Caste6}) %>
+    </div>
+    <div class="field">
+      <%= f.label :category %>
+      <%= f.select(:category, %w{Category1 Category2 Category3 Category4 Category5 Category6}) %>
+    </div>
+    <div class="field">
+      <%= f.label :studied_medium %>
+      <%= f.select(:category, %w{English Hindi Kannada Marathi Others}) %>
+    </div><br />
+    <div class="field">
+      <%= f.label "SSLC %age" %>
+      <%= f.text_field :sslc_percentage %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Permanent Address</legend>
+    <div class="field">
+      <%= f.label "Line 1" %>
+      <%= f.text_field :pmt_address_line1 %>
+    </div>
+    <div class="field">
+      <%= f.label "Line 2" %>
+      <%= f.text_field :pmt_address_line2 %>
+    </div>
+    <div class="field">
+      <%= f.label "Landmark" %>
+      <%= f.text_field :pmt_landmark %>
+    </div>
+    <div class="field">
+      <%= f.label "City" %>
+      <%= f.text_field :pmt_city %>
+    </div>
+    <div class="field">
+      <%= f.label "State" %>
+      <%= f.text_field :pmt_state %>
+    </div>
+    <div class="field">
+      <%= f.label "Country" %>
+      <%= f.text_field :pmt_country %>
+    </div>
+    <div class="field">
+      <%= f.label "Pincode" %>
+      <%= f.text_field :pmt_pincode %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import case)" %>
+      <%= f.text_area :pmt_full_address %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Current Address</legend>
+    <div class="field">
+      <%= f.label "Line 1" %>
+      <%= f.text_field :cur_address_line1 %>
+    </div>
+    <div class="field">
+      <%= f.label "Line 2" %>
+      <%= f.text_field :cur_address_line2 %>
+    </div>
+    <div class="field">
+      <%= f.label "Landmark" %>
+      <%= f.text_field :cur_landmark %>
+    </div>
+    <div class="field">
+      <%= f.label "City" %>
+      <%= f.text_field :cur_city %>
+    </div>
+    <div class="field">
+      <%= f.label "State" %>
+      <%= f.text_field :cur_state %>
+    </div>
+    <div class="field">
+      <%= f.label "Country" %>
+      <%= f.text_field :cur_country %>
+    </div>
+    <div class="field">
+      <%= f.label "Pincode" %>
+      <%= f.text_field :cur_pincode %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import Case)" %>
+      <%= f.text_area :cur_full_address %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Contact Information</legend>
+    <div class="field">
+      <%= f.label :primary_phone %>
+      <%= f.text_field :primary_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :additional_phone %>
+      <%= f.text_field :additional_phone %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Comments</legend>
+    <div class="field">
+      <%= f.text_area :comments %>
+    </div>
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
   </div>
-  <div class="field">
-    <%= f.label :district %><br />
-    <%= f.text_field :district %>
-  </div>
-  <div class="field">
-    <%= f.label :taluka %><br />
-    <%= f.text_field :taluka %>
-  </div>
-  <div class="field">
-    <%= f.label :vp_id %><br />
-    <%= f.text_field :vp_id %>
-  </div>
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :father_name %><br />
-    <%= f.text_field :father_name %>
-  </div>
-  <div class="field">
-    <%= f.label :date_of_birth %><br />
-    <%= f.date_select :date_of_birth %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_address_line1 %><br />
-    <%= f.text_field :pmt_address_line1 %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_address_line2 %><br />
-    <%= f.text_field :pmt_address_line2 %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_landmark %><br />
-    <%= f.text_field :pmt_landmark %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_city %><br />
-    <%= f.text_field :pmt_city %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_state %><br />
-    <%= f.text_field :pmt_state %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_country %><br />
-    <%= f.text_field :pmt_country %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_pincode %><br />
-    <%= f.text_field :pmt_pincode %>
-  </div>
-  <div class="field">
-    <%= f.label :pmt_full_address %><br />
-    <%= f.text_area :pmt_full_address %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_address_line1 %><br />
-    <%= f.text_field :cur_address_line1 %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_address_line2 %><br />
-    <%= f.text_field :cur_address_line2 %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_landmark %><br />
-    <%= f.text_field :cur_landmark %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_city %><br />
-    <%= f.text_field :cur_city %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_state %><br />
-    <%= f.text_field :cur_state %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_country %><br />
-    <%= f.text_field :cur_country %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_pincode %><br />
-    <%= f.text_field :cur_pincode %>
-  </div>
-  <div class="field">
-    <%= f.label :cur_full_address %><br />
-    <%= f.text_area :cur_full_address %>
-  </div>
-  <div class="field">
-    <%= f.label :primary_phone %><br />
-    <%= f.text_field :primary_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :additional_phone %><br />
-    <%= f.text_field :additional_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :father_occupation %><br />
-    <%= f.text_field :father_occupation %>
-  </div>
-  <div class="field">
-    <%= f.label :mother_occupation %><br />
-    <%= f.text_field :mother_occupation %>
-  </div>
-  <div class="field">
-    <%= f.label :total_family_income %><br />
-    <%= f.text_field :total_family_income %>
-  </div>
-  <div class="field">
-    <%= f.label :gender %><br />
-    <%= f.text_field :gender %>
-  </div>
-  <div class="field">
-    <%= f.label :area_type %><br />
-    <%= f.text_field :area_type %>
-  </div>
-  <div class="field">
-    <%= f.label :caste %><br />
-    <%= f.text_field :caste %>
-  </div>
-  <div class="field">
-    <%= f.label :category %><br />
-    <%= f.text_field :category %>
-  </div>
-  <div class="field">
-    <%= f.label :studied_medium %><br />
-    <%= f.text_field :studied_medium %>
-  </div>
-  <div class="field">
-    <%= f.label :sslc_percentage %><br />
-    <%= f.text_field :sslc_percentage %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
+
 <% end %>
 

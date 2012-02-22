@@ -35,18 +35,21 @@ class Ability
       can :see_timestamps, User, :id => user.id
     end
 
-    # Admin     = All permissions including create and delete
-    # Moderator = Read all, Edit all
-    # Others    = Only update if user and donor email matches
+    # SuperAdmin = All permission in everything
+    # Admin      = All permissions including create and delete, excluding User
+    # Moderator  = Read all, Edit all
+    # General    = Can read all excluding User
+    # Banned     = Can do Nothing
     if user.role == "super_admin"
       can :manage, :all
     elsif user.role == "admin"
-      can :manage, :all
+      can :manage, [Donor, Donation, Student, YearlyDetail, DonationYearLink]
+      can :read, User
     elsif user.role == "moderator"
-      can :read, :all
-      can :update, :all
+      can [:read, :update], [Donor, Donation, Student, YearlyDetail, DonationYearLink]
+      can :read, User
     elsif user.role == "general"
-      can :read, :all
+      can :read, [Donor, Donation, Student, YearlyDetail, DonationYearLink]
     else
 #      can :read, Donor do |donor|
 #        donor.try(:email) == user.email

@@ -1,5 +1,195 @@
 <p id="notice"><%= notice %></p>
 
+<h1>Student Information for <%= @student.first_name %> <%= @student.last_name %></h1>
+<h3 id="alert">NOTE: You cannot change any Profile information here. However, you can Add new Yearly Detail</h3>
+
+<%= form_for(@student) do |f| %>
+
+  <fieldset>
+  <legend>Official Information</legend>
+    <div class="field">
+      <%= f.label :district %>
+      <%= f.text_field :district, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :taluka %>
+      <%= f.text_field :taluka, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "VP ID" %>
+      <%= f.text_field :vp_id, :disabled => true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Personal Information</legend>
+    <div class="field">
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :gender %>
+      <%= f.text_field :gender, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :email %>
+      <%= f.text_field :email, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :date_of_birth %>
+      <%= f.text_field :date_of_birth, :disabled => true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Parental Information</legend>
+    <div class="field">
+      <%= f.label :father_name %>
+      <%= f.text_field :father_name, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :father_occupation %>
+      <%= f.text_field :father_occupation, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :mother_occupation %>
+      <%= f.text_field :mother_occupation, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Total Income" %>
+      <%= f.text_field :total_family_income, :disabled => true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Additional Information</legend>
+    <div class="field">
+      <%= f.label :area_type %>
+      <%= f.text_field :area_type, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :caste %>
+      <%= f.text_field :caste, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :category %>
+      <%= f.text_field :category, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :studied_medium %>
+      <%= f.text_field :studied_medium, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "SSLC %age" %>
+      <%= f.text_field :sslc_percentage, :disabled => true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Permanent Address</legend>
+    <div class="field">
+      <%= f.label "Line 1" %>
+      <%= f.text_field :pmt_address_line1, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Line 2" %>
+      <%= f.text_field :pmt_address_line2, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Landmark" %>
+      <%= f.text_field :pmt_landmark, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "City" %>
+      <%= f.text_field :pmt_city, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "State" %>
+      <%= f.text_field :pmt_state, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Country" %>
+      <%= f.text_field :pmt_country, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Pincode" %>
+      <%= f.text_field :pmt_pincode, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import Case)" %>
+      <%= f.text_area :pmt_full_address, :disabled => true %>
+    </div>
+  </fieldset>
+
+
+  <fieldset>
+  <legend>Current Address</legend>
+    <div class="field">
+      <%= f.label "Line 1" %>
+      <%= f.text_field :cur_address_line1, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Line 2" %>
+      <%= f.text_field :cur_address_line2, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Landmark" %>
+      <%= f.text_field :cur_landmark, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "City" %>
+      <%= f.text_field :cur_city, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "State" %>
+      <%= f.text_field :cur_state, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Country" %>
+      <%= f.text_field :cur_country, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Pincode" %>
+      <%= f.text_field :cur_pincode, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import Case)" %>
+      <%= f.text_area :cur_full_address, :disabled => true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Contact Information</legend>
+    <div class="field">
+      <%= f.label :primary_phone %>
+      <%= f.text_field :primary_phone, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :additional_phone %>
+      <%= f.text_field :additional_phone, :disabled => true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Comments</legend>
+    <div class="field">
+      <%= f.text_area :comments, :disabled => true %>
+    </div>
+  </fieldset>
+
+<% end %>
+
+<%= link_to 'Edit', edit_student_path(@student) %> |
+<%= link_to 'Back', students_path %>
+
+<%= render :partial => 'yearly_detail_index', :locals => {:yearly_details => @student.yearly_details} %>
+
+<%= render :partial => 'yearly_detail_new', :locals => {:yearly_detail=>YearlyDetail.new(:student_id => @student.id)} %>
+
 <%-# Get the list of all unique students for this donor using the below logic -%>
 <% all_yearly_details = @student.yearly_details %>
 <% all_donor_ids = [] %>
@@ -13,194 +203,4 @@
 <% end %>
 
 <%= render :partial => 'donor_index', :locals => {:donors=>Donor.find_all_by_id(all_donor_ids).uniq} %>
-
-<%= render :partial => 'yearly_detail_index', :locals => {:yearly_details => @student.yearly_details} %>
-
-<%= render :partial => 'yearly_detail_new', :locals => {:yearly_detail=>YearlyDetail.new(:student_id => @student.id)} %>
-
-<h1>Student Information</h1>
-
-<p>
-  <b>District:</b>
-  <%= @student.district %>
-</p>
-
-<p>
-  <b>Taluka:</b>
-  <%= @student.taluka %>
-</p>
-
-<p>
-  <b>Vp:</b>
-  <%= @student.vp_id %>
-</p>
-
-<p>
-  <b>First name:</b>
-  <%= @student.first_name %>
-</p>
-
-<p>
-  <b>Last name:</b>
-  <%= @student.last_name %>
-</p>
-
-<p>
-  <b>Father name:</b>
-  <%= @student.father_name %>
-</p>
-
-<p>
-  <b>Date of birth:</b>
-  <%= @student.date_of_birth %>
-</p>
-
-<p>
-  <b>Email:</b>
-  <%= @student.email %>
-</p>
-
-<p>
-  <b>Pmt address line1:</b>
-  <%= @student.pmt_address_line1 %>
-</p>
-
-<p>
-  <b>Pmt address line2:</b>
-  <%= @student.pmt_address_line2 %>
-</p>
-
-<p>
-  <b>Pmt landmark:</b>
-  <%= @student.pmt_landmark %>
-</p>
-
-<p>
-  <b>Pmt city:</b>
-  <%= @student.pmt_city %>
-</p>
-
-<p>
-  <b>Pmt state:</b>
-  <%= @student.pmt_state %>
-</p>
-
-<p>
-  <b>Pmt country:</b>
-  <%= @student.pmt_country %>
-</p>
-
-<p>
-  <b>Pmt pincode:</b>
-  <%= @student.pmt_pincode %>
-</p>
-
-<p>
-  <b>Pmt full address:</b>
-  <%= @student.pmt_full_address %>
-</p>
-
-<p>
-  <b>Cur address line1:</b>
-  <%= @student.cur_address_line1 %>
-</p>
-
-<p>
-  <b>Cur address line2:</b>
-  <%= @student.cur_address_line2 %>
-</p>
-
-<p>
-  <b>Cur landmark:</b>
-  <%= @student.cur_landmark %>
-</p>
-
-<p>
-  <b>Cur city:</b>
-  <%= @student.cur_city %>
-</p>
-
-<p>
-  <b>Cur state:</b>
-  <%= @student.cur_state %>
-</p>
-
-<p>
-  <b>Cur country:</b>
-  <%= @student.cur_country %>
-</p>
-
-<p>
-  <b>Cur pincode:</b>
-  <%= @student.cur_pincode %>
-</p>
-
-<p>
-  <b>Cur full address:</b>
-  <%= @student.cur_full_address %>
-</p>
-
-<p>
-  <b>Primary phone:</b>
-  <%= @student.primary_phone %>
-</p>
-
-<p>
-  <b>Additional phone:</b>
-  <%= @student.additional_phone %>
-</p>
-
-<p>
-  <b>Father occupation:</b>
-  <%= @student.father_occupation %>
-</p>
-
-<p>
-  <b>Mother occupation:</b>
-  <%= @student.mother_occupation %>
-</p>
-
-<p>
-  <b>Total family income:</b>
-  <%= @student.total_family_income %>
-</p>
-
-<p>
-  <b>Gender:</b>
-  <%= @student.gender %>
-</p>
-
-<p>
-  <b>Area type:</b>
-  <%= @student.area_type %>
-</p>
-
-<p>
-  <b>Caste:</b>
-  <%= @student.caste %>
-</p>
-
-<p>
-  <b>Category:</b>
-  <%= @student.category %>
-</p>
-
-<p>
-  <b>Studied medium:</b>
-  <%= @student.studied_medium %>
-</p>
-
-<p>
-  <b>Sslc percentage:</b>
-  <%= @student.sslc_percentage %>
-</p>
-
-<p>
-  <b>Comments:</b>
-  <%= @student.comments %>
-</p>
-
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
 

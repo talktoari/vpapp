@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_filter :accessible_roles
   #before_filter :accessible_roles, :only => [:new, :edit, :show, :update, :create]
   load_and_authorize_resource :only => [:show,:new,:destroy,:edit,:update]
+
   # GET /users
   # GET /users.xml
   # GET /users.json                                       HTML and AJAX

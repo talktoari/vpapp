@@ -1,4 +1,9 @@
 class YearlyDetailsController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /yearly_details
   # GET /yearly_details.json
   def index
@@ -13,7 +18,7 @@ class YearlyDetailsController < ApplicationController
   # GET /yearly_details/1
   # GET /yearly_details/1.json
   def show
-    @yearly_detail = YearlyDetail.find(params[:id])
+  #  @yearly_detail = YearlyDetail.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class YearlyDetailsController < ApplicationController
   # GET /yearly_details/new
   # GET /yearly_details/new.json
   def new
-    @yearly_detail = YearlyDetail.new
+  #  @yearly_detail = YearlyDetail.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class YearlyDetailsController < ApplicationController
 
   # GET /yearly_details/1/edit
   def edit
-    @yearly_detail = YearlyDetail.find(params[:id])
+  #  @yearly_detail = YearlyDetail.find(params[:id])
   end
 
   # POST /yearly_details
   # POST /yearly_details.json
   def create
-    @yearly_detail = YearlyDetail.new(params[:yearly_detail])
+  #  @yearly_detail = YearlyDetail.new(params[:yearly_detail])
 
     respond_to do |format|
       if @yearly_detail.save
@@ -58,7 +63,7 @@ class YearlyDetailsController < ApplicationController
   # PUT /yearly_details/1
   # PUT /yearly_details/1.json
   def update
-    @yearly_detail = YearlyDetail.find(params[:id])
+  #  @yearly_detail = YearlyDetail.find(params[:id])
 
     respond_to do |format|
       if @yearly_detail.update_attributes(params[:yearly_detail])
@@ -74,7 +79,7 @@ class YearlyDetailsController < ApplicationController
   # DELETE /yearly_details/1
   # DELETE /yearly_details/1.json
   def destroy
-    @yearly_detail = YearlyDetail.find(params[:id])
+  #  @yearly_detail = YearlyDetail.find(params[:id])
     @yearly_detail.destroy
 
     respond_to do |format|

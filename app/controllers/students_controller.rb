@@ -1,4 +1,9 @@
 class StudentsController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /students
   # GET /students.json
   def index
@@ -13,7 +18,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @student = Student.find(params[:id])
+  # @student = Student.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   # GET /students/new.json
   def new
-    @student = Student.new
+  # @student = Student.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
-    @student = Student.find(params[:id])
+  # @student = Student.find(params[:id])
   end
 
   # POST /students
   # POST /students.json
   def create
-    @student = Student.new(params[:student])
+  # @student = Student.new(params[:student])
 
     respond_to do |format|
       if @student.save
@@ -56,7 +61,7 @@ class StudentsController < ApplicationController
   # PUT /students/1
   # PUT /students/1.json
   def update
-    @student = Student.find(params[:id])
+  # @student = Student.find(params[:id])
 
     respond_to do |format|
       if @student.update_attributes(params[:student])
@@ -72,7 +77,7 @@ class StudentsController < ApplicationController
   # DELETE /students/1
   # DELETE /students/1.json
   def destroy
-    @student = Student.find(params[:id])
+  # @student = Student.find(params[:id])
     @student.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class StudentsController < ApplicationController
     end
   end
 end
+
