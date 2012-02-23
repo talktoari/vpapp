@@ -11,191 +11,221 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :student_id %><br />
-    <%= f.number_field :student_id %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br />
-    <%= f.text_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_name %><br />
-    <%= f.text_field :coll_name %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_address_line1 %><br />
-    <%= f.text_field :coll_address_line1 %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_address_line2 %><br />
-    <%= f.text_field :coll_address_line2 %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_landmark %><br />
-    <%= f.text_field :coll_landmark %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_city %><br />
-    <%= f.text_field :coll_city %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_state %><br />
-    <%= f.text_field :coll_state %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_country %><br />
-    <%= f.text_field :coll_country %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_pincode %><br />
-    <%= f.text_field :coll_pincode %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_full_address %><br />
-    <%= f.text_area :coll_full_address %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_primary_phone %><br />
-    <%= f.text_field :coll_primary_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :coll_additional_phone %><br />
-    <%= f.text_field :coll_additional_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :result_odd %><br />
-    <%= f.text_field :result_odd %>
-  </div>
-  <div class="field">
-    <%= f.label :result_even %><br />
-    <%= f.text_field :result_even %>
-  </div>
-  <div class="field">
-    <%= f.label :result_aggregate %><br />
-    <%= f.text_field :result_aggregate %>
-  </div>
-  <div class="field">
-    <%= f.label :result_year %><br />
-    <%= f.text_field :result_year %>
-  </div>
-  <div class="field">
-    <%= f.label :course %><br />
-    <%= f.text_field :course %>
-  </div>
-  <div class="field">
-    <%= f.label :stream %><br />
-    <%= f.text_field :stream %>
-  </div>
-  <div class="field">
-    <%= f.label :amount_fees %><br />
-    <%= f.text_field :amount_fees %>
-  </div>
-  <div class="field">
-    <%= f.label :amount_donation %><br />
-    <%= f.text_field :amount_donation %>
-  </div>
-  <div class="field">
-    <%= f.label :amount_bus_pass %><br />
-    <%= f.text_field :amount_bus_pass %>
-  </div>
-  <div class="field">
-    <%= f.label :amount_add_on %><br />
-    <%= f.text_field :amount_add_on %>
-  </div>
-  <div class="field">
-    <%= f.label :amount_total %><br />
-    <%= f.text_field :amount_total %>
-  </div>
-  <div class="field">
-    <%= f.label :chalan_number %><br />
-    <%= f.text_field :chalan_number %>
-  </div>
-  <div class="field">
-    <%= f.label :vr_number %><br />
-    <%= f.text_field :vr_number %>
-  </div>
-  <div class="field">
-    <%= f.label :books_given %><br />
-    <%= f.check_box :books_given %>
-  </div>
-  <div class="field">
-    <%= f.label :books_given_center %><br />
-    <%= f.text_field :books_given_center %>
-  </div>
-  <div class="field">
-    <%= f.label :camp_invited %><br />
-    <%= f.check_box :camp_invited %>
-  </div>
-  <div class="field">
-    <%= f.label :camp_attended %><br />
-    <%= f.check_box :camp_attended %>
-  </div>
-  <div class="field">
-    <%= f.label :camp_date %><br />
-    <%= f.date_select :camp_date %>
-  </div>
-  <div class="field">
-    <%= f.label :camp_place %><br />
-    <%= f.text_field :camp_place %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_name %><br />
-    <%= f.text_field :fac_name %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_address_line1 %><br />
-    <%= f.text_field :fac_address_line1 %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_address_line2 %><br />
-    <%= f.text_field :fac_address_line2 %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_landmark %><br />
-    <%= f.text_field :fac_landmark %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_city %><br />
-    <%= f.text_field :fac_city %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_state %><br />
-    <%= f.text_field :fac_state %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_country %><br />
-    <%= f.text_field :fac_country %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_pincode %><br />
-    <%= f.text_field :fac_pincode %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_full_address %><br />
-    <%= f.text_area :fac_full_address %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_primary_phone %><br />
-    <%= f.text_field :fac_primary_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :fac_additional_phone %><br />
-    <%= f.text_field :fac_additional_phone %>
-  </div>
-  <div class="field">
-    <%= f.label :letter1_sent %><br />
-    <%= f.check_box :letter1_sent %>
-  </div>
-  <div class="field">
-    <%= f.label :letter2_sent %><br />
-    <%= f.check_box :letter2_sent %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
+  <fieldset>
+  <legend>General Information</legend>
+    <% if controller.action_name == "edit" %>
+        <%= f.hidden_field :student_id %>
+    <% else %>
+      <div class="field">
+        <%= f.label :student_id %>
+        <%= f.number_field :student_id %>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :year %>
+      <%= f.select(:year, %w{2007 2008 2009 2010 2011 2012 2013 2014 2015}) %>
+    </div>
+    <div class="field">
+      <%= f.label :letter1_sent %>
+      <%= f.check_box :letter1_sent %>
+    </div>
+    <div class="field">
+      <%= f.label :letter2_sent %>
+      <%= f.check_box :letter2_sent %>
+    </div>
+    <div class="field">
+      <%= f.label :comments %>
+      <%= f.text_area :comments %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Educational Information</legend>
+    <div class="field">
+      <%= f.label :result_odd %>
+      <%= f.text_field :result_odd %>
+    </div>
+    <div class="field">
+      <%= f.label :result_even %>
+      <%= f.text_field :result_even %>
+    </div>
+    <div class="field">
+      <%= f.label :result_aggregate %>
+      <%= f.text_field :result_aggregate %>
+    </div>
+    <div class="field">
+      <%= f.label :result_year %>
+      <%= f.select(:result_year, %w{2007 2008 2009 2010 2011 2012 2013 2014 2015}) %>
+    </div>
+    <div class="field">
+      <%= f.label :course %>
+      <%= f.select(:course, %w{B.Sc. B.E. B.Tech. B.Com. LLB MBA Diploma}) %>
+    </div>
+    <div class="field">
+      <%= f.label :stream %>
+      <%= f.select(:stream, %w{Biology Zoology Electronics Computers Mechanical Electrical Chemical Civil}) %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Fees and Amount Details</legend>
+    <div class="field">
+      <%= f.label :amount_fees %>
+      <%= f.text_field :amount_fees %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_donation %>
+      <%= f.text_field :amount_donation %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_bus_pass %>
+      <%= f.text_field :amount_bus_pass %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_add_on %>
+      <%= f.text_field :amount_add_on %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_total %>
+      <%= f.text_field :amount_total %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Miscellaneous Information</legend>
+    <div class="field">
+      <%= f.label :chalan_number %>
+      <%= f.text_field :chalan_number %>
+    </div>
+    <div class="field">
+      <%= f.label :vr_number %>
+      <%= f.text_field :vr_number %>
+    </div>
+    <div class="field">
+      <%= f.label :books_given %>
+      <%= f.check_box :books_given %>
+    </div>
+    <div class="field">
+      <%= f.label :books_given_center %>
+      <%= f.text_field :books_given_center %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_invited %>
+      <%= f.check_box :camp_invited %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_attended %>
+      <%= f.check_box :camp_attended %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_date %>
+      <%= f.date_select :camp_date %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_place %>
+      <%= f.text_field :camp_place %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>College Information</legend>
+    <div class="field">
+      <%= f.label :coll_name %>
+      <%= f.text_field :coll_name %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_address_line1 %>
+      <%= f.text_field :coll_address_line1 %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_address_line2 %>
+      <%= f.text_field :coll_address_line2 %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_landmark %>
+      <%= f.text_field :coll_landmark %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_city %>
+      <%= f.select(:coll_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_state %>
+      <%= f.select(:coll_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_country %>
+      <%= f.select(:coll_country, %w{India USA China}) %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_pincode %>
+      <%= f.text_field :coll_pincode %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import Case)" %>
+      <%= f.text_area :coll_full_address %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_primary_phone %>
+      <%= f.text_field :coll_primary_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_additional_phone %>
+      <%= f.text_field :coll_additional_phone %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Facilitator Information</legend>
+    <div class="field">
+      <%= f.label :fac_name %>
+      <%= f.text_field :fac_name %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_address_line1 %>
+      <%= f.text_field :fac_address_line1 %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_address_line2 %>
+      <%= f.text_field :fac_address_line2 %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_landmark %>
+      <%= f.text_field :fac_landmark %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_city %>
+      <%= f.select(:fac_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_state %>
+      <%= f.select(:fac_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_country %>
+      <%= f.select(:fac_country, %w{India USA China}) %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_pincode %>
+      <%= f.text_field :fac_pincode %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import Case)" %>
+      <%= f.text_area :fac_full_address %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_primary_phone %>
+      <%= f.text_field :fac_primary_phone %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_additional_phone %>
+      <%= f.text_field :fac_additional_phone %>
+    </div>
+  </fieldset>
+
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+

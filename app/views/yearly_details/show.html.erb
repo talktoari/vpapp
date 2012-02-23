@@ -1,235 +1,216 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Student:</b>
-  <%= @yearly_detail.student_id %>
-</p>
+<% student = @yearly_detail.student %>
+<%= form_for(@yearly_detail) do |f| %>
+  <fieldset>
+  <legend>General Information</legend>
+    <h3>Yearly Details for: <%= link_to "#{student.first_name} #{student.last_name}", student %></h3>
 
-<p>
-  <b>Year:</b>
-  <%= @yearly_detail.year %>
-</p>
+    <div class="field">
+      <%= f.label :year %>
+      <%= f.text_field :year, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :letter1_sent %>
+      <%= f.check_box :letter1_sent, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :letter2_sent %>
+      <%= f.check_box :letter2_sent, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :comments %>
+      <%= f.text_area :comments, :disabled => true %>
+    </div>
+  </fieldset>
 
-<p>
-  <b>Coll name:</b>
-  <%= @yearly_detail.coll_name %>
-</p>
+  <fieldset>
+  <legend>Educational Information</legend>
+    <div class="field">
+      <%= f.label :result_odd %>
+      <%= f.text_field :result_odd, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :result_even %>
+      <%= f.text_field :result_even, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :result_aggregate %>
+      <%= f.text_field :result_aggregate, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :result_year %>
+      <%= f.text_field :result_year, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :course %>
+      <%= f.text_field :course, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :stream %>
+      <%= f.text_field :stream, :disabled => true %>
+    </div>
+    <br />
+  </fieldset>
 
-<p>
-  <b>Coll address line1:</b>
-  <%= @yearly_detail.coll_address_line1 %>
-</p>
+  <fieldset>
+  <legend>Fees and Amount Details</legend>
+    <div class="field">
+      <%= f.label :amount_fees %>
+      <%= f.text_field :amount_fees, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_donation %>
+      <%= f.text_field :amount_donation, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_bus_pass %>
+      <%= f.text_field :amount_bus_pass, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_add_on %>
+      <%= f.text_field :amount_add_on, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :amount_total %>
+      <%= f.text_field :amount_total, :disabled => true %>
+    </div>
+  </fieldset>
 
-<p>
-  <b>Coll address line2:</b>
-  <%= @yearly_detail.coll_address_line2 %>
-</p>
+  <fieldset>
+  <legend>Miscellaneous Information</legend>
+    <div class="field">
+      <%= f.label :chalan_number %>
+      <%= f.text_field :chalan_number, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :vr_number %>
+      <%= f.text_field :vr_number, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :books_given %>
+      <%= f.check_box :books_given, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :books_given_center %>
+      <%= f.text_field :books_given_center, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_invited %>
+      <%= f.check_box :camp_invited, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_attended %>
+      <%= f.check_box :camp_attended, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_date %>
+      <%= f.date_select :camp_date, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :camp_place %>
+      <%= f.text_field :camp_place, :disabled => true %>
+    </div>
+  </fieldset>
 
-<p>
-  <b>Coll landmark:</b>
-  <%= @yearly_detail.coll_landmark %>
-</p>
+  <fieldset>
+  <legend>College Information</legend>
+    <div class="field">
+      <%= f.label :coll_name %>
+      <%= f.text_field :coll_name, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_address_line1 %>
+      <%= f.text_field :coll_address_line1, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_address_line2 %>
+      <%= f.text_field :coll_address_line2, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_landmark %>
+      <%= f.text_field :coll_landmark, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_city %>
+      <%= f.text_field :coll_city, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_state %>
+      <%= f.text_field :coll_state, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_country %>
+      <%= f.text_field :coll_country, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_pincode %>
+      <%= f.text_field :coll_pincode, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import Case)" %>
+      <%= f.text_area :coll_full_address, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_primary_phone %>
+      <%= f.text_field :coll_primary_phone, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :coll_additional_phone %>
+      <%= f.text_field :coll_additional_phone, :disabled => true %>
+    </div>
+  </fieldset>
 
-<p>
-  <b>Coll city:</b>
-  <%= @yearly_detail.coll_city %>
-</p>
+  <fieldset>
+  <legend>Facilitator Information</legend>
+    <div class="field">
+      <%= f.label :fac_name %>
+      <%= f.text_field :fac_name, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_address_line1 %>
+      <%= f.text_field :fac_address_line1, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_address_line2 %>
+      <%= f.text_field :fac_address_line2, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_landmark %>
+      <%= f.text_field :fac_landmark, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_city %>
+      <%= f.text_field :fac_city, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_state %>
+      <%= f.text_field :fac_state, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_country %>
+      <%= f.text_field :fac_country, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_pincode %>
+      <%= f.text_field :fac_pincode, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Full Address (Import Case)" %>
+      <%= f.text_area :fac_full_address, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_primary_phone %>
+      <%= f.text_field :fac_primary_phone, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :fac_additional_phone %>
+      <%= f.text_field :fac_additional_phone, :disabled => true %>
+    </div>
+  </fieldset>
 
-<p>
-  <b>Coll state:</b>
-  <%= @yearly_detail.coll_state %>
-</p>
-
-<p>
-  <b>Coll country:</b>
-  <%= @yearly_detail.coll_country %>
-</p>
-
-<p>
-  <b>Coll pincode:</b>
-  <%= @yearly_detail.coll_pincode %>
-</p>
-
-<p>
-  <b>Coll full address:</b>
-  <%= @yearly_detail.coll_full_address %>
-</p>
-
-<p>
-  <b>Coll primary phone:</b>
-  <%= @yearly_detail.coll_primary_phone %>
-</p>
-
-<p>
-  <b>Coll additional phone:</b>
-  <%= @yearly_detail.coll_additional_phone %>
-</p>
-
-<p>
-  <b>Result odd:</b>
-  <%= @yearly_detail.result_odd %>
-</p>
-
-<p>
-  <b>Result even:</b>
-  <%= @yearly_detail.result_even %>
-</p>
-
-<p>
-  <b>Result aggregate:</b>
-  <%= @yearly_detail.result_aggregate %>
-</p>
-
-<p>
-  <b>Result year:</b>
-  <%= @yearly_detail.result_year %>
-</p>
-
-<p>
-  <b>Course:</b>
-  <%= @yearly_detail.course %>
-</p>
-
-<p>
-  <b>Stream:</b>
-  <%= @yearly_detail.stream %>
-</p>
-
-<p>
-  <b>Amount fees:</b>
-  <%= @yearly_detail.amount_fees %>
-</p>
-
-<p>
-  <b>Amount donation:</b>
-  <%= @yearly_detail.amount_donation %>
-</p>
-
-<p>
-  <b>Amount bus pass:</b>
-  <%= @yearly_detail.amount_bus_pass %>
-</p>
-
-<p>
-  <b>Amount add on:</b>
-  <%= @yearly_detail.amount_add_on %>
-</p>
-
-<p>
-  <b>Amount total:</b>
-  <%= @yearly_detail.amount_total %>
-</p>
-
-<p>
-  <b>Chalan number:</b>
-  <%= @yearly_detail.chalan_number %>
-</p>
-
-<p>
-  <b>Vr number:</b>
-  <%= @yearly_detail.vr_number %>
-</p>
-
-<p>
-  <b>Books given:</b>
-  <%= @yearly_detail.books_given %>
-</p>
-
-<p>
-  <b>Books given center:</b>
-  <%= @yearly_detail.books_given_center %>
-</p>
-
-<p>
-  <b>Camp invited:</b>
-  <%= @yearly_detail.camp_invited %>
-</p>
-
-<p>
-  <b>Camp attended:</b>
-  <%= @yearly_detail.camp_attended %>
-</p>
-
-<p>
-  <b>Camp date:</b>
-  <%= @yearly_detail.camp_date %>
-</p>
-
-<p>
-  <b>Camp place:</b>
-  <%= @yearly_detail.camp_place %>
-</p>
-
-<p>
-  <b>Fac name:</b>
-  <%= @yearly_detail.fac_name %>
-</p>
-
-<p>
-  <b>Fac address line1:</b>
-  <%= @yearly_detail.fac_address_line1 %>
-</p>
-
-<p>
-  <b>Fac address line2:</b>
-  <%= @yearly_detail.fac_address_line2 %>
-</p>
-
-<p>
-  <b>Fac landmark:</b>
-  <%= @yearly_detail.fac_landmark %>
-</p>
-
-<p>
-  <b>Fac city:</b>
-  <%= @yearly_detail.fac_city %>
-</p>
-
-<p>
-  <b>Fac state:</b>
-  <%= @yearly_detail.fac_state %>
-</p>
-
-<p>
-  <b>Fac country:</b>
-  <%= @yearly_detail.fac_country %>
-</p>
-
-<p>
-  <b>Fac pincode:</b>
-  <%= @yearly_detail.fac_pincode %>
-</p>
-
-<p>
-  <b>Fac full address:</b>
-  <%= @yearly_detail.fac_full_address %>
-</p>
-
-<p>
-  <b>Fac primary phone:</b>
-  <%= @yearly_detail.fac_primary_phone %>
-</p>
-
-<p>
-  <b>Fac additional phone:</b>
-  <%= @yearly_detail.fac_additional_phone %>
-</p>
-
-<p>
-  <b>Letter1 sent:</b>
-  <%= @yearly_detail.letter1_sent %>
-</p>
-
-<p>
-  <b>Letter2 sent:</b>
-  <%= @yearly_detail.letter2_sent %>
-</p>
-
-<p>
-  <b>Comments:</b>
-  <%= @yearly_detail.comments %>
-</p>
-
+<% end %>
 
 <%= link_to 'Edit', edit_yearly_detail_path(@yearly_detail) %> |
 <%= link_to 'Back', yearly_details_path %>
+

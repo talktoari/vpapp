@@ -1,47 +1,40 @@
 <p id="notice"><%= notice %></p>
 
 <% donor = @donation.donor %>
-
-<h2>Donated By: <%= link_to "#{donor.first_name} #{donor.last_name}", donor %></h2>
-
-<p>
-  <b>Donor ID:</b>
-  <%= @donation.donor_id %>
-</p>
-
-<p>
-  <b>Amount:</b>
-  <%= @donation.amount %>
-</p>
-
-<p>
-  <b>Status:</b>
-  <%= @donation.status %>
-</p>
-
-<p>
-  <b>Donation Type:</b>
-  <%= @donation.donation_type %>
-</p>
-
-<p>
-  <b>Purpose:</b>
-  <%= @donation.purpose %>
-</p>
-
-<p>
-  <b>Comment:</b>
-  <%= @donation.comment %>
-</p>
-
-<%= link_to 'Edit', edit_donation_path(@donation) %> |
-<%= link_to 'Back', donations_path %>
+<%= form_for(@donation) do |f| %>
+  <fieldset>
+  <legend>Donation Details</legend>
+    <h3>Donated By: <%= link_to "#{donor.first_name} #{donor.last_name}", donor %></h3>
+    <div class="field">
+      <%= f.label :amount %>
+      <%= f.text_field :amount, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :status %>
+      <%= f.text_field :status, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :donation_type %>
+      <%= f.text_field :donation_type, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :purpose %>
+      <%= f.text_field :purpose, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :comment %>
+      <%= f.text_area :comment, :disabled => true %>
+    </div>
+    <%= link_to 'Edit', edit_donation_path(@donation) %> |
+    <%= link_to 'Back', donations_path %>
+  </fieldset>
+<% end %>
 
 <% all_student_ids = [] %>
-<% students = @donation.students %>
-<% students.each do |this_student| %>
-  <% unless all_student_ids.include?(this_student.id) %>
-    <% all_student_ids << this_student.id %>
+<% yearly_details = @donation.yearly_details %>
+<% yearly_details.each do |this_yearly_detail| %>
+  <% unless all_student_ids.include?(this_yearly_detail.student_id) %>
+    <% all_student_ids << this_yearly_detail.student_id %>
   <% end %>
 <% end %>
 

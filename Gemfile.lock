@@ -1,3 +1,20 @@
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: 21a58e219492fce942ead7eb46cd47519756def7
+  specs:
+    rails_admin (0.0.1)
+      bbenezech-nested_form (~> 0.0.5)
+      bootstrap-sass (~> 2.0)
+      builder (~> 3.0)
+      coffee-rails (~> 3.1)
+      haml (~> 3.1)
+      jquery-rails (>= 1.0)
+      kaminari (~> 0.12)
+      rack-pjax (~> 0.5)
+      rails (~> 3.1)
+      remotipart (~> 1.0)
+      sass-rails (~> 3.1)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -32,7 +49,9 @@ GEM
       multi_json (~> 1.0)
     ansi (1.3.0)
     arel (2.2.1)
+    bbenezech-nested_form (0.0.5)
     bcrypt-ruby (3.0.1)
+    bootstrap-sass (2.0.1)
     builder (3.0.0)
     cancan (1.6.7)
     carrierwave (0.5.8)
@@ -52,12 +71,18 @@ GEM
     erubis (2.7.0)
     execjs (1.2.9)
       multi_json (~> 1.0)
+    haml (3.1.4)
     hike (1.2.1)
+    hpricot (0.8.6)
     i18n (0.6.0)
     jquery-rails (1.0.16)
       railties (~> 3.0)
       thor (~> 0.14)
     json (1.6.1)
+    kaminari (0.13.0)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
+      railties (>= 3.0.0)
     mail (2.3.0)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -79,6 +104,9 @@ GEM
       rack (>= 0.4)
     rack-mount (0.8.3)
       rack (>= 1.0.0)
+    rack-pjax (0.5.7)
+      hpricot (~> 0.8.6)
+      rack (~> 1.3)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.1)
@@ -101,6 +129,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.11)
       json (~> 1.4)
+    remotipart (1.0.2)
     ruby-ole (1.2.11.2)
     ruby_parser (2.3.1)
       sexp_processor (~> 3.0)
@@ -148,6 +177,7 @@ DEPENDENCIES
   pg
   pry
   rails (= 3.1.0)
+  rails_admin!
   sass-rails (~> 3.1.0)
   spreadsheet
   sqlite3

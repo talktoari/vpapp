@@ -114,15 +114,15 @@
     </div>
     <div class="field">
       <%= f.label "City" %>
-      <%= f.text_field :pmt_city %>
+      <%= f.select(:pmt_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
     </div>
     <div class="field">
       <%= f.label "State" %>
-      <%= f.text_field :pmt_state %>
+      <%= f.select(:pmt_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
     </div>
     <div class="field">
       <%= f.label "Country" %>
-      <%= f.text_field :pmt_country %>
+      <%= f.select(:pmt_country, %w{India USA China}) %>
     </div>
     <div class="field">
       <%= f.label "Pincode" %>
@@ -150,15 +150,15 @@
     </div>
     <div class="field">
       <%= f.label "City" %>
-      <%= f.text_field :cur_city %>
+      <%= f.select(:cur_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
     </div>
     <div class="field">
       <%= f.label "State" %>
-      <%= f.text_field :cur_state %>
+      <%= f.select(:cur_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
     </div>
     <div class="field">
       <%= f.label "Country" %>
-      <%= f.text_field :cur_country %>
+      <%= f.select(:cur_country, %w{India USA China}) %>
     </div>
     <div class="field">
       <%= f.label "Pincode" %>

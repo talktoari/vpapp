@@ -11,32 +11,39 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :donor_id %>
-    <%= f.number_field :donor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :amount %>
-    <%= f.text_field :amount %>
-  </div>
-  <div class="field">
-    <%= f.label :status %>
-    <%= f.select(:status, %w{Donated Approved Failed}) %>
-  </div>
-  <div class="field">
-    <%= f.label :donation_type %>
-    <%= f.select(:donation_type, %w{Online Cash Cheque DD}) %>
-  </div>
-  <div class="field">
-    <%= f.label :purpose %>
-    <%= f.select(:purpose, %w{Nurture_Merit Library Camp GFS}) %>
-  </div>
-  <div class="field">
-    <%= f.label :comment %>
-    <%= f.text_area :comment %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <fieldset>
+  <legend><%= controller.action_name.humanize %> Donation</legend>
+  <% if controller.action_name == "edit" %>
+      <%= f.hidden_field :donor_id %>
+  <% else %>
+    <div class="field">
+      <%= f.label :donor_id %>
+      <%= f.number_field :donor_id %>
+    </div>
+  <% end %>
+    <div class="field">
+      <%= f.label :amount %>
+      <%= f.text_field :amount %>
+    </div>
+    <div class="field">
+      <%= f.label :status %>
+      <%= f.select(:status, %w{Donated Approved Failed}) %>
+    </div>
+    <div class="field">
+      <%= f.label :donation_type %>
+      <%= f.select(:donation_type, %w{Online Cash Cheque DD}) %>
+    </div>
+    <div class="field">
+      <%= f.label :purpose %>
+      <%= f.select(:purpose, %w{Nurture_Merit Library Camp GFS}) %>
+    </div>
+    <div class="field">
+      <%= f.label :comment %>
+      <%= f.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
 <% end %>
 

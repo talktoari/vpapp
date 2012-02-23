@@ -1,5 +1,7 @@
 Vpapp::Application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   resources :donation_year_links
 
   resources :yearly_details
