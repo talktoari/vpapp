@@ -1,4 +1,11 @@
 <h1> Listing All Users </h1>
+<% if can? :create, @user %>
+<%= link_to 'Add New User', new_user_path %>
+<% end %>
+<hr />
+<%= paginate @users %>
+<hr />
+
 <table>
   <tr>
     <th>Email</th>

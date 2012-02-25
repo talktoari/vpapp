@@ -1,11 +1,22 @@
-<h1>Listing donation_year_links</h1>
+<h1>Listing All Donation Linked to Student's Year'</h1>
+
+<% if can? :create, @donation_year_link %>
+<%= link_to 'Create New Donation to Student Link', new_donation_year_link_path %>
+<% end %>
+
+<hr />
+<%= paginate @donation_year_links %>
+<hr />
 
 <table id="donations">
   <tr>
-    <th>Donation</th>
-    <th>Yearly detail</th>
-    <th>Linked by</th>
-    <th>Linked amount</th>
+  <% if current_user.role == "super_admin" %>
+    <th>Donation ID</th>
+    <th>Yearly Detail ID</th>
+  <% end %>
+    <th>Linked By</th>
+    <th>Linked Amount</th>
+    <th>Linked Time</th>
     <th>Comments</th>
     <th></th>
     <th></th>
@@ -14,10 +25,13 @@
 
 <% @donation_year_links.each do |donation_year_link| %>
   <tr>
+  <% if current_user.role == "super_admin" %>
     <td><%= donation_year_link.donation_id %></td>
     <td><%= donation_year_link.yearly_detail_id %></td>
+  <% end %>
     <td><%= donation_year_link.linked_by %></td>
     <td><%= donation_year_link.linked_amount %></td>
+    <td><%= donation_year_link.created_at %></td>
     <td><%= donation_year_link.comments %></td>
     <td><%= link_to 'Show', donation_year_link %></td>
     <td><%= link_to 'Edit', edit_donation_year_link_path(donation_year_link) %></td>
@@ -27,6 +41,4 @@
 </table>
 
 <br />
-
-<%= link_to 'New Donation year link', new_donation_year_link_path %>
 

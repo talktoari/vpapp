@@ -7,7 +7,8 @@ class DonationYearLinksController < ApplicationController
   # GET /donation_year_links
   # GET /donation_year_links.json
   def index
-    @donation_year_links = DonationYearLink.all
+  # @donation_year_links = DonationYearLink.all
+    @donation_year_links = DonationYearLink.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

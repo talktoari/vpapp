@@ -7,7 +7,9 @@ class DonorsController < ApplicationController
   # GET /donors
   # GET /donors.json
   def index
-  @donors = Donor.all
+  # @donors = Donor.all
+    # Paginated Output with Kaminari
+    @donors = Donor.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

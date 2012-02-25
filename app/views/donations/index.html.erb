@@ -1,9 +1,15 @@
-<h1>Listing donations</h1>
+<h1>Listing All Donations</h1>
+
+<hr />
+<%= paginate @donations %>
+<hr />
 
 <table id="donations">
   <tr>
+  <% if current_user.role == "super_admin" %>
     <th>Donation ID</th>
     <th>Donor ID</th>
+  <% end %>
     <th>Donor Name</th>
     <th>Amount</th>
     <th>Status</th>
@@ -17,8 +23,10 @@
 
 <% @donations.each do |donation| %>
   <tr>
+  <% if current_user.role == "super_admin" %>
     <td><%= donation.id %></td>
     <td><%= donation.donor_id %></td>
+  <% end %>
     <td><%= link_to "#{donation.donor.first_name} #{donation.donor.last_name}", donation.donor %></td>
     <td><%= donation.amount %></td>
     <td><%= donation.status %></td>

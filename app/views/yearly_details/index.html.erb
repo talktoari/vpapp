@@ -1,9 +1,16 @@
-<h1>Listing All Students All Yearly Details</h1>
+<h1>Listing Yearly Details for All Students</h1>
+
+<hr />
+<%= paginate @yearly_details %>
+<hr />
 
 <table id="donations">
   <tr>
+  <% if current_user.role == "super_admin" %>
     <th>ID</th>
-    <th>Student</th>
+    <th>Student ID</th>
+  <% end %>
+    <th>Student Name</th>
     <th>Year</th>
     <th>Coll name</th>
     <th>Coll address line1</th>
@@ -56,8 +63,11 @@
 
 <% @yearly_details.each do |yearly_detail| %>
   <tr>
+  <% if current_user.role == "super_admin" %>
     <td><%= yearly_detail.id %></td>
     <td><%= yearly_detail.student_id %></td>
+  <% end %>
+    <td><%= link_to "#{yearly_detail.student.first_name} #{yearly_detail.student.last_name}", yearly_detail.student %></td>
     <td><%= yearly_detail.year %></td>
     <td><%= yearly_detail.coll_name %></td>
     <td><%= yearly_detail.coll_address_line1 %></td>
@@ -111,6 +121,4 @@
 </table>
 
 <br />
-
-<%= link_to 'New Yearly detail', new_yearly_detail_path %>
 

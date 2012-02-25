@@ -9,7 +9,9 @@ class UsersController < ApplicationController
   # GET /users.json                                       HTML and AJAX
   #-----------------------------------------------------------------------
   def index
-    @users = User.accessible_by(current_ability, :index)
+  # @users = User.accessible_by(current_ability, :index)
+    @users = User.accessible_by(current_ability, :index).order(:created_at).page params[:page]
+
     respond_to do |format|
       format.json { render :json => @users }
       format.xml  { render :xml => @users }

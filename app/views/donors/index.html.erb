@@ -5,6 +5,8 @@
 <%= link_to 'Add New Donor', new_donor_path %>
 <% end %>
 <hr />
+<%= paginate @donors %>
+<hr />
 
 <table id="donors">
   <tr>

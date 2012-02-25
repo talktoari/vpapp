@@ -7,7 +7,8 @@ class YearlyDetailsController < ApplicationController
   # GET /yearly_details
   # GET /yearly_details.json
   def index
-    @yearly_details = YearlyDetail.all
+  # @yearly_details = YearlyDetail.all
+    @yearly_details = YearlyDetail.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb

@@ -24,20 +24,20 @@
   <%= render :partial => 'yearly_detail_index', :locals => {:yearly_details=>YearlyDetail.find(:all, :order => "created_at DESC"), :f => f} %>
 </div>
 
-  <div class="field">
-    <%= f.label :linked_by %><br />
-    <%= f.text_field :linked_by %>
-  </div>
-  <div class="field">
-    <%= f.label :linked_amount %><br />
-    <%= f.text_field :linked_amount %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <%= f.hidden_field :linked_by, :value => current_user.email %>
+  <fieldset>
+  <legend>Amount and Comments</legend>
+    <div class="field">
+      <%= f.label :linked_amount %><br />
+      <%= f.text_field :linked_amount %>
+    </div>
+    <div class="field">
+      <%= f.label :comments %><br />
+      <%= f.text_area :comments %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  </fieldset>
 <% end %>
 

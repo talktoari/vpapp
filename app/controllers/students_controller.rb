@@ -7,7 +7,8 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+  # @students = Student.all
+    @students = Student.order(:created_at).page params[:page]
 
     respond_to do |format|
       format.html # index.html.erb
@@ -85,5 +86,6 @@ class StudentsController < ApplicationController
       format.json { head :ok }
     end
   end
+
 end
 
