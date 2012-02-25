@@ -1,14 +1,9 @@
-<%= link_to "Upload Donors", upload_donor_donors_path %>
+<%= link_to 'Export to EXCEL', search_results_donors_path(request.parameters.merge({:format => :xls})) %>
 
-<%= link_to 'Export to EXCEL', donors_path(request.parameters.merge({:format => :xls})) %>
-
-<h1>LISTING ALL DONORS INFORMATION</h1>
-<% if can? :create, @donor %>
-<%= link_to 'Add New Donor', new_donor_path %>
+<h1>Donor Search Results</h1>
+<% if current_user.role == "super_admin" %>
+  QUERY: <%= @donors.to_sql %>
 <% end %>
-<hr />
-<%= paginate @donors %>
-<hr />
 
 <table id="donors">
   <tr>
@@ -23,7 +18,8 @@
   <!-- But all needs to be shown for admin and moderator -->
   <% if (user_signed_in?) && (can? :read, donor) %>
 
-  <tr onMouseOver="this.className='highlight'" onMouseOut="this.className='normal'">
+  <!-- <tr onMouseOver="this.className='highlight'" onMouseOut="this.className='normal'"> -->
+  <tr>
     <td>
        <table id="container">
           <tr>
@@ -106,6 +102,4 @@
 
 <% end %>
 </table>
-<hr />
-<h4> Follow the Actions Column Links to perform any action on any Donor </h4>
 

@@ -10,10 +10,18 @@ class DonorsController < ApplicationController
   # @donors = Donor.all
     # Paginated Output with Kaminari
     @donors = Donor.order(:created_at).page params[:page]
+    @all_donors = Donor.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @donors }
+      format.xls {
+              send_data @all_donors.to_xls(:name => "Donors",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'all_donors.xls' }
     end
   end
 
@@ -130,6 +138,31 @@ class DonorsController < ApplicationController
       end
     end
     file.remove!
+  end
+
+  # Search and Find relevant records based on query
+  # Implemented using ransack gem
+  # Before calling the form page, new object of Ransack::Search
+  # for specific model needs to be created
+  def search
+    @search = Ransack::Search.new(Donor)
+  end
+
+  # Search Results
+  def search_results
+    @search = Donor.search(params[:q])
+    @donors = @search.result(:distinct => true)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @donors }
+      format.xls {
+              send_data @donors.to_xls(:name => "Donors",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'all_donors.xls' }
+    end
   end
 
 end

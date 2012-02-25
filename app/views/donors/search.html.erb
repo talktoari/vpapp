@@ -1,0 +1,35 @@
+
+<h1>Search and Find Donors </h1>
+<h4 id="alert">Leave fields blank if you don't want them to be used for search</h4>
+<%= search_form_for @search, url: search_results_donors_path do |f| %>
+<fieldset>
+<legend>Personal Attributes</legend>
+  <%= f.label :first_name_cont %>
+  <%= f.text_field :first_name_cont %>
+  <%= f.label :last_name_cont %>
+  <%= f.text_field :last_name_cont %>
+  <%= f.label :email_cont %>
+  <%= f.text_field :email_cont %>
+  Gender Matches
+  <%# <%= f.label :gender_matches %>
+  <%= f.select(:gender_matches, %w{Male Female}, :include_blank => true) %>
+  Donor Type Matches
+  <%# <%= f.label :donor_type_eq %>
+  <%= f.select(:donor_type_eq, %w{Individual VP_Alumni Institution Company Volunteer Overseas}, :include_blank => true) %>
+</fieldset>
+
+<fieldset>
+<legend>Location Attributes</legend>
+  <%= f.label :district_start %>
+  <%= f.text_field :district_start %>
+  <%= f.label :city_start %>
+  <%= f.text_field :city_start %>
+  <%= f.label :state_start %>
+  <%= f.text_field :state_start %>
+  <%= f.label :country_start %>
+  <%= f.text_field :country_start %>
+</fieldset>
+
+  <%= f.submit %>
+<% end %>
+

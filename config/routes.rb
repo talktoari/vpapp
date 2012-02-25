@@ -34,9 +34,13 @@ Vpapp::Application.routes.draw do
   resources :donors do
     get "upload_donor", :on => :collection
     get "upload_validate_donor", :on => :collection
+    get "search", :on => :collection
+    get "search_results", :on => :collection
     #get "remove_all", :on => :collection
     post "upload_donor", :on => :collection
     post "upload_validate_donor", :on => :collection
+    post "search", :on => :collection
+    post "search_results", :on => :collection
     #post "remove_all", :on => :collection
   end
 
