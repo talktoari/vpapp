@@ -9,10 +9,18 @@ class StudentsController < ApplicationController
   def index
   # @students = Student.all
     @students = Student.order(:created_at).page params[:page]
+    @all_students = Student.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @students }
+      format.xls {
+              send_data @all_students.to_xls(:name => "Students",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'All_Students.xls' }
     end
   end
 

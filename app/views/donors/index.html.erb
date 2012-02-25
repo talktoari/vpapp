@@ -1,8 +1,9 @@
+<h1>LISTING ALL DONORS INFORMATION</h1>
+
 <%= link_to "Upload Donors", upload_donor_donors_path %>
 
 <%= link_to 'Export to EXCEL', donors_path(request.parameters.merge({:format => :xls})) %>
 
-<h1>LISTING ALL DONORS INFORMATION</h1>
 <% if can? :create, @donor %>
 <%= link_to 'Add New Donor', new_donor_path %>
 <% end %>

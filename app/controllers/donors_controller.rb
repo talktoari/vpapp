@@ -21,7 +21,7 @@ class DonorsController < ApplicationController
               # :headers => ['NAME', 'ADDRESS', 'AGE'],
               :cell_format => {:color => :blue},
               :header_format => {:weight => :bold, :color => :red}),
-              :filename => 'all_donors.xls' }
+              :filename => 'All_Donors.xls' }
     end
   end
 
