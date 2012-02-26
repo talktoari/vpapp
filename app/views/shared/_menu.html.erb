@@ -1,0 +1,32 @@
+	<div class="menu">
+		<ul>
+			<li><%= link_to "Home", root_url, :id => "current" %></li>
+			<li><%= link_to "Donors", donors_path, :id => "current" %>
+				<ul>
+				  <li><%= link_to "List All Donors", donors_path %></li>
+					<li><%= link_to "Add New Donor", new_donor_path %></li>
+					<li><%= link_to "Search / Edit Donors", search_donors_path %></li>
+					<li><%= link_to "Link Donations to Students", new_donation_year_link_path %></li>
+			   </ul>
+		  </li>
+			<li><%= link_to "Students", students_path, :id => "current" %>
+				<ul>
+				  <li><%= link_to "List All Students", students_path %></li>
+					<li><%= link_to "Add New Student", new_student_path %></li>
+					<li><%= link_to "Search / Edit Students", search_students_path %></li>
+					<li><%= link_to "Link Students to Donations", new_donation_year_link_path %></li>
+			   </ul>
+		  </li>
+			<li><%= link_to "Search and Report", "#", :id => "current" %>
+				<ul>
+				  <li><%= link_to "Search Donors", search_donors_path %></li>
+					<li><%= link_to "Search Students", search_students_path %></li>
+					<li><%= link_to "Search Donations", search_donations_path %></li>
+					<li><%= link_to "Search Yearly Detail", search_yearly_details_path %></li>
+			   </ul>
+		  </li>
+		  <li><%= link_to "Login", home_choosepage_path %></li>
+			<li><a href="http://distinctnotion.com/index.php/contact">Contact</a>
+		</ul>
+	</div>
+

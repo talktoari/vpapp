@@ -15,7 +15,7 @@
     <h2 class="choose">Are you a New User?</h2>
     <h3 class="choose">Register by clicking below</h3>
     <%# Can pass like new_user_registration_path (:role => "donor") as well %>
-    <h2 class="choose"><%= link_to "REGISTER", { :controller => "users/registrations", :action => "new" }, :class => "choose" %></h2>
+    <h2 class="choose"><%= link_to "REGISTER", new_user_registration_path, :class => "choose" %></h2>
   </div>
 <% end %>
 <hr />
