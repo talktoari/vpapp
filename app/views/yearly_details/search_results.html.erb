@@ -1,0 +1,45 @@
+<h1>Yearly Details Search Results</h1>
+
+<%= link_to 'Export to EXCEL', search_results_yearly_details_path(request.parameters.merge({:format => :xls})) %>
+<br />
+<% if current_user.role == "super_admin" %>
+  QUERY: <%= @yearly_details.to_sql %>
+<% end %>
+<hr />
+
+<table id="donations">
+  <tr>
+  <% if current_user.role == "super_admin" %>
+    <th>ID</th>
+    <th>Student ID</th>
+  <% end %>
+    <th>Student Name</th>
+    <th>Year</th>
+    <th>Coll name</th>
+    <th>Result aggregate</th>
+    <th>Result year</th>
+    <th>Course</th>
+    <th>Stream</th>
+    <th>Amount total</th>
+    <th>Actions</th>
+  </tr>
+
+<% @yearly_details.each do |yearly_detail| %>
+  <tr>
+  <% if current_user.role == "super_admin" %>
+    <td><%= yearly_detail.id %></td>
+    <td><%= yearly_detail.student_id %></td>
+  <% end %>
+    <td><%= link_to "#{yearly_detail.student.first_name} #{yearly_detail.student.last_name}", yearly_detail.student %></td>
+    <td><%= link_to "#{yearly_detail.year}", yearly_detail %></td>
+    <td><%= yearly_detail.coll_name %></td>
+    <td><%= yearly_detail.result_aggregate %></td>
+    <td><%= yearly_detail.result_year %></td>
+    <td><%= yearly_detail.course %></td>
+    <td><%= yearly_detail.stream %></td>
+    <td><%= yearly_detail.amount_total %></td>
+    <td><%= link_to 'Edit', edit_yearly_detail_path(yearly_detail) %> | <%= link_to 'Destroy', yearly_detail, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+

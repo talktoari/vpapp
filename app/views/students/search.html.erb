@@ -3,10 +3,8 @@
 <%= search_form_for @search, url: search_results_students_path do |f| %>
 <fieldset>
 <legend>Personal Attributes</legend>
-  <%= f.label :first_name_cont %>
-  <%= f.text_field :first_name_cont %>
-  <%= f.label :last_name_cont %>
-  <%= f.text_field :last_name_cont %>
+  <%= f.label "Name Contains" %>
+  <%= f.text_field :first_name_or_last_name_cont %>
   <%= f.label :vp_id_cont %>
   <%= f.text_field :vp_id_cont %>
   <%= f.label :email_cont %>
@@ -32,15 +30,15 @@
 
 <fieldset>
 <legend>General Attributes</legend>
-  <%= f.label :total_family_income_gt %>
-  <%= f.text_field :total_family_income_gt %>
-  <%= f.label :total_family_income_lt %>
-  <%= f.text_field :total_family_income_lt %>
+  <%= f.label :total_family_income_gteq %>
+  <%= f.text_field :total_family_income_gteq %>
+  <%= f.label :total_family_income_lteq %>
+  <%= f.text_field :total_family_income_lteq %>
 
-  <%= f.label :sslc_percentage_gt %>
-  <%= f.text_field :sslc_percentage_gt %>
-  <%= f.label :sslc_percentage_lt %>
-  <%= f.text_field :sslc_percentage_lt %>
+  <%= f.label :sslc_percentage_gteq %>
+  <%= f.text_field :sslc_percentage_gteq %>
+  <%= f.label :sslc_percentage_lteq %>
+  <%= f.text_field :sslc_percentage_lteq %>
 
   Area Type
   <%= f.select(:area_type_matches, %w{Area1 Area2 Area3 Area4 Area5 Area6}, :include_blank => true) %>

@@ -1,0 +1,36 @@
+<h1>Search and Find Yearly Details </h1>
+<h4 id="alert">Leave fields blank if you don't want them to be used for search</h4>
+<%= search_form_for @search, url: search_results_yearly_details_path do |f| %>
+  <fieldset>
+  <legend>Main Attributes</legend>
+    <%= f.label "Year From" %>
+    <%= f.text_field :year_gteq %>
+    <%= f.label "Year To" %>
+    <%= f.text_field :year_lteq %>
+    <%= f.label :coll_name_cont %>
+    <%= f.text_field :coll_name_cont %>
+    <%= f.label :course_cont %>
+    <%= f.text_field :course_cont %>
+    <%= f.label :stream_cont %>
+    <%= f.text_field :stream_cont %>
+  </fieldset>
+
+  <fieldset>
+  <legend>Result and Amount Attributes</legend>
+    <%= f.label "Result % From" %>
+    <%= f.text_field :result_aggregate_gteq %>
+    <%= f.label "Result % To" %>
+    <%= f.text_field :result_aggregate_lteq %>
+    <%= f.label "Result Year From" %>
+    <%= f.text_field :result_year_gteq %>
+    <%= f.label "Result Year To" %>
+    <%= f.text_field :result_year_lteq %>
+    <%= f.label "Amount Total From" %>
+    <%= f.text_field :amount_total_gteq %>
+    <%= f.label "Amount Total To" %>
+    <%= f.text_field :amount_total_lteq %>
+  </fieldset>
+
+  <%= f.submit %>
+<% end %>
+

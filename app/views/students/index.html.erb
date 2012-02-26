@@ -12,12 +12,13 @@
 
 <table id="donations">
   <tr>
+  <% if current_user.role == "super_admin" %>
+    <th>Student ID</th>
+  <% end %>
+    <th>Name</th>
     <th>District</th>
     <th>Taluka</th>
-    <th>Vp</th>
-    <th>Student ID</th>
-    <th>First name</th>
-    <th>Last name</th>
+    <th>VP ID</th>
     <th>Father name</th>
     <th>Date of birth</th>
     <th>Email</th>
@@ -49,19 +50,18 @@
     <th>Studied medium</th>
     <th>Sslc percentage</th>
     <th>Comments</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @students.each do |student| %>
   <tr>
+  <% if current_user.role == "super_admin" %>
+    <td><%= student.id %></td>
+  <% end %>
+    <td><%= link_to "#{student.first_name} #{student.last_name}", student %></td>
     <td><%= student.district %></td>
     <td><%= student.taluka %></td>
     <td><%= student.vp_id %></td>
-    <td><%= student.id %></td>
-    <td><%= student.first_name %></td>
-    <td><%= student.last_name %></td>
     <td><%= student.father_name %></td>
     <td><%= student.date_of_birth %></td>
     <td><%= student.email %></td>
@@ -93,9 +93,10 @@
     <td><%= student.studied_medium %></td>
     <td><%= student.sslc_percentage %></td>
     <td><%= student.comments %></td>
-    <td><%= link_to 'Show', student %></td>
-    <td><%= link_to 'Edit', edit_student_path(student) %></td>
-    <td><%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <%= link_to 'Edit', edit_student_path(student) %> |
+      <%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %>
+    </td>
   </tr>
 <% end %>
 </table>

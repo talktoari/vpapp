@@ -3,12 +3,12 @@
 <%= search_form_for @search, url: search_results_donations_path do |f| %>
   <fieldset>
   <legend>Search Attributes</legend>
-  <%= f.label :amount_gt %>
-  <%= f.text_field :amount_gt %>
-  <%= f.label :amount_lt %>
-  <%= f.text_field :amount_lt %>
+  <%= f.label "Amount From" %>
+  <%= f.text_field :amount_gteq %>
+  <%= f.label "Amount To" %>
+  <%= f.text_field :amount_lteq %>
 
-  Purpose
+  <%= f.label "Purpose" %>
   <%= f.select(:purpose_matches, %w{Nurture_Merit Library Camp GFS}, :include_blank => true) %>
   <br />
   Donation Type

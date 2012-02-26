@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226061154) do
+ActiveRecord::Schema.define(:version => 20120226123433) do
 
   create_table "donation_year_links", :force => true do |t|
     t.integer  "donation_id"
@@ -150,7 +150,7 @@ ActiveRecord::Schema.define(:version => 20120226061154) do
 
   create_table "yearly_details", :force => true do |t|
     t.integer  "student_id"
-    t.string   "year"
+    t.integer  "year",                  :limit => 255
     t.string   "coll_name"
     t.string   "coll_address_line1"
     t.string   "coll_address_line2"
@@ -162,17 +162,17 @@ ActiveRecord::Schema.define(:version => 20120226061154) do
     t.text     "coll_full_address"
     t.string   "coll_primary_phone"
     t.string   "coll_additional_phone"
-    t.string   "result_odd"
-    t.string   "result_even"
-    t.string   "result_aggregate"
-    t.string   "result_year"
+    t.decimal  "result_odd"
+    t.decimal  "result_even"
+    t.decimal  "result_aggregate"
+    t.integer  "result_year",           :limit => 255
     t.string   "course"
     t.string   "stream"
-    t.decimal  "amount_fees",           :precision => 10, :scale => 2
-    t.decimal  "amount_donation",       :precision => 10, :scale => 2
-    t.decimal  "amount_bus_pass",       :precision => 10, :scale => 2
-    t.decimal  "amount_add_on",         :precision => 10, :scale => 2
-    t.decimal  "amount_total",          :precision => 12, :scale => 2
+    t.decimal  "amount_fees"
+    t.decimal  "amount_donation"
+    t.decimal  "amount_bus_pass"
+    t.decimal  "amount_add_on"
+    t.decimal  "amount_total"
     t.string   "chalan_number"
     t.string   "vr_number"
     t.boolean  "books_given"

@@ -1,5 +1,7 @@
 <h1>Listing Yearly Details for All Students</h1>
 
+<%= link_to 'Export to EXCEL', yearly_details_path(request.parameters.merge({:format => :xls})) %>
+
 <hr />
 <%= paginate @yearly_details %>
 <hr />

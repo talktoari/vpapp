@@ -4,6 +4,15 @@ Vpapp::Application.routes.draw do
 
   resources :donation_year_links
 
+  resources :yearly_details do
+    get "search", :on => :collection
+    get "search_results", :on => :collection
+    #get "remove_all", :on => :collection
+    post "search", :on => :collection
+    post "search_results", :on => :collection
+    #post "remove_all", :on => :collection
+  end
+
   resources :yearly_details
 
   get "users/index"

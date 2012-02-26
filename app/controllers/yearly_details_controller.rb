@@ -9,10 +9,18 @@ class YearlyDetailsController < ApplicationController
   def index
   # @yearly_details = YearlyDetail.all
     @yearly_details = YearlyDetail.order(:created_at).page params[:page]
+    @all_yearly_details = YearlyDetail.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @yearly_details }
+      format.xls {
+              send_data @all_yearly_details.to_xls(:name => "All_Yearly_Details",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'All_Yearly_Details.xls' }
     end
   end
 
@@ -88,5 +96,31 @@ class YearlyDetailsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # Search and Find relevant records based on query
+  # Implemented using ransack gem
+  # Before calling the form page, new object of Ransack::Search
+  # for specific model needs to be created
+  def search
+    @search = Ransack::Search.new(YearlyDetail)
+  end
+
+  # Search Results
+  def search_results
+    @search = YearlyDetail.search(params[:q])
+    @yearly_details = @search.result(:distinct => true)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @yearly_details }
+      format.xls {
+              send_data @yearly_details.to_xls(:name => "Found_Yearly_Details",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'Found_Yearly_Details.xls' }
+    end
+  end
+
 end
 

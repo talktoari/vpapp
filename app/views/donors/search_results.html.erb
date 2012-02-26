@@ -5,6 +5,7 @@
 <% if current_user.role == "super_admin" %>
   QUERY: <%= @donors.to_sql %>
 <% end %>
+<hr />
 
 <table id="donors">
   <tr>

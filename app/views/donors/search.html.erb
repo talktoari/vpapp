@@ -4,10 +4,8 @@
 <%= search_form_for @search, url: search_results_donors_path do |f| %>
 <fieldset>
 <legend>Personal Attributes</legend>
-  <%= f.label :first_name_cont %>
-  <%= f.text_field :first_name_cont %>
-  <%= f.label :last_name_cont %>
-  <%= f.text_field :last_name_cont %>
+  <%= f.label "Name Contains" %>
+  <%= f.text_field :first_name_or_last_name_cont %>
   <%= f.label :email_cont %>
   <%= f.text_field :email_cont %>
   Gender Matches
