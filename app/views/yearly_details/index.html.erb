@@ -58,9 +58,7 @@
     <th>Letter1 sent</th>
     <th>Letter2 sent</th>
     <th>Comments</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Actions</th>
   </tr>
 
 <% @yearly_details.each do |yearly_detail| %>
@@ -70,7 +68,7 @@
     <td><%= yearly_detail.student_id %></td>
   <% end %>
     <td><%= link_to "#{yearly_detail.student.first_name} #{yearly_detail.student.last_name}", yearly_detail.student %></td>
-    <td><%= yearly_detail.year %></td>
+    <td><%= link_to "#{yearly_detail.year}", yearly_detail %></td>
     <td><%= yearly_detail.coll_name %></td>
     <td><%= yearly_detail.coll_address_line1 %></td>
     <td><%= yearly_detail.coll_address_line2 %></td>
@@ -115,9 +113,10 @@
     <td><%= yearly_detail.letter1_sent %></td>
     <td><%= yearly_detail.letter2_sent %></td>
     <td><%= yearly_detail.comments %></td>
-    <td><%= link_to 'Show', yearly_detail %></td>
-    <td><%= link_to 'Edit', edit_yearly_detail_path(yearly_detail) %></td>
-    <td><%= link_to 'Destroy', yearly_detail, confirm: 'Are you sure?', method: :delete %></td>
+    <td>
+      <%= link_to 'Edit', edit_yearly_detail_path(yearly_detail) %> |
+      <%= link_to 'Destroy', yearly_detail, confirm: 'Are you sure?', method: :delete %>
+    </td>
   </tr>
 <% end %>
 </table>
