@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120221145716) do
+ActiveRecord::Schema.define(:version => 20120226061154) do
 
   create_table "donation_year_links", :force => true do |t|
     t.integer  "donation_id"
@@ -66,6 +66,19 @@ ActiveRecord::Schema.define(:version => 20120221145716) do
     t.datetime "updated_at"
   end
 
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
   create_table "student_donation_links", :force => true do |t|
     t.integer  "student_id"
     t.integer  "donation_id"
@@ -104,13 +117,13 @@ ActiveRecord::Schema.define(:version => 20120221145716) do
     t.string   "additional_phone"
     t.string   "father_occupation"
     t.string   "mother_occupation"
-    t.string   "total_family_income"
+    t.decimal  "total_family_income"
     t.string   "gender"
     t.string   "area_type"
     t.string   "caste"
     t.string   "category"
     t.string   "studied_medium"
-    t.string   "sslc_percentage"
+    t.decimal  "sslc_percentage"
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -187,3 +200,4 @@ ActiveRecord::Schema.define(:version => 20120221145716) do
   end
 
 end
+

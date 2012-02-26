@@ -11,7 +11,25 @@ Vpapp::Application.routes.draw do
   get "users/show"
   get "users/edit"
 
+  resources :students do
+    get "search", :on => :collection
+    get "search_results", :on => :collection
+    #get "remove_all", :on => :collection
+    post "search", :on => :collection
+    post "search_results", :on => :collection
+    #post "remove_all", :on => :collection
+  end
+
   resources :students
+
+  resources :donations do
+    get "search", :on => :collection
+    get "search_results", :on => :collection
+    #get "remove_all", :on => :collection
+    post "search", :on => :collection
+    post "search_results", :on => :collection
+    #post "remove_all", :on => :collection
+  end
 
   resources :donations
 

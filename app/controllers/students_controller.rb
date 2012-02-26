@@ -95,5 +95,30 @@ class StudentsController < ApplicationController
     end
   end
 
+  # Search and Find relevant records based on query
+  # Implemented using ransack gem
+  # Before calling the form page, new object of Ransack::Search
+  # for specific model needs to be created
+  def search
+    @search = Ransack::Search.new(Student)
+  end
+
+  # Search Results
+  def search_results
+    @search = Student.search(params[:q])
+    @students = @search.result(:distinct => true)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @students }
+      format.xls {
+              send_data @students.to_xls(:name => "Found_Students",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'Found_Students.xls' }
+    end
+  end
+
 end
 

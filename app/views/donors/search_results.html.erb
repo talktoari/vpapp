@@ -1,6 +1,7 @@
-<%= link_to 'Export to EXCEL', search_results_donors_path(request.parameters.merge({:format => :xls})) %>
+<h1>DONOR SEARCH RESULTS</h1>
 
-<h1>Donor Search Results</h1>
+<%= link_to 'Export to EXCEL', search_results_donors_path(request.parameters.merge({:format => :xls})) %>
+<br />
 <% if current_user.role == "super_admin" %>
   QUERY: <%= @donors.to_sql %>
 <% end %>

@@ -1,0 +1,58 @@
+<h1>Search and Find Students </h1>
+<h4 id="alert">Leave fields blank if you don't want them to be used for search</h4>
+<%= search_form_for @search, url: search_results_students_path do |f| %>
+<fieldset>
+<legend>Personal Attributes</legend>
+  <%= f.label :first_name_cont %>
+  <%= f.text_field :first_name_cont %>
+  <%= f.label :last_name_cont %>
+  <%= f.text_field :last_name_cont %>
+  <%= f.label :vp_id_cont %>
+  <%= f.text_field :vp_id_cont %>
+  <%= f.label :email_cont %>
+  <%= f.text_field :email_cont %>
+  Gender Matches
+  <%# <%= f.label :gender_matches %>
+  <%= f.select(:gender_matches, %w{Male Female}, :include_blank => true) %>
+</fieldset>
+
+<fieldset>
+<legend>Location Attributes</legend>
+  <%= f.label :district_start %>
+  <%= f.text_field :district_start %>
+  <%= f.label :taluka_start %>
+  <%= f.text_field :taluka_start %>
+  <%= f.label :pmt_city_start %>
+  <%= f.text_field :pmt_city_start %>
+  <%= f.label :pmt_state_start %>
+  <%= f.text_field :pmt_state_start %>
+  <%= f.label :pmt_country_start %>
+  <%= f.text_field :pmt_country_start %>
+</fieldset>
+
+<fieldset>
+<legend>General Attributes</legend>
+  <%= f.label :total_family_income_gt %>
+  <%= f.text_field :total_family_income_gt %>
+  <%= f.label :total_family_income_lt %>
+  <%= f.text_field :total_family_income_lt %>
+
+  <%= f.label :sslc_percentage_gt %>
+  <%= f.text_field :sslc_percentage_gt %>
+  <%= f.label :sslc_percentage_lt %>
+  <%= f.text_field :sslc_percentage_lt %>
+
+  Area Type
+  <%= f.select(:area_type_matches, %w{Area1 Area2 Area3 Area4 Area5 Area6}, :include_blank => true) %>
+  Studied Medium
+  <%= f.select(:studied_medium_matches, %w{English Hindi Kannada Marathi Others}, :include_blank => true) %>
+  <br />
+  Caste
+  <%= f.select(:caste_matches, %w{Caste1 Caste2 Caste3 Caste4 Caste5 Caste6}, :include_blank => true) %>
+  Category
+  <%= f.select(:category_matches, %w{Category1 Category2 Category3 Category4 Category5 Category6}, :include_blank => true) %>
+</fieldset>
+
+  <%= f.submit %>
+<% end %>
+

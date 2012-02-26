@@ -1,0 +1,22 @@
+<h1>Search and Find Donations </h1>
+<h4 id="alert">Leave fields blank if you don't want them to be used for search</h4>
+<%= search_form_for @search, url: search_results_donations_path do |f| %>
+  <fieldset>
+  <legend>Search Attributes</legend>
+  <%= f.label :amount_gt %>
+  <%= f.text_field :amount_gt %>
+  <%= f.label :amount_lt %>
+  <%= f.text_field :amount_lt %>
+
+  Purpose
+  <%= f.select(:purpose_matches, %w{Nurture_Merit Library Camp GFS}, :include_blank => true) %>
+  <br />
+  Donation Type
+  <%= f.select(:donation_type_matches, %w{Online Cash Cheque DD}, :include_blank => true) %>
+  Status
+  <%= f.select(:status_matches, %w{Donated Approved Failed}, :include_blank => true) %>
+  </fieldset>
+
+  <%= f.submit %>
+<% end %>
+

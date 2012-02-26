@@ -1,9 +1,10 @@
-<h1>Listing All Donations</h1>
+<h1>DONATION SEARCH RESULTS</h1>
 
-<%= link_to 'Export to EXCEL', donations_path(request.parameters.merge({:format => :xls})) %>
-
-<hr />
-<%= paginate @donations %>
+<%= link_to 'Export to EXCEL', search_results_donations_path(request.parameters.merge({:format => :xls})) %>
+<br />
+<% if current_user.role == "super_admin" %>
+  QUERY: <%= @donations.to_sql %>
+<% end %>
 <hr />
 
 <table id="donations">
@@ -43,6 +44,4 @@
 </table>
 
 <br />
-
-<%= link_to 'New Donation', new_donation_path %>
 

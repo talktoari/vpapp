@@ -156,12 +156,12 @@ class DonorsController < ApplicationController
       format.html # index.html.erb
       format.json { render json: @donors }
       format.xls {
-              send_data @donors.to_xls(:name => "Donors",
+              send_data @donors.to_xls(:name => "Found_Donors",
               # :columns => [:name, :address, :age],
               # :headers => ['NAME', 'ADDRESS', 'AGE'],
               :cell_format => {:color => :blue},
               :header_format => {:weight => :bold, :color => :red}),
-              :filename => 'all_donors.xls' }
+              :filename => 'Found_Donors.xls' }
     end
   end
 

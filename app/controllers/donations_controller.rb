@@ -9,10 +9,18 @@ class DonationsController < ApplicationController
   def index
   # @donations = Donation.all
     @donations = Donation.order(:created_at).page params[:page]
+    @all_donations = Donation.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @donations }
+      format.xls {
+              send_data @all_donations.to_xls(:name => "Donations",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'All_Donations.xls' }
     end
   end
 
@@ -88,5 +96,31 @@ class DonationsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  # Search and Find relevant records based on query
+  # Implemented using ransack gem
+  # Before calling the form page, new object of Ransack::Search
+  # for specific model needs to be created
+  def search
+    @search = Ransack::Search.new(Donation)
+  end
+
+  # Search Results
+  def search_results
+    @search = Donation.search(params[:q])
+    @donations = @search.result(:distinct => true)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @donations }
+      format.xls {
+              send_data @donations.to_xls(:name => "Found_Donations",
+              # :columns => [:name, :address, :age],
+              # :headers => ['NAME', 'ADDRESS', 'AGE'],
+              :cell_format => {:color => :blue},
+              :header_format => {:weight => :bold, :color => :red}),
+              :filename => 'Found_Donations.xls' }
+    end
+  end
+
 end
 
