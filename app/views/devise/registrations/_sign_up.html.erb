@@ -15,7 +15,11 @@
   <%= f.password_field :password_confirmation %></div>
 
   <div><%= f.label :role %>
-  <%= f.collection_select :role, User::ROLES, :to_s, :humanize %></div>
+  <% if (user_signed_in?) && (current_user.role == "super_admin") %>
+    <%= f.collection_select :role, User::ROLESADM, :to_s, :humanize %></div>
+  <% else %>
+    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %></div>
+  <% end %>
 
   <br />
   <div><%= f.submit "Sign up" %></div>

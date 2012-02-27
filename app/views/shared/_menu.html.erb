@@ -25,8 +25,23 @@
 					<li><%= link_to "Search Yearly Detail", search_yearly_details_path %></li>
 			   </ul>
 		  </li>
-		  <li><%= link_to "Login", home_choosepage_path %></li>
-			<li><a href="http://distinctnotion.com/index.php/contact">Contact</a>
+		<% if (user_signed_in?) && (current_user.role == "super_admin") %>
+			<li><%= link_to "Super Admin", "#", :id => "current" %>
+				<ul>
+				  <li><%= link_to "List All Users", users_path %></li>
+					<li><%= link_to "Add New User", new_user_path %></li>
+					<li><%= link_to "List Donations", donations_path %></li>
+					<li><%= link_to "List Yearly Details", yearly_details_path %></li>
+					<li><%= link_to "List All Links", donation_year_links_path %></li>
+			   </ul>
+		  </li>
+		<% end %>
+		  <li><a href="http://distinctnotion.com/index.php/contact">Contact</a>
+		<% if (user_signed_in?) %>
+		  <li><%= link_to "LOGOUT", destroy_user_session_path %></li>
+		<% else %>
+      <li><%= link_to "LOGIN", new_user_session_path %></li>
+		<% end %>
 		</ul>
 	</div>
 

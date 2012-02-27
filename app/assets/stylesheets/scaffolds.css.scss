@@ -185,3 +185,19 @@ div {
 		clear:left;
 		}
 
+/*this is what we want the signup signin link div to look like*/
+div.loginout{
+ display:block;
+
+ /*set the div in the top right corner*/
+ position:absolute;
+ top:0;
+ right:0;
+ margin:10px 10px 20px 0px;
+
+ /*give it some background and border*/
+ background:#2580a2;
+ color:#ffffff;
+ border:2px solid #000;
+}
+

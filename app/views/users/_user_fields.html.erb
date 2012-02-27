@@ -2,5 +2,9 @@
   <p><%= f.text_field :email %></p>
 
   <p><%= f.label :role %></p>
-  <p><%= f.collection_select :role, User::ROLES, :to_s, :humanize %></p>
+  <% if (user_signed_in?) && (current_user.role == "super_admin") %>
+    <p><%= f.collection_select :role, User::ROLESADM, :to_s, :humanize %></p>
+  <% else %>
+    <p><%= f.collection_select :role, User::ROLES, :to_s, :humanize %></p>
+  <% end %>
 

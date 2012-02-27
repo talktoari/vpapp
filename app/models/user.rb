@@ -14,7 +14,9 @@ class User < ActiveRecord::Base
   # accepts_nested_attributes_for :donor
 
   # Roles for the users
-  ROLES = %w[super_admin admin moderator general donor author banned]
+  # Only superadmin will have permission to add another super admin
+  ROLES = %w[admin moderator general donor author banned]
+  ROLESADM = %w[super_admin admin moderator general donor author banned]
 
   # Validate that email password and role is present for each user
   validates_presence_of :email, :role

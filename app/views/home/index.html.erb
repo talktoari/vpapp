@@ -1,53 +1,39 @@
-<h1>Congratulations..</h1>
-<p> Seeing this page means you have successfully configured your rails to the github. Now get familiar with the git working instructions to operate and use it in an efficient way</p>
+<h2>Welcome to Vidya Poshak management System (VPMS)</h2>
+<hr />
+<p>You can manage each and every detail of the following aspects in this system. To start with, please go ahead and click the LOGIN menu item to login to the system. This is needed to ensure that all the data is prevented and authenticated before any modification is made to them.</p>
 <hr/>
-<h2>The DONOR main framework has been made ready and can be accessed below</h2>
-<h2 class="choose"><%= link_to "All Donors", donors_path, :class => "choose" %></h2>
-<h2 class="choose"><%= link_to "User Page", { :controller=>"home", :action => "choosepage" }, :class => "choose" %></h2>
-<h3>Authentication Mechanism is also incorporated for Login/Register for users and admins. The privillege levels are also setup. Use the following details to see the demonstration of privillege levels.</h3>
+<h2>Features At A Glance</h2>
+<ul>
+  <li>Full Management of Donor and Students Data</li>
+  <li>Full Management of multiple Donations for each Donor</li>
+  <li>Full Tracking of Student's detail on a Yearly Basis</li>
+  <li>Linking of Donations to Students</li>
+  <li>Paginated Display of Records</li>
+  <li>Role Based Create, Update and Destroy Functionality</li>
+  <li>Custom Reporting and Filtering For:</li>
+    <ul>
+      <li>Donors</li>
+      <li>Students</li>
+      <li>Donations</li>
+    </ul>
+  <li>Provision for Data Import using Excel Upload (for Donors)</li>
+  <li>Provision for Data Export to Excel for All Reports</li>
+  <li>Custom Administration</li>
+  <li>Additional Super Admin Control</li>
+</ul>
+<hr />
+
+<h2>Authentication Mechanism</h2>
+<p> Authentication is also incorporated for Login/Register for Users and Admins. The privillege levels are also setup. Use the following details to see the demonstration of privillege levels.</p>
 <pre>
 Login               Privillege        Permissions
 ------------------------------------------------------------------------------
-ari@de.com          General User      Read All. Update his own data
-de@ari.com          Moderator         Read All. Update All. No Create/Destroy
-arijit@admin.com    Admin             All permissions
+arijit@superadmin.com SuperAdmin      All permissions
+arijit@admin.com      Admin           All permissions (except Deleting Users)
+de@ari.com            Moderator       Read All. Update All. No Create/Destroy
+arijit@general.com    General         Only Read permissions
 
 Password same for all accounts - "arijit"
 
 </pre>
-<hr/>
-<h2>Useful GIT and Heroku Instructions</h2>
-<p>
-<pre>
-Global setup:
- Set up git
-  git config --global user.name "Your Name"
-  git config --global user.email talktoari@gmail.com
-
-Next steps:
-  mkdir vpapp
-  cd vpapp
-  git init
-  touch README
-  git add README
-  git commit -m 'first commit'
-  git remote add origin git@github.com:talktoari/vpapp.git
-  git push -u origin master
-
-Existing Git Repo?
-  cd existing_git_repo
-  git remote add origin git@github.com:talktoari/vpapp.git
-  git push -u origin master
-
-Heroku Commands
-  git push heroku master
-  heroku db:push
-
-Precompile Assets
-  bundle exec rake assets:precompile
-</pre>
-</p>
-<hr/>
-<h3>I am Home#index</h3>
-<p>Find me in app/views/home/index.html.erb</p>
 

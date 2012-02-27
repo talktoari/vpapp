@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Vpapp</title>
+  <title>Welcome to Vidya Poshak Management System</title>
   <%= stylesheet_link_tag    "application" %>
   <%= stylesheet_link_tag    "stylesheets/default.css" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<h1><%= link_to "Vidya Poshak Management System", root_url %></h1>
   <!-- Common Menu for all pages of the application -->
   <%= render "shared/menu" %>
 
@@ -23,6 +24,9 @@
 
 <%= yield %>
 
+<hr />
+<h4>Copyright 2012 <a href="http://www.vidyaposhak.org.in">VidyaPoshak</a>. All Rights Reserved.</h4>
+<h4>Powered By: <a href="http://www.distinctnotion.com">Distinct Notion</a></h4>
 </body>
 </html>
 

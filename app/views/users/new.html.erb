@@ -1,5 +1,7 @@
-<h2>Register User</h2>
+<h2>Add New User</h2>
 
+<fieldset>
+<legend>Fill This User Form</legend>
 <%= form_for(@user) do |f| %>
   <%#<%= error_messages(@user,"Could not register user") %>
 
@@ -13,7 +15,5 @@
 
   <p><%= f.submit "Register" %></p>
 <% end %>
-
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+</fieldset>
 

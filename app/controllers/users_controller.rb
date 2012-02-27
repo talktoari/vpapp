@@ -132,7 +132,12 @@ class UsersController < ApplicationController
   #----------------------------------------------------
   def accessible_roles
     #@accessible_roles = Role.accessible_by(current_ability,:read)
-    @accessible_roles = User::ROLES
+    # For super admin accessible roles is different
+    if (user_signed_in?) && (current_user.role == "super_admin")
+      @accessible_roles = User::ROLESADM
+    else
+      @accessible_roles = User::ROLES
+    end
   end
 
   # Make the current user object available to views
