@@ -6,20 +6,28 @@
 <%= paginate @users %>
 <hr />
 
-<table>
+<table id="donations">
   <tr>
     <th>Email</th>
     <th>Role</th>
     <th>Created_At</th>
+    <% if can? :update, User %>
+      <th>Actions</th>
+    <% end %>
   </tr>
 <% @users.each do |u| %>
   <tr>
     <td><%= link_to_if(can?(:read, User), "#{u.email}", user_path(u.id)) {} %></td>
     <td><%= "#{u.role}" %></td>
     <td><%= "#{u.created_at}" %></td>
-    <td><%= link_to_if(can?(:edit, User), "Edit", edit_user_path(u.id)) {} %></td>
-    <td><%= link_to_if(can?(:delete, u), "Destroy", u, :confirm => "Are you sure?", :method => :delete) {} %></td>
+    <% if can? :update, User %>
+      <td>
+      <%= link_to "Edit", edit_user_path(u.id) %>
+      <% if can? :destroy, User %>
+        | <%= link_to "Destroy", u, :confirm => "Are you sure?", :method => :delete %>
+      <% end %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
-<h3><%= link_to_if(can?(:create, User), "Add User", new_user_path) {} %></h3>
 

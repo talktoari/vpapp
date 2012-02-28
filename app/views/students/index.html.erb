@@ -2,8 +2,8 @@
 
 <%= link_to 'Export to EXCEL', students_path(request.parameters.merge({:format => :xls})) %>
 
-<% if can? :create, @student %>
-<%= link_to 'Add New Student', new_student_path %>
+<% if can? :create, Student %>
+  <%= link_to 'Add New Student', new_student_path %>
 <% end %>
 
 <hr />
@@ -50,7 +50,9 @@
     <th>Studied medium</th>
     <th>Sslc percentage</th>
     <th>Comments</th>
-    <th>Actions</th>
+    <% if can? :update, Student %>
+      <th>Actions</th>
+    <% end %>
   </tr>
 
 <% @students.each do |student| %>
@@ -93,15 +95,17 @@
     <td><%= student.studied_medium %></td>
     <td><%= student.sslc_percentage %></td>
     <td><%= student.comments %></td>
-    <td>
-      <%= link_to 'Edit', edit_student_path(student) %> |
-      <%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %>
-    </td>
+    <% if can? :update, Student %>
+      <td>
+        <%= link_to 'Edit', edit_student_path(student) %>
+        <% if can? :destroy, Student %>
+          | <%= link_to 'Destroy', student, confirm: 'Are you sure?', method: :delete %>
+        <% end %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Student', new_student_path %>
 

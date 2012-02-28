@@ -18,9 +18,9 @@
     <th>Donation Type</th>
     <th>Purpose</th>
     <th>Comment</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% if can? :update, Donation %>
+      <th>Actions</th>
+    <% end %>
   </tr>
 
 <% @donations.each do |donation| %>
@@ -30,19 +30,25 @@
     <td><%= donation.donor_id %></td>
   <% end %>
     <td><%= link_to "#{donation.donor.first_name} #{donation.donor.last_name}", donation.donor %></td>
-    <td><%= donation.amount %></td>
+    <td><%= link_to "#{donation.amount}", donation %></td>
     <td><%= donation.status %></td>
     <td><%= donation.donation_type %></td>
     <td><%= donation.purpose %></td>
     <td><%= donation.comment %></td>
-    <td><%= link_to 'Show', donation %></td>
-    <td><%= link_to 'Edit', edit_donation_path(donation) %></td>
-    <td><%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %></td>
+    <% if can? :update, Donation %>
+      <td>
+      <%= link_to 'Edit', edit_donation_path(donation) %>
+      <% if can? :destroy, Donation %>
+        | <%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
-
-<%= link_to 'New Donation', new_donation_path %>
+<% if can? :create, Donation %>
+  <%= link_to 'New Donation', new_donation_path %>
+<% end %>
 

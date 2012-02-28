@@ -26,7 +26,7 @@
 			   </ul>
 		  </li>
 		<% if (user_signed_in?) && (current_user.role == "super_admin") %>
-			<li><%= link_to "Super Admin", "#", :id => "current" %>
+			<li><%= link_to "Super Admin", rails_admin_path, :id => "current" %>
 				<ul>
 				  <li><%= link_to "List All Users", users_path %></li>
 					<li><%= link_to "Add New User", new_user_path %></li>
@@ -38,7 +38,7 @@
 		<% end %>
 		  <li><a href="http://distinctnotion.com/index.php/contact">Contact</a>
 		<% if (user_signed_in?) %>
-		  <li><%= link_to "LOGOUT", destroy_user_session_path %></li>
+		  <li><%= link_to "LOGOUT", destroy_user_session_path, :method => :delete %></li>
 		<% else %>
       <li><%= link_to "LOGIN", new_user_session_path %></li>
 		<% end %>

@@ -54,7 +54,6 @@ Vpapp::Application.routes.draw do
 
   # Custom route for satisfying devise authentication user sign_out
   devise_scope :user do
-    match 'users' => 'my_devise/registrations#index'
     get 'users/sign_out', :to => 'devise/sessions#destroy', as: 'destroy_user_session'
   end
 

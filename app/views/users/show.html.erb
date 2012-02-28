@@ -1,7 +1,10 @@
 <h3>Showing Details for User: <%= @user.email %></h3>
-
-<%= link_to_if(can?(:update,@user), "Edit", edit_user_path(@user)) %> |
-<%= link_to_if(can?(:delete, @user), "Delete", user_path(@user), :confirm => "Are you sure?", :method => :delete) {} %>
+<% if can? :update, User %>
+<%= link_to "Edit", edit_user_path(@user) %>
+  <% if can? :destroy, User %>
+    | <%= link_to "Delete", user_path(@user), :confirm => "Are you sure?", :method => :delete %>
+  <% end %>
+<% end %>
 
 <table>
 	<tbody>
@@ -29,8 +32,4 @@
 	<% end %>
 	</tbody>
 </table>
-
-
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
 

@@ -9,6 +9,9 @@
     <th>Aggregate (Year)</th>
     <th>Amount total</th>
     <th>Comments</th>
+    <% if can? :update, YearlyDetail %>
+      <th>Actions</th>
+    <% end %>
   </tr>
 
 <% yearly_details.each do |yearly_detail| %>
@@ -18,6 +21,14 @@
     <td><%= yearly_detail.result_aggregate %> (<%= yearly_detail.result_year %>)</td>
     <td><%= yearly_detail.amount_total %></td>
     <td><%= yearly_detail.comments %></td>
+    <% if can? :update, YearlyDetail %>
+      <td>
+      <%= link_to 'Edit', edit_yearly_detail_path(yearly_detail) %>
+      <% if can? :destroy, YearlyDetail %>
+        | <%= link_to 'Destroy', yearly_detail, confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+      </td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -4,8 +4,8 @@
 
 <%= link_to 'Export to EXCEL', donors_path(request.parameters.merge({:format => :xls})) %>
 
-<% if can? :create, @donor %>
-<%= link_to 'Add New Donor', new_donor_path %>
+<% if can? :create, Donor %>
+  <%= link_to 'Add New Donor', new_donor_path %>
 <% end %>
 <hr />
 <%= paginate @donors %>
@@ -16,7 +16,9 @@
     <th>Donor Details</th>
     <th>Contact Details</th>
     <th>Address Details</th>
-    <th>Actions</th>
+    <% if can? :update, Donor %>
+      <th>Actions</th>
+    <% end %>
   </tr>
 
 <% @donors.each do |donor| %>
@@ -29,7 +31,7 @@
        <table id="container">
           <tr>
           <td>Name:</td>
-          <td colspan="4"><%= donor.title %> <%= donor.first_name %> <%= donor.last_name %></td>
+          <td colspan="4"><%= link_to "#{donor.title} #{donor.first_name} #{donor.last_name}", donor %></td>
           </tr>
           <tr>
           <td>DOB:</td>
@@ -91,16 +93,14 @@
           </tr>
        </table>
     </td>
-    <td>
-        <%= link_to 'Show', donor %>
-
-        <% if can? :update, donor %>
-          | <%= link_to 'Edit', edit_donor_path(donor) %>
-        <% end %>
-        <% if can? :destroy, donor %>
-          | <%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %>
-        <% end %>
-    </td>
+    <% if can? :update, Donor %>
+      <td>
+      <%= link_to 'Edit', edit_donor_path(donor) %>
+      <% if can? :destroy, Donor %>
+        | <%= link_to 'Destroy', donor, confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+      </td>
+    <% end %>
   <tr>
 
     <% end %>
@@ -108,5 +108,4 @@
 <% end %>
 </table>
 <hr />
-<h4> Follow the Actions Column Links to perform any action on any Donor </h4>
 

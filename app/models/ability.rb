@@ -44,12 +44,13 @@ class Ability
       can :manage, :all
     elsif user.role == "admin"
       can :manage, [Donor, Donation, Student, YearlyDetail, DonationYearLink]
-      can :read, User
+      can [:read, :update], User
     elsif user.role == "moderator"
       can [:read, :update], [Donor, Donation, Student, YearlyDetail, DonationYearLink]
       can :read, User
     elsif user.role == "general"
       can :read, [Donor, Donation, Student, YearlyDetail, DonationYearLink]
+      cannot [:read, :update, :destroy], User
     else
 #      can :read, Donor do |donor|
 #        donor.try(:email) == user.email

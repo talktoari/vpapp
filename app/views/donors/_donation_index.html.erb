@@ -9,8 +9,8 @@
     <th>Purpose</th>
     <th>Comment</th>
     <th>Donated At</th>
-    <% if can? :update, @donation %>
-    <th>Actions</th>
+    <% if can? :update, Donation %>
+      <th>Actions</th>
     <% end %>
   </tr>
 
@@ -22,14 +22,14 @@
     <td><%= donation.purpose %></td>
     <td><%= donation.comment %></td>
     <td><%= donation.created_at %></td>
-    <td>
-    <% if can? :update, donation %>
+    <% if can? :update, Donation %>
+      <td>
       <%= link_to 'Edit', edit_donation_path(donation) %>
+      <% if can? :destroy, Donation %>
+        | <%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %>
+      <% end %>
+      </td>
     <% end %>
-    <% if can? :destroy, donation %>
-      | <%= link_to 'Destroy', donation, confirm: 'Are you sure?', method: :delete %>
-    <% end %>
-    </td>
   </tr>
 <% end %>
 </table>

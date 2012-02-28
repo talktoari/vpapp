@@ -182,13 +182,15 @@
   </fieldset>
 
 <% end %>
-
-<%= link_to 'Edit', edit_student_path(@student) %> |
-<%= link_to 'Back', students_path %>
+<% if can? :update, Student %>
+  <%= link_to 'Edit', edit_student_path(@student) %> |
+<% end %>
+<%= link_to 'Back', :back %>
 
 <%= render :partial => 'yearly_detail_index', :locals => {:yearly_details => @student.yearly_details} %>
-
-<%= render :partial => 'yearly_detail_new', :locals => {:yearly_detail=>YearlyDetail.new(:student_id => @student.id)} %>
+<% if can? :create, YearlyDetail %>
+  <%= render :partial => 'yearly_detail_new', :locals => {:yearly_detail=>YearlyDetail.new(:student_id => @student.id)} %>
+<% end %>
 
 <%-# Get the list of all unique students for this donor using the below logic -%>
 <% all_yearly_details = @student.yearly_details %>

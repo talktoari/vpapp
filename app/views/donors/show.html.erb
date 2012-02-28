@@ -86,20 +86,22 @@ ID: <%= @donor.id %>
 </fieldset>
 
 <fieldset>
-<legend> Your comment here</legend>
+<legend> Your Comment Here</legend>
   <div class="field">
     <%= f.text_area :comment, :disabled => true %>
   </div>
 </fieldset>
 <% end %>
 
-<% if can? :update, @donor %>
-<%= link_to 'Edit', edit_donor_path(@donor) %> |
+<% if can? :update, Donor %>
+  <%= link_to 'Edit', edit_donor_path(@donor) %> |
 <% end %>
-<%= link_to 'Back', donors_path %>
+<%= link_to 'Back', :back %>
 
 <%= render :partial => 'donation_index', :locals => {:donations=>@donor.donations} %>
-<%= render :partial => 'donation_new', :locals => {:donation=>Donation.new(:donor_id => @donor.id)} %>
+<% if can? :create, Donation %>
+  <%= render :partial => 'donation_new', :locals => {:donation=>Donation.new(:donor_id => @donor.id)} %>
+<% end %>
 
 <%# Get the list of all unique students for this donor using the below logic -%>
 <% all_donations = @donor.donations %>
