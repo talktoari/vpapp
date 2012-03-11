@@ -1,0 +1,23 @@
+<h1>Listing student_parent_occupations</h1>
+
+<table>
+  <tr>
+    <th>Occupation name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @student_parent_occupations.each do |student_parent_occupation| %>
+  <tr>
+    <td><%= student_parent_occupation.occupation_name %></td>
+    <td><%= link_to 'Show', student_parent_occupation %></td>
+    <td><%= link_to 'Edit', edit_student_parent_occupation_path(student_parent_occupation) %></td>
+    <td><%= link_to 'Destroy', student_parent_occupation, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student parent occupation', new_student_parent_occupation_path %>

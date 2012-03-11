@@ -15,11 +15,13 @@
   <legend>Official Information</legend>
     <div class="field">
       <%= f.label :district %>
-      <%= f.select(:district, %w{Dharwad Bengaluru Belgaum Raigad Kolhapur Hubli}) %>
+      <%= f.select(:district, %w{Dharwad Bengaluru Belgaum Raigad Kolhapur Hubli},
+      :prompt => "Select District", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label :taluka %>
-      <%= f.select(:taluka, %w{Taluka1 Taluka2 Taluka3 Taluka4 Taluka5 Taluka6}) %>
+      <%= f.select(:taluka, %w{Taluka1 Taluka2 Taluka3 Taluka4 Taluka5 Taluka6},
+      :prompt => "Select Taluka", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label "VP ID" %>
@@ -50,7 +52,9 @@
     </div>
     <div class="field">
       <%= f.label :date_of_birth %>
-      <%= f.date_select :date_of_birth %>
+      <%= f.date_select :date_of_birth, :start_year => 1970, :end_year => Time.now.year,
+          :order => [:day, :month, :year],
+          :prompt => true %>
     </div>
   </fieldset>
 
@@ -62,11 +66,17 @@
     </div>
     <div class="field">
       <%= f.label :father_occupation %>
-      <%= f.select(:father_occupation, %w{Occupation1 Occupation2 Occupation3 Occupation4 Occupation5 Occupation6}) %>
+      <%= f.collection_select :father_occupation,
+          StudentParentOccupation.all(:order => 'occupation_name'),
+          :occupation_name, :occupation_name,
+          :prompt => "Select Father's Occupation", :include_blank => true %>
     </div><br />
     <div class="field">
       <%= f.label :mother_occupation %>
-      <%= f.select(:mother_occupation, %w{Occupation1 Occupation2 Occupation3 Occupation4 Occupation5 Occupation6}) %>
+      <%= f.collection_select :mother_occupation,
+          StudentParentOccupation.all(:order => 'occupation_name'),
+          :occupation_name, :occupation_name,
+          :prompt => "Select Mother's Occupation", :include_blank => true %>
     </div><br />
     <div class="field">
       <%= f.label "Total Income" %>
@@ -78,19 +88,29 @@
   <legend>Additional Information</legend>
     <div class="field">
       <%= f.label :area_type %>
-      <%= f.select(:area_type, %w{Area1 Area2 Area3 Area4 Area5 Area6}) %>
+      <%= f.collection_select :area_type,
+          StudentAreaType.all(:order => 'area_type_name'),
+          :area_type_name, :area_type_name,
+          :prompt => "Select Area Type", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :caste %>
-      <%= f.select(:caste, %w{Caste1 Caste2 Caste3 Caste4 Caste5 Caste6}) %>
+      <%= f.collection_select :caste,
+          StudentCaste.all, :caste_name, :caste_name,
+          :prompt => "Select Caste", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :category %>
-      <%= f.select(:category, %w{Category1 Category2 Category3 Category4 Category5 Category6}) %>
+      <%= f.collection_select :category,
+          StudentCategory.all, :category_name, :category_name,
+          :prompt => "Select Category", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :studied_medium %>
-      <%= f.select(:category, %w{English Hindi Kannada Marathi Others}) %>
+      <%= f.collection_select :studied_medium,
+          StudentStudyMed.all(:order => 'medium_name'),
+          :medium_name, :medium_name,
+          :prompt => "Select Study Medium", :include_blank => true %>
     </div><br />
     <div class="field">
       <%= f.label "SSLC %age" %>
@@ -114,15 +134,18 @@
     </div>
     <div class="field">
       <%= f.label "City" %>
-      <%= f.select(:pmt_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
+      <%= f.select(:pmt_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
+      :prompt => "Select City", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label "State" %>
-      <%= f.select(:pmt_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
+      <%= f.select(:pmt_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
+      :prompt => "Select State", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label "Country" %>
-      <%= f.select(:pmt_country, %w{India USA China}) %>
+      <%= f.select(:pmt_country, %w{India USA China},
+      :prompt => "Select Country", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label "Pincode" %>
@@ -150,15 +173,18 @@
     </div>
     <div class="field">
       <%= f.label "City" %>
-      <%= f.select(:cur_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
+      <%= f.select(:cur_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
+      :prompt => "Select City", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label "State" %>
-      <%= f.select(:cur_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
+      <%= f.select(:cur_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
+      :prompt => "Select State", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label "Country" %>
-      <%= f.select(:cur_country, %w{India USA China}) %>
+      <%= f.select(:cur_country, %w{India USA China},
+      :prompt => "Select Country", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label "Pincode" %>

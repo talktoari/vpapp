@@ -1,0 +1,23 @@
+<h1>Listing student_castes</h1>
+
+<table>
+  <tr>
+    <th>Caste name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @student_castes.each do |student_caste| %>
+  <tr>
+    <td><%= student_caste.caste_name %></td>
+    <td><%= link_to 'Show', student_caste %></td>
+    <td><%= link_to 'Edit', edit_student_caste_path(student_caste) %></td>
+    <td><%= link_to 'Destroy', student_caste, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student caste', new_student_caste_path %>

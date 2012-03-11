@@ -1,0 +1,23 @@
+<h1>Listing student_categories</h1>
+
+<table>
+  <tr>
+    <th>Category name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @student_categories.each do |student_category| %>
+  <tr>
+    <td><%= student_category.category_name %></td>
+    <td><%= link_to 'Show', student_category %></td>
+    <td><%= link_to 'Edit', edit_student_category_path(student_category) %></td>
+    <td><%= link_to 'Destroy', student_category, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student category', new_student_category_path %>

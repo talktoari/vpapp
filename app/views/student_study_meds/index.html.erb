@@ -1,0 +1,23 @@
+<h1>Listing student_study_meds</h1>
+
+<table>
+  <tr>
+    <th>Medium name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @student_study_meds.each do |student_study_med| %>
+  <tr>
+    <td><%= student_study_med.medium_name %></td>
+    <td><%= link_to 'Show', student_study_med %></td>
+    <td><%= link_to 'Edit', edit_student_study_med_path(student_study_med) %></td>
+    <td><%= link_to 'Destroy', student_study_med, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student study med', new_student_study_med_path %>

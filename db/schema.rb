@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120226123433) do
+ActiveRecord::Schema.define(:version => 20120311151918) do
 
   create_table "donation_year_links", :force => true do |t|
     t.integer  "donation_id"
@@ -79,11 +79,41 @@ ActiveRecord::Schema.define(:version => 20120226123433) do
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
 
+  create_table "student_area_types", :force => true do |t|
+    t.string   "area_type_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_castes", :force => true do |t|
+    t.string   "caste_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_categories", :force => true do |t|
+    t.string   "category_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "student_donation_links", :force => true do |t|
     t.integer  "student_id"
     t.integer  "donation_id"
     t.string   "linked_by"
     t.string   "comment"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_parent_occupations", :force => true do |t|
+    t.string   "occupation_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "student_study_meds", :force => true do |t|
+    t.string   "medium_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -200,4 +230,3 @@ ActiveRecord::Schema.define(:version => 20120226123433) do
   end
 
 end
-

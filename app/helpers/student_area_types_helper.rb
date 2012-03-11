@@ -1,0 +1,2 @@
+module StudentAreaTypesHelper
+end

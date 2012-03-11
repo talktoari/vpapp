@@ -1,5 +1,15 @@
 Vpapp::Application.routes.draw do
 
+  resources :student_area_types
+
+  resources :student_parent_occupations
+
+  resources :student_study_meds
+
+  resources :student_categories
+
+  resources :student_castes
+
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
   resources :donation_year_links

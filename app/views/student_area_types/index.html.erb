@@ -1,0 +1,23 @@
+<h1>Listing student_area_types</h1>
+
+<table>
+  <tr>
+    <th>Area type name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @student_area_types.each do |student_area_type| %>
+  <tr>
+    <td><%= student_area_type.area_type_name %></td>
+    <td><%= link_to 'Show', student_area_type %></td>
+    <td><%= link_to 'Edit', edit_student_area_type_path(student_area_type) %></td>
+    <td><%= link_to 'Destroy', student_area_type, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student area type', new_student_area_type_path %>
