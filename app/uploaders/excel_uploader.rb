@@ -18,6 +18,12 @@ class ExcelUploader < CarrierWave::Uploader::Base
   def store_dir
      "#{::Rails.root.to_s}/public/excel_uploaded_files/"
   end
+
+  # Heroku fix for upload working
+  def cache_dir
+    "#{Rails.root}/tmp/uploads"
+  end
+
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   "/images/fallback/" + [version_name, "default.png"].compact.join('_')
