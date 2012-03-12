@@ -1,5 +1,15 @@
 Vpapp::Application.routes.draw do
 
+  resources :donor_titles
+
+  resources :donation_purposes
+
+  resources :donation_types
+
+  resources :donation_statuses
+
+  resources :donor_types
+
   resources :student_area_types
 
   resources :student_parent_occupations

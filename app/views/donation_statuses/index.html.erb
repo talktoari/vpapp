@@ -1,0 +1,23 @@
+<h1>Listing donation_statuses</h1>
+
+<table>
+  <tr>
+    <th>Donation status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donation_statuses.each do |donation_status| %>
+  <tr>
+    <td><%= donation_status.donation_status %></td>
+    <td><%= link_to 'Show', donation_status %></td>
+    <td><%= link_to 'Edit', edit_donation_status_path(donation_status) %></td>
+    <td><%= link_to 'Destroy', donation_status, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donation status', new_donation_status_path %>

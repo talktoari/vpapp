@@ -14,8 +14,11 @@
 <fieldset>
 <legend>Personal Information</legend>
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.select(:title, %w{Mr. Mrs. Ms. Sri. Smt. Dr.}) %>
+    <%= f.label :title %>
+    <%= f.collection_select :title,
+        DonorTitle.all(:order => 'donor_title'),
+        :donor_title, :donor_title,
+        :prompt => "Select Title", :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :first_name %>
@@ -30,8 +33,11 @@
     <%= f.email_field :email %>
   </div>
   <div class="field">
-    <%= f.label :donor_type %><br />
-    <%= f.select(:donor_type, %w{Individual VP_Alumni Institution Company Volunteer Overseas}) %>
+    <%= f.label :donor_type %>
+    <%= f.collection_select :donor_type,
+        DonorType.all(:order => 'donor_type'),
+        :donor_type, :donor_type,
+        :prompt => "Select Donor Type", :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :gender %>
@@ -43,7 +49,9 @@
   <br />
   <div class="field">
     <%= f.label :date_of_birth %>
-    <%= f.date_select :date_of_birth %>
+    <%= f.date_select :date_of_birth, :start_year => 1910, :end_year => Time.now.year,
+          :order => [:day, :month, :year],
+          :prompt => true %>
   </div>
   <div class="field">
     <%= f.label "Suite/Apt No." %>
@@ -62,12 +70,12 @@
     <%= f.text_field :district, :disabled => true %>
   </div>
   <div class="field">
-    <%= f.label :city %>
-    <%= f.select(:city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
-    <%= f.label :state %>
-    <%= f.select(:state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
-    <%= f.label :country %>
-    <%= f.select(:country, %w{India USA China}) %>
+    <%= f.select(:city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
+      :prompt => "Select City", :include_blank => true) %>
+    <%= f.select(:state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
+      :prompt => "Select State", :include_blank => true) %>
+    <%= f.select(:country, %w{India USA China},
+      :prompt => "Select Country", :include_blank => true) %>
   </div>
   <div class="field">
     <%= f.label :pincode %>

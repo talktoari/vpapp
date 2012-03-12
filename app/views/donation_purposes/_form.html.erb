@@ -1,0 +1,21 @@
+<%= form_for(@donation_purpose) do |f| %>
+  <% if @donation_purpose.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_purpose.errors.count, "error") %> prohibited this donation_purpose from being saved:</h2>
+
+      <ul>
+      <% @donation_purpose.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :donation_purpose %><br />
+    <%= f.text_field :donation_purpose %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

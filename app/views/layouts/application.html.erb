@@ -6,7 +6,25 @@
   <%= stylesheet_link_tag    "stylesheets/default.css" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+
+  <script type="text/javascript">
+    /* color switcher script */
+    $(document).ready(function() {
+
+    $(".colorScheme li").click(function(){
+    $(".colorScheme li").css('borderColor','#fff');
+    $(this).css('borderColor','#888');
+
+    $(".cssplayMenu").removeClass().addClass('cssplayMenu');
+    color = $(this).attr('class');
+    $(".cssplayMenu").addClass(color);
+    });
+
+    });
+  </script>
+
 </head>
+
 <body>
 <h1><%= link_to "Vidya Poshak Management System", root_url %></h1>
   <!-- Common Menu for all pages of the application -->

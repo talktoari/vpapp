@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Donation purpose:</b>
+  <%= @donation_purpose.donation_purpose %>
+</p>
+
+
+<%= link_to 'Edit', edit_donation_purpose_path(@donation_purpose) %> |
+<%= link_to 'Back', donation_purposes_path %>
