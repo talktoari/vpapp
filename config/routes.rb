@@ -41,9 +41,13 @@ Vpapp::Application.routes.draw do
   get "users/edit"
 
   resources :students do
+    get "upload_student", :on => :collection
+    get "upload_validate_student", :on => :collection
     get "search", :on => :collection
     get "search_results", :on => :collection
     #get "remove_all", :on => :collection
+    post "upload_student", :on => :collection
+    post "upload_validate_student", :on => :collection
     post "search", :on => :collection
     post "search_results", :on => :collection
     #post "remove_all", :on => :collection

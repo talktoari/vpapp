@@ -1,12 +1,36 @@
+h1.mainbanner {
+	background-color: #333333;
+  color: #da2;
+  font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
+  font-size: 45px;
+  line-height: 60px;
+  text-shadow: -3px 0 4px #006;
+  margin: 0 0 0px 0;
+  border:2px solid #2580a2;
+}
+h1.mainbanner a:link,
+h1.mainbanner a:visited,
+h1.mainbanner a:active {
+  color: #da2;
+  -webkit-mask-image: -webkit-gradient(linear, left top, »
+  left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
+h1.mainbanner a:hover{
+	background-color: #2580a2;
+  color: #FFFFCC;
+  -webkit-mask-image: -webkit-gradient(linear, left top, »
+  left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+}
+
 body {
   background-color: #fff;
   color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; }
 
 p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
+  font-family: "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px; }
 
@@ -24,17 +48,18 @@ p.alert {
 }
 
 pre {
-  background-color: #eee;
-  padding: 10px;
-  font-size: 11px; }
+  background-color: #FFFFF0;
+  padding: 5px;
+  font-size: 12px; }
 
 a {
   color: #3366FF;
+  text-decoration:none;
   &:visited {
     color: #990066; }
   &:hover {
     color: #fff;
-    background-color: #3366FF; } }
+    background-color: #2580a2; } }
 
 div {
   &.field, &.actions {
@@ -67,6 +92,7 @@ div {
   ul li {
     font-size: 12px;
     list-style: square; } }
+
 
 /* Pagination CSS */
 .pagination a, .pagination span {
@@ -344,12 +370,12 @@ div.loginout{
  position:absolute;
  top:0;
  right:0;
- margin:10px 10px 20px 0px;
+ margin:20px 10px 20px 0px;
 
  /*give it some background and border*/
  background:#2580a2;
  color:#ffffff;
- border:2px solid #000;
+ border:2px solid #da2;
 }
 div.loginout a {
   color: #0bf;
@@ -358,8 +384,8 @@ div.loginout a {
     color: #da2;
     background-color: #333333; }
   &:hover {
-    color: #fff;
-    background-color: #3366FF; } }
+    color: #FFFFCC;
+    background-color: #2580a2; } }
 
 /* Footer */
 div.footer {
@@ -377,6 +403,6 @@ div.footer a {
   &:visited {
     color: #da2; }
   &:hover {
-    color: #fff;
-    background-color: #3366FF; } }
+    color: #FFFFCC;
+    background-color: #2580a2; } }
 

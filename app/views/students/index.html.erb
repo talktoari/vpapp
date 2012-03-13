@@ -1,5 +1,7 @@
 <h1>LISTING ALL STUDENTS INFORMATION</h1>
 
+<%= link_to "Upload Students", upload_student_students_path %>
+
 <%= link_to 'Export to EXCEL', students_path(request.parameters.merge({:format => :xls})) %>
 
 <% if can? :create, Student %>

@@ -95,6 +95,54 @@ class StudentsController < ApplicationController
     end
   end
 
+  # Upload and Validate Students from Excel File
+  def upload_validate_student
+    student_file = params[:excel_file]
+    file = ExcelUploader.new
+    file.store!(student_file)
+    book = Spreadsheet.open "#{file.store_path}"
+    sheet1 = book.worksheet 0
+    @students = []
+    @errors = Hash.new
+    @counter = 0
+
+    sheet1.each 1 do |row|
+      @counter+=1
+      cur_student = Student.new
+      # Populate Fields
+      cur_student.district = row[0]
+      cur_student.taluka = row[1]
+      cur_student.vp_id = row[2]
+      cur_student.first_name = row[3]
+      cur_student.father_name = row[4]
+      cur_student.pmt_full_address = row[5]
+      cur_student.cur_full_address = row[6]
+      cur_student.primary_phone = row[7]
+      cur_student.additional_phone = row[8]
+      cur_student.father_occupation = row[9]
+      cur_student.mother_occupation = row[10]
+      cur_student.total_family_income = row[11]
+      cur_student.gender = row[12]
+      cur_student.area_type = row[13]
+      cur_student.caste = row[14]
+      cur_student.studied_medium = row[15]
+      cur_student.sslc_percentage = row[16]
+			# For passing validations
+			cur_student.last_name = "."
+			
+			# Check validity
+      if cur_student.valid?
+        @students << cur_student
+        # Save the data to DB on success validation for each entry
+        cur_student.save
+      else
+        @errors["#{@counter+1}"] = cur_student.errors
+      end
+    end
+    file.remove!
+  end
+
+
   # Search and Find relevant records based on query
   # Implemented using ransack gem
   # Before calling the form page, new object of Ransack::Search
