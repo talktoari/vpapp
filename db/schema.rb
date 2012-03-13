@@ -58,14 +58,6 @@ ActiveRecord::Schema.define(:version => 20120311151918) do
     t.string   "title"
   end
 
-  create_table "posts", :force => true do |t|
-    t.string   "name"
-    t.string   "title"
-    t.text     "content"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
   create_table "rails_admin_histories", :force => true do |t|
     t.text     "message"
     t.string   "username"
@@ -93,15 +85,6 @@ ActiveRecord::Schema.define(:version => 20120311151918) do
 
   create_table "student_categories", :force => true do |t|
     t.string   "category_name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "student_donation_links", :force => true do |t|
-    t.integer  "student_id"
-    t.integer  "donation_id"
-    t.string   "linked_by"
-    t.string   "comment"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
