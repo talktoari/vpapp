@@ -11,7 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120311151918) do
+ActiveRecord::Schema.define(:version => 20120312142914) do
+
+  create_table "donation_purposes", :force => true do |t|
+    t.string   "donation_purpose"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donation_statuses", :force => true do |t|
+    t.string   "donation_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donation_types", :force => true do |t|
+    t.string   "donation_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "donation_year_links", :force => true do |t|
     t.integer  "donation_id"
@@ -32,6 +50,18 @@ ActiveRecord::Schema.define(:version => 20120311151918) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "purpose"
+  end
+
+  create_table "donor_titles", :force => true do |t|
+    t.string   "donor_title"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "donor_types", :force => true do |t|
+    t.string   "donor_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "donors", :force => true do |t|

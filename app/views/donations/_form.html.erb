@@ -26,17 +26,30 @@
       <%= f.text_field :amount %>
     </div>
     <div class="field">
+      <%= f.label :purpose %>
+      <%= f.collection_select :purpose,
+          DonationPurpose.all(:order => 'donation_purpose'),
+          :donation_purpose, :donation_purpose,
+          :prompt => "Select Purpose", :include_blank => true %>
+    </div>
+  <%-# Status and Type should be visible only to admins -%>
+  <% if can? :create, Donation %>
+    <div class="field">
       <%= f.label :status %>
-      <%= f.select(:status, %w{Donated Approved Failed}) %>
+      <%= f.collection_select :status,
+          DonationStatus.all(:order => 'donation_status'), :donation_status, :donation_status,
+          :prompt => "Select Status", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :donation_type %>
-      <%= f.select(:donation_type, %w{Online Cash Cheque DD}) %>
+      <%= f.collection_select :donation_type,
+          DonationType.all(:order => 'donation_type'), :donation_type, :donation_type,
+          :prompt => "Select Type", :include_blank => true %>
     </div>
-    <div class="field">
-      <%= f.label :purpose %>
-      <%= f.select(:purpose, %w{Nurture_Merit Library Camp GFS}) %>
-    </div>
+  <% else %>
+    <%= f.hidden_field :status, :value => "Donated" %>
+    <%= f.hidden_field :donation_type, :value => "Online" %>
+  <% end %>
     <div class="field">
       <%= f.label :comment %>
       <%= f.text_area :comment %>

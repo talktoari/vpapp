@@ -1,0 +1,23 @@
+<h1>Listing donation_purposes</h1>
+
+<table>
+  <tr>
+    <th>Donation purpose</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donation_purposes.each do |donation_purpose| %>
+  <tr>
+    <td><%= donation_purpose.donation_purpose %></td>
+    <td><%= link_to 'Show', donation_purpose %></td>
+    <td><%= link_to 'Edit', edit_donation_purpose_path(donation_purpose) %></td>
+    <td><%= link_to 'Destroy', donation_purpose, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donation purpose', new_donation_purpose_path %>

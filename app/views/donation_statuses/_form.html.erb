@@ -1,0 +1,21 @@
+<%= form_for(@donation_status) do |f| %>
+  <% if @donation_status.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@donation_status.errors.count, "error") %> prohibited this donation_status from being saved:</h2>
+
+      <ul>
+      <% @donation_status.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :donation_status %><br />
+    <%= f.text_field :donation_status %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

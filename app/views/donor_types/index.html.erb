@@ -1,0 +1,23 @@
+<h1>Listing donor_types</h1>
+
+<table>
+  <tr>
+    <th>Donor type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @donor_types.each do |donor_type| %>
+  <tr>
+    <td><%= donor_type.donor_type %></td>
+    <td><%= link_to 'Show', donor_type %></td>
+    <td><%= link_to 'Edit', edit_donor_type_path(donor_type) %></td>
+    <td><%= link_to 'Destroy', donor_type, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Donor type', new_donor_type_path %>
