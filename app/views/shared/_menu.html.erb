@@ -9,7 +9,7 @@
 					<li><%= link_to "Link Donations to Students", new_donation_year_link_path %></li>
 			  </ul>
 		  </li>
-		  
+
 			<li><%= link_to "Students &#8250;".html_safe, students_path %>
 				<ul>
 				  <li><%= link_to "List All Students", students_path %></li>
@@ -18,7 +18,7 @@
 					<li><%= link_to "Link Students to Donations", new_donation_year_link_path %></li>
 			  </ul>
 		  </li>
-		  
+
 			<li><%= link_to "Search and Report &#8250;".html_safe, "#" %>
 				<ul>
 				  <li><%= link_to "Search Donors", search_donors_path %></li>
@@ -27,11 +27,11 @@
 					<li><%= link_to "Search Yearly Detail", search_yearly_details_path %></li>
 			   </ul>
 		  </li>
-		  
+
 		  <% if (user_signed_in?) && (current_user.role == "admin") %>
 				<li><%= link_to "DropDowns &#8250;".html_safe, "#" %>
 					<ul>
-						<li><%= link_to "Student &#8250;".html_safe, "#" %>
+						<li><%= link_to "&#8249; Student".html_safe, "#" %>
 							<ul>
 								<li><%= link_to "Caste", student_castes_path %></li>
 								<li><%= link_to "Category", student_categories_path %></li>
@@ -40,13 +40,13 @@
 								<li><%= link_to "Parent Occupation", student_parent_occupations_path %></li>
 							</ul>
 						</li>
-						<li><%= link_to "Donor &#8250;".html_safe, "#" %>
+						<li><%= link_to "&#8249; Donor".html_safe, "#" %>
 							<ul>
 								<li><%= link_to "Title", donor_titles_path %></li>
 								<li><%= link_to "Donor Type", donor_types_path %></li>
 							</ul>
 						</li>
-						<li><%= link_to "Donation &#8250;".html_safe, "#" %>
+						<li><%= link_to "&#8249; Donation".html_safe, "#" %>
 							<ul>
 								<li><%= link_to "Purpose", donation_purposes_path %></li>
 								<li><%= link_to "Donation Type", donation_types_path %></li>
@@ -56,7 +56,7 @@
 					</ul>
 				</li>
 			<% end %>
-			
+
 			<% if (user_signed_in?) && (current_user.role == "super_admin") %>
 				<li><%= link_to "Super Admin &#8250;".html_safe, rails_admin_path, :id => "current" %>
 					<ul>
@@ -68,13 +68,13 @@
 					</ul>
 				</li>
 			<% end %>
-			
+
 			<% if (user_signed_in?) %>
 		  	<li><%= link_to "LOGOUT", destroy_user_session_path, :method => :delete %></li>
 			<% else %>
       	<li><%= link_to "LOGIN", new_user_session_path %></li>
 			<% end %>
-			
+
 			<li><a href="#">Menu Color &#8250;</a>
 			  <ul class="colorScheme">
 				  <li class="red"></li>

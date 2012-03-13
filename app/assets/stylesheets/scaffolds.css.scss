@@ -2,7 +2,7 @@ h1.mainbanner {
 	background-color: #333333;
   color: #da2;
   font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif;
-  font-size: 45px;
+  font-size: 40px;
   line-height: 60px;
   text-shadow: -3px 0 4px #006;
   margin: 0 0 0px 0;
@@ -15,6 +15,7 @@ h1.mainbanner a:active {
   -webkit-mask-image: -webkit-gradient(linear, left top, »
   left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 }
+
 h1.mainbanner a:hover{
 	background-color: #2580a2;
   color: #FFFFCC;

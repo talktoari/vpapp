@@ -52,6 +52,7 @@
     <th>Studied medium</th>
     <th>Sslc percentage</th>
     <th>Comments</th>
+    <th>Last Update</th>
     <% if can? :update, Student %>
       <th>Actions</th>
     <% end %>
@@ -97,6 +98,7 @@
     <td><%= student.studied_medium %></td>
     <td><%= student.sslc_percentage %></td>
     <td><%= student.comments %></td>
+    <td><%= student.updated_at %></td>
     <% if can? :update, Student %>
       <td>
         <%= link_to 'Edit', edit_student_path(student) %>
