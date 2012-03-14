@@ -3,6 +3,8 @@
 <h1>Student Information for <%= @student.first_name %> <%= @student.last_name %></h1>
 <h3 id="alert">NOTE: You cannot change any Profile information here. However, you can Add new Yearly Detail</h3>
 
+<%= link_to 'Upload Yearly Details', upload_yeardata_yearly_details_path(:student_id => @student.id) %>
+
 <%= form_for(@student) do |f| %>
 
   <fieldset>

@@ -92,11 +92,69 @@ class YearlyDetailsController < ApplicationController
     @yearly_detail.destroy
 
     respond_to do |format|
-      format.html { redirect_to yearly_details_url }
+      format.html { redirect_to :back }
       format.json { head :ok }
     end
   end
 
+  # Upload and Validate Yearly Details from Excel File
+  # for specific student
+  def upload_validate_yeardata
+    yearly_detail_file = params[:excel_file]
+    cur_student_id = params[:student_id]
+    file = ExcelUploader.new
+    file.store!(yearly_detail_file)
+    book = Spreadsheet.open "#{file.store_path}"
+    sheet1 = book.worksheet 0
+    @yearly_details = []
+    @errors = Hash.new
+    @counter = 0
+
+    sheet1.each 1 do |row|
+      @counter+=1
+      cur_yearly_detail = YearlyDetail.new
+      
+      # Populate the Student ID
+      cur_yearly_detail.student_id = cur_student_id
+      
+      # Populate Fields
+      cur_yearly_detail.year = row[0]
+      cur_yearly_detail.coll_full_address = row[1]
+      cur_yearly_detail.coll_primary_phone = row[2]
+      cur_yearly_detail.course = row[3]
+      cur_yearly_detail.stream = row[4]
+      cur_yearly_detail.amount_total = row[5]
+      # Books Given Condition
+      if row[6] == "Yes"
+      	cur_yearly_detail.books_given = true
+      else
+      	cur_yearly_detail.books_given = false
+      end
+      cur_yearly_detail.fac_full_address = row[7]
+      
+      # Letters Sent conditions    
+      if (row[8].to_i == "1".to_i)
+      	cur_yearly_detail.letter1_sent = true
+      	cur_yearly_detail.letter2_sent = false
+      elsif (row[8].to_i == "2".to_i)
+      	cur_yearly_detail.letter1_sent = true
+      	cur_yearly_detail.letter2_sent = true
+      else
+      	cur_yearly_detail.letter1_sent = false
+      	cur_yearly_detail.letter2_sent = false
+      end      
+      
+      if cur_yearly_detail.valid?
+        @yearly_details << cur_yearly_detail
+        # Save the data to DB on success validation for each entry
+        cur_yearly_detail.save
+      else
+        @errors["#{@counter+1}"] = cur_yearly_detail.errors
+      end
+    end
+    file.remove!
+  end
+  
   # Search and Find relevant records based on query
   # Implemented using ransack gem
   # Before calling the form page, new object of Ransack::Search

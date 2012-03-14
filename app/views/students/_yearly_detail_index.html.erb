@@ -5,9 +5,11 @@
 <table id="donations">
   <tr>
     <th>Year</th>
-    <th>Coll name</th>
-    <th>Aggregate (Year)</th>
-    <th>Amount total</th>
+    <th>College Name-Address</th>
+    <th>College Phone</th>
+    <th>Course (Stream)</th>
+    <th>Books Given</th>
+    <th>Amount Total</th>
     <th>Comments</th>
     <% if can? :update, YearlyDetail %>
       <th>Actions</th>
@@ -17,8 +19,10 @@
 <% yearly_details.each do |yearly_detail| %>
   <tr>
     <td><%= link_to "#{yearly_detail.year}", yearly_detail %></td>
-    <td><%= yearly_detail.coll_name %></td>
-    <td><%= yearly_detail.result_aggregate %> (<%= yearly_detail.result_year %>)</td>
+    <td><%= yearly_detail.coll_name %> <%= yearly_detail.coll_full_address %></td>
+    <td><%= yearly_detail.coll_primary_phone %></td>
+    <td><%= yearly_detail.course %> (<%= yearly_detail.stream %>)</td>
+    <td><%= yearly_detail.books_given ? "Yes" : "No" %></td>
     <td><%= yearly_detail.amount_total %></td>
     <td><%= yearly_detail.comments %></td>
     <% if can? :update, YearlyDetail %>

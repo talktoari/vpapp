@@ -25,9 +25,13 @@ Vpapp::Application.routes.draw do
   resources :donation_year_links
 
   resources :yearly_details do
+    get "upload_yeardata", :on => :collection
+    get "upload_validate_yeardata", :on => :collection
     get "search", :on => :collection
     get "search_results", :on => :collection
     #get "remove_all", :on => :collection
+    post "upload_yeardata", :on => :collection
+    post "upload_validate_yeardata", :on => :collection
     post "search", :on => :collection
     post "search_results", :on => :collection
     #post "remove_all", :on => :collection
