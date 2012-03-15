@@ -24,7 +24,10 @@
 
     <div class="field">
       <%= f.label :year %>
-      <%= f.select(:year, %w{2007 2008 2009 2010 2011 2012 2013 2014 2015}) %>
+      <%= f.collection_select :year,
+      		YearlyDetailYear.all(:order => 'year'),
+        	:year, :year,
+        	:prompt => "Select Student Year", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :letter1_sent %>
@@ -56,15 +59,24 @@
     </div>
     <div class="field">
       <%= f.label :result_year %>
-      <%= f.select(:result_year, %w{2007 2008 2009 2010 2011 2012 2013 2014 2015}) %>
+      <%= f.collection_select :result_year,
+      		YearlyDetailYear.all(:order => 'year'),
+        	:year, :year,
+        	:prompt => "Select Result Year", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :course %>
-      <%= f.select(:course, %w{B.Sc. B.E. B.Tech. B.Com. LLB MBA Diploma}) %>
+      <%= f.collection_select :course,
+      		YearlyDetailCourse.all(:order => 'course'),
+        	:course, :course,
+        	:prompt => "Select Course", :include_blank => true	%>
     </div>
     <div class="field">
       <%= f.label :stream %>
-      <%= f.select(:stream, %w{Biology Zoology Electronics Computers Mechanical Electrical Chemical Civil}) %>
+      <%= f.collection_select :stream,
+      		YearlyDetailStream.all(:order => 'stream'),
+        	:stream, :stream,
+        	:prompt => "Select Stream", :include_blank => true	%>
     </div>
   </fieldset>
 
@@ -104,7 +116,10 @@
     </div>
     <div class="field">
       <%= f.label :books_given %>
-      <%= f.check_box :books_given %>
+      Yes
+      <%= f.radio_button :books_given, true %>
+      No
+      <%= f.radio_button :books_given, false %>
     </div>
     <div class="field">
       <%= f.label :books_given_center %>
@@ -112,15 +127,24 @@
     </div>
     <div class="field">
       <%= f.label :camp_invited %>
-      <%= f.check_box :camp_invited %>
+      Yes
+      <%= f.radio_button :camp_invited, true %>
+      No
+      <%= f.radio_button :camp_invited, false %>
     </div>
     <div class="field">
       <%= f.label :camp_attended %>
-      <%= f.check_box :camp_attended %>
+      Yes
+      <%= f.radio_button :camp_attended, true %>
+      No
+      <%= f.radio_button :camp_attended, false %>
     </div>
     <div class="field">
       <%= f.label :camp_date %>
-      <%= f.date_select :camp_date %>
+      <%= f.date_select :camp_date,
+        	:start_year => 2000, :end_year => Time.now.year,
+        	:order => [:day, :month, :year],
+        	:prompt => true %>
     </div>
     <div class="field">
       <%= f.label :camp_place %>
@@ -148,15 +172,18 @@
     </div>
     <div class="field">
       <%= f.label :coll_city %>
-      <%= f.select(:coll_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
+      <%= f.select(:coll_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
+      		:prompt => "Select City", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label :coll_state %>
-      <%= f.select(:coll_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
+      <%= f.select(:coll_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
+      		:prompt => "Select State", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label :coll_country %>
-      <%= f.select(:coll_country, %w{India USA China}) %>
+      <%= f.select(:coll_country, %w{India USA China},
+      		:prompt => "Select Country", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label :coll_pincode %>
@@ -196,15 +223,18 @@
     </div>
     <div class="field">
       <%= f.label :fac_city %>
-      <%= f.select(:fac_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing}) %>
+      <%= f.select(:fac_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
+      		:prompt => "Select City", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label :fac_state %>
-      <%= f.select(:fac_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai}) %>
+      <%= f.select(:fac_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
+      		:prompt => "Select State", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label :fac_country %>
-      <%= f.select(:fac_country, %w{India USA China}) %>
+      <%= f.select(:fac_country, %w{India USA China},
+      		:prompt => "Select Country", :include_blank => true) %>
     </div>
     <div class="field">
       <%= f.label :fac_pincode %>

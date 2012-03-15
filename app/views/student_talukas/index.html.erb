@@ -1,0 +1,23 @@
+<h1>Listing student_talukas</h1>
+
+<table>
+  <tr>
+    <th>Taluka</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @student_talukas.each do |student_taluka| %>
+  <tr>
+    <td><%= student_taluka.taluka %></td>
+    <td><%= link_to 'Show', student_taluka %></td>
+    <td><%= link_to 'Edit', edit_student_taluka_path(student_taluka) %></td>
+    <td><%= link_to 'Destroy', student_taluka, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student taluka', new_student_taluka_path %>

@@ -1,5 +1,15 @@
 Vpapp::Application.routes.draw do
 
+  resources :student_talukas
+
+  resources :student_districts
+
+  resources :yearly_detail_streams
+
+  resources :yearly_detail_courses
+
+  resources :yearly_detail_years
+
   resources :donor_titles
 
   resources :donation_purposes

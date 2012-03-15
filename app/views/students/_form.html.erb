@@ -15,13 +15,17 @@
   <legend>Official Information</legend>
     <div class="field">
       <%= f.label :district %>
-      <%= f.select(:district, %w{Dharwad Bengaluru Belgaum Raigad Kolhapur Hubli},
-      :prompt => "Select District", :include_blank => true) %>
+      <%= f.collection_select :district,
+      		StudentDistrict.all(:order => 'district'),
+      		:district, :district,
+      		:prompt => "Select District", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :taluka %>
-      <%= f.select(:taluka, %w{Taluka1 Taluka2 Taluka3 Taluka4 Taluka5 Taluka6},
-      :prompt => "Select Taluka", :include_blank => true) %>
+      <%= f.collection_select :taluka,
+      		StudentTaluka.all(:order => 'taluka'),
+      		:taluka, :taluka,
+      		:prompt => "Select Taluka", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label "VP ID" %>
@@ -41,10 +45,10 @@
     </div>
     <div class="field">
       <%= f.label :gender %>
-      Male
-      <%= f.radio_button :gender, "Male" %>
-      Female
-      <%= f.radio_button :gender, "Female" %>
+      Boy
+      <%= f.radio_button :gender, "Boy" %>
+      Girl
+      <%= f.radio_button :gender, "Girl" %>
     </div>
     <div class="field">
       <%= f.label :email %>

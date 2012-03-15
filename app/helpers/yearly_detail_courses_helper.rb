@@ -1,0 +1,2 @@
+module YearlyDetailCoursesHelper
+end

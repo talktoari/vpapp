@@ -1,0 +1,2 @@
+module YearlyDetailStreamsHelper
+end

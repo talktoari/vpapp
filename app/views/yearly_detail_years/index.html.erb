@@ -1,0 +1,23 @@
+<h1>Listing yearly_detail_years</h1>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @yearly_detail_years.each do |yearly_detail_year| %>
+  <tr>
+    <td><%= yearly_detail_year.year %></td>
+    <td><%= link_to 'Show', yearly_detail_year %></td>
+    <td><%= link_to 'Edit', edit_yearly_detail_year_path(yearly_detail_year) %></td>
+    <td><%= link_to 'Destroy', yearly_detail_year, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Yearly detail year', new_yearly_detail_year_path %>

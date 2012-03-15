@@ -1,0 +1,23 @@
+<h1>Listing yearly_detail_courses</h1>
+
+<table>
+  <tr>
+    <th>Course</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @yearly_detail_courses.each do |yearly_detail_course| %>
+  <tr>
+    <td><%= yearly_detail_course.course %></td>
+    <td><%= link_to 'Show', yearly_detail_course %></td>
+    <td><%= link_to 'Edit', edit_yearly_detail_course_path(yearly_detail_course) %></td>
+    <td><%= link_to 'Destroy', yearly_detail_course, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Yearly detail course', new_yearly_detail_course_path %>

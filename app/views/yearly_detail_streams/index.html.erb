@@ -1,0 +1,23 @@
+<h1>Listing yearly_detail_streams</h1>
+
+<table>
+  <tr>
+    <th>Stream</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @yearly_detail_streams.each do |yearly_detail_stream| %>
+  <tr>
+    <td><%= yearly_detail_stream.stream %></td>
+    <td><%= link_to 'Show', yearly_detail_stream %></td>
+    <td><%= link_to 'Edit', edit_yearly_detail_stream_path(yearly_detail_stream) %></td>
+    <td><%= link_to 'Destroy', yearly_detail_stream, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Yearly detail stream', new_yearly_detail_stream_path %>

@@ -33,11 +33,20 @@
 					<ul>
 						<li><%= link_to "&#8249; Student".html_safe, "#" %>
 							<ul>
+								<li><%= link_to "District", student_districts_path %></li>
+								<li><%= link_to "Taluka", student_talukas_path %></li>
 								<li><%= link_to "Caste", student_castes_path %></li>
 								<li><%= link_to "Category", student_categories_path %></li>
 								<li><%= link_to "Area Type", student_area_types_path %></li>
 								<li><%= link_to "Study Medium", student_study_meds_path %></li>
 								<li><%= link_to "Parent Occupation", student_parent_occupations_path %></li>
+							</ul>
+						</li>
+						<li><%= link_to "&#8249; Student YearData".html_safe, "#" %>
+							<ul>
+								<li><%= link_to "Course", yearly_detail_courses_path %></li>
+								<li><%= link_to "Stream", yearly_detail_streams_path %></li>
+								<li><%= link_to "Year / Result Year", yearly_detail_years_path %></li>
 							</ul>
 						</li>
 						<li><%= link_to "&#8249; Donor".html_safe, "#" %>
@@ -46,7 +55,7 @@
 								<li><%= link_to "Donor Type", donor_types_path %></li>
 							</ul>
 						</li>
-						<li><%= link_to "&#8249; Donation".html_safe, "#" %>
+						<li><%= link_to "&#8249; Donor Donation".html_safe, "#" %>
 							<ul>
 								<li><%= link_to "Purpose", donation_purposes_path %></li>
 								<li><%= link_to "Donation Type", donation_types_path %></li>
