@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120315053057) do
+ActiveRecord::Schema.define(:version => 20120411170924) do
 
   create_table "donation_purposes", :force => true do |t|
     t.string    "donation_purpose"
@@ -199,6 +199,14 @@ ActiveRecord::Schema.define(:version => 20120315053057) do
     t.text      "comments"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.string    "ser_no"
+    t.string    "cet_rank"
+    t.string    "exam_ticket_number"
+    t.string    "account_number"
+    t.string    "atm_number"
+    t.string    "house_visited_by"
+    t.string    "last_year_donor"
+    t.string    "present_year_donor"
   end
 
   create_table "users", :force => true do |t|
