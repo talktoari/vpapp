@@ -119,30 +119,55 @@ class YearlyDetailsController < ApplicationController
       
       # Populate Fields
       cur_yearly_detail.year = row[0]
-      cur_yearly_detail.coll_full_address = row[1]
-      cur_yearly_detail.coll_primary_phone = row[2]
-      cur_yearly_detail.course = row[3]
-      cur_yearly_detail.stream = row[4]
-      cur_yearly_detail.amount_total = row[5]
+      cur_yearly_detail.profession_type = row[1]
+      cur_yearly_detail.coll_full_address = row[2]
+      cur_yearly_detail.coll_primary_phone = row[3]
+      cur_yearly_detail.course = row[4]
+      cur_yearly_detail.stream = row[5]
+      cur_yearly_detail.amount_fees = row[6]
+      cur_yearly_detail.amount_bus_pass = row[7]
+      cur_yearly_detail.amount_add_on = row[8]
+      cur_yearly_detail.amount_total = row[9]
+      cur_yearly_detail.chalan_number = row[10]
+      cur_yearly_detail.vr_number = row[11]
       # Books Given Condition
-      if row[6] == "Yes"
+      if row[12] == "Yes"
       	cur_yearly_detail.books_given = true
       else
       	cur_yearly_detail.books_given = false
       end
-      cur_yearly_detail.fac_full_address = row[7]
+      
+      # Camp Invited Condition
+      if row[13] == "Y"
+        cur_yearly_detail.camp_invited = true
+      else
+        cur_yearly_detail.camp_invited = false
+      end
+      # Camp Attended Condition
+      if row[14] == "Y"
+        cur_yearly_detail.camp_attended = true
+      else
+        cur_yearly_detail.camp_attended = false
+      end
+      cur_yearly_detail.camp_date = row[15]
+      cur_yearly_detail.camp_place = row[16]
+      cur_yearly_detail.fac_full_address = row[17]
       
       # Letters Sent conditions    
-      if (row[8].to_i == "1".to_i)
+      if (row[18].to_i == "1".to_i)
       	cur_yearly_detail.letter1_sent = true
       	cur_yearly_detail.letter2_sent = false
-      elsif (row[8].to_i == "2".to_i)
+      elsif (row[18].to_i == "2".to_i)
       	cur_yearly_detail.letter1_sent = true
       	cur_yearly_detail.letter2_sent = true
+      elsif (row[18].to_i == "3".to_i)
+        cur_yearly_detail.letter1_sent = true
+        cur_yearly_detail.letter2_sent = true
       else
       	cur_yearly_detail.letter1_sent = false
       	cur_yearly_detail.letter2_sent = false
       end      
+      cur_yearly_detail.comments = row[19]
       
       if cur_yearly_detail.valid?
         @yearly_details << cur_yearly_detail

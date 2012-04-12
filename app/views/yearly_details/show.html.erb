@@ -11,16 +11,16 @@
       <%= f.text_field :year, :disabled => true %>
     </div>
     <div class="field">
+      <%= f.label :profession_type %>
+      <%= f.text_field :profession_type, :disabled => true %>
+    </div><br />
+    <div class="field">
       <%= f.label :letter1_sent %>
       <%= f.check_box :letter1_sent, :disabled => true %>
     </div>
     <div class="field">
       <%= f.label :letter2_sent %>
       <%= f.check_box :letter2_sent, :disabled => true %>
-    </div>
-    <div class="field">
-      <%= f.label :comments %>
-      <%= f.text_area :comments, :disabled => true %>
     </div>
   </fieldset>
 
@@ -37,7 +37,7 @@
     <div class="field">
       <%= f.label :result_aggregate %>
       <%= f.text_field :result_aggregate, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :result_year %>
       <%= f.text_field :result_year, :disabled => true %>
@@ -62,15 +62,15 @@
     <div class="field">
       <%= f.label :amount_donation %>
       <%= f.text_field :amount_donation, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :amount_bus_pass %>
       <%= f.text_field :amount_bus_pass, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :amount_add_on %>
       <%= f.text_field :amount_add_on, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :amount_total %>
       <%= f.text_field :amount_total, :disabled => true %>
@@ -80,11 +80,11 @@
   <fieldset>
   <legend>Miscellaneous Information</legend>
     <div class="field">
-      <%= f.label :chalan_number %>
+      <%= f.label "Cheque Number" %>
       <%= f.text_field :chalan_number, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
-      <%= f.label :vr_number %>
+      <%= f.label "Voucher Number" %>
       <%= f.text_field :vr_number, :disabled => true %>
     </div>
     <div class="field">
@@ -94,7 +94,7 @@
     <div class="field">
       <%= f.label :books_given_center %>
       <%= f.text_field :books_given_center, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :camp_invited %>
       <%= f.check_box :camp_invited, :disabled => true %>
@@ -102,7 +102,7 @@
     <div class="field">
       <%= f.label :camp_attended %>
       <%= f.check_box :camp_attended, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :camp_date %>
       <%= f.date_select :camp_date, :disabled => true %>
@@ -122,11 +122,11 @@
     <div class="field">
       <%= f.label :coll_address_line1 %>
       <%= f.text_field :coll_address_line1, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :coll_address_line2 %>
       <%= f.text_field :coll_address_line2, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :coll_landmark %>
       <%= f.text_field :coll_landmark, :disabled => true %>
@@ -154,7 +154,7 @@
     <div class="field">
       <%= f.label :coll_primary_phone %>
       <%= f.text_field :coll_primary_phone, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :coll_additional_phone %>
       <%= f.text_field :coll_additional_phone, :disabled => true %>
@@ -170,11 +170,11 @@
     <div class="field">
       <%= f.label :fac_address_line1 %>
       <%= f.text_field :fac_address_line1, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :fac_address_line2 %>
       <%= f.text_field :fac_address_line2, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :fac_landmark %>
       <%= f.text_field :fac_landmark, :disabled => true %>
@@ -202,13 +202,19 @@
     <div class="field">
       <%= f.label :fac_primary_phone %>
       <%= f.text_field :fac_primary_phone, :disabled => true %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :fac_additional_phone %>
       <%= f.text_field :fac_additional_phone, :disabled => true %>
     </div>
   </fieldset>
 
+  <fieldset>
+  <legend>Comments</legend>
+    <div class="field">
+      <%= f.text_area :comments, :disabled => true %>
+    </div>
+  </fieldset>
 <% end %>
 
 <%= link_to 'Edit', edit_yearly_detail_path(@yearly_detail) %> |

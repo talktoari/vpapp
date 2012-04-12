@@ -30,16 +30,16 @@
         	:prompt => "Select Student Year", :include_blank => true %>
     </div>
     <div class="field">
+      <%= f.label :profession_type %>
+      <%= f.text_field :profession_type %>
+    </div><br />
+    <div class="field">
       <%= f.label :letter1_sent %>
       <%= f.check_box :letter1_sent %>
     </div>
     <div class="field">
       <%= f.label :letter2_sent %>
       <%= f.check_box :letter2_sent %>
-    </div>
-    <div class="field">
-      <%= f.label :comments %>
-      <%= f.text_area :comments %>
     </div>
   </fieldset>
 
@@ -56,7 +56,7 @@
     <div class="field">
       <%= f.label :result_aggregate %>
       <%= f.text_field :result_aggregate %>
-    </div>
+    </div><br />
     <div class="field">
       <%= f.label :result_year %>
       <%= f.collection_select :result_year,
@@ -89,15 +89,15 @@
     <div class="field">
       <%= f.label :amount_donation %>
       <%= f.text_field :amount_donation %>
-    </div>
+    </div><br />
     <div class="field">
       <%= f.label :amount_bus_pass %>
       <%= f.text_field :amount_bus_pass %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :amount_add_on %>
       <%= f.text_field :amount_add_on %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :amount_total %>
       <%= f.text_field :amount_total %>
@@ -107,11 +107,11 @@
   <fieldset>
   <legend>Miscellaneous Information</legend>
     <div class="field">
-      <%= f.label :chalan_number %>
+      <%= f.label "Cheque Number" %>
       <%= f.text_field :chalan_number %>
-    </div>
+    </div><br/>
     <div class="field">
-      <%= f.label :vr_number %>
+      <%= f.label "Voucher Number" %>
       <%= f.text_field :vr_number %>
     </div>
     <div class="field">
@@ -124,7 +124,7 @@
     <div class="field">
       <%= f.label :books_given_center %>
       <%= f.text_field :books_given_center %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :camp_invited %>
       Yes
@@ -138,7 +138,7 @@
       <%= f.radio_button :camp_attended, true %>
       No
       <%= f.radio_button :camp_attended, false %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :camp_date %>
       <%= f.date_select :camp_date,
@@ -161,11 +161,11 @@
     <div class="field">
       <%= f.label :coll_address_line1 %>
       <%= f.text_field :coll_address_line1 %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :coll_address_line2 %>
       <%= f.text_field :coll_address_line2 %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :coll_landmark %>
       <%= f.text_field :coll_landmark %>
@@ -196,7 +196,7 @@
     <div class="field">
       <%= f.label :coll_primary_phone %>
       <%= f.text_field :coll_primary_phone %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :coll_additional_phone %>
       <%= f.text_field :coll_additional_phone %>
@@ -212,11 +212,11 @@
     <div class="field">
       <%= f.label :fac_address_line1 %>
       <%= f.text_field :fac_address_line1 %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :fac_address_line2 %>
       <%= f.text_field :fac_address_line2 %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :fac_landmark %>
       <%= f.text_field :fac_landmark %>
@@ -247,10 +247,17 @@
     <div class="field">
       <%= f.label :fac_primary_phone %>
       <%= f.text_field :fac_primary_phone %>
-    </div>
+    </div><br/>
     <div class="field">
       <%= f.label :fac_additional_phone %>
       <%= f.text_field :fac_additional_phone %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Comments</legend>
+    <div class="field">
+      <%= f.text_area :comments %>
     </div>
   </fieldset>
 

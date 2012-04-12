@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120411170924) do
+ActiveRecord::Schema.define(:version => 20120412112308) do
 
   create_table "donation_purposes", :force => true do |t|
     t.string    "donation_purpose"
@@ -295,6 +295,7 @@ ActiveRecord::Schema.define(:version => 20120411170924) do
     t.text      "comments"
     t.timestamp "created_at"
     t.timestamp "updated_at"
+    t.string    "profession_type"
   end
 
 end
