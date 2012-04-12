@@ -31,6 +31,10 @@
       <%= f.label "VP ID" %>
       <%= f.text_field :vp_id %>
     </div>
+    <div class="field">
+      <%= f.label "House Visited By" %>
+      <%= f.text_field :house_visited_by %>
+    </div>
   </fieldset>
 
   <fieldset>
@@ -86,6 +90,14 @@
       <%= f.label "Total Income" %>
       <%= f.text_field :total_family_income %>
     </div>
+    <div class="field">
+      <%= f.label "Account #" %>
+      <%= f.text_field :account_number %>
+    </div>
+    <div class="field">
+      <%= f.label "ATM #" %>
+      <%= f.text_field :atm_number %>
+    </div>
   </fieldset>
 
   <fieldset>
@@ -119,6 +131,14 @@
     <div class="field">
       <%= f.label "SSLC %age" %>
       <%= f.text_field :sslc_percentage %>
+    </div>
+    <div class="field">
+      <%= f.label "CET Rank" %>
+      <%= f.text_field :cet_rank %>
+    </div>
+    <div class="field">
+      <%= f.label "Exam Ticket #" %>
+      <%= f.text_field :exam_ticket_number %>
     </div>
   </fieldset>
 
@@ -205,10 +225,26 @@
     <div class="field">
       <%= f.label :primary_phone %>
       <%= f.text_field :primary_phone %>
-    </div>
+    </div><br />
     <div class="field">
       <%= f.label :additional_phone %>
       <%= f.text_field :additional_phone %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Import Information</legend>
+    <div class="field">
+      <%= f.label "Ser No" %>
+      <%= f.text_field :ser_no %>
+    </div>
+    <div class="field">
+      <%= f.label :last_year_donor %>
+      <%= f.text_field :last_year_donor %>
+    </div><br />
+    <div class="field">
+      <%= f.label :present_year_donor %>
+      <%= f.text_field :present_year_donor %>
     </div>
   </fieldset>
 

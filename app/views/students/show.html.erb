@@ -21,6 +21,10 @@
       <%= f.label "VP ID" %>
       <%= f.text_field :vp_id, :disabled => true %>
     </div>
+    <div class="field">
+      <%= f.label "House Visited By" %>
+      <%= f.text_field :house_visited_by, :disabled => true %>
+    </div>
   </fieldset>
 
   <fieldset>
@@ -56,14 +60,22 @@
     <div class="field">
       <%= f.label :father_occupation %>
       <%= f.text_field :father_occupation, :disabled => true %>
-    </div>
+    </div><br />
     <div class="field">
       <%= f.label :mother_occupation %>
       <%= f.text_field :mother_occupation, :disabled => true %>
-    </div>
+    </div><br />
     <div class="field">
       <%= f.label "Total Income" %>
       <%= f.text_field :total_family_income, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Account #" %>
+      <%= f.text_field :account_number, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "ATM #" %>
+      <%= f.text_field :atm_number, :disabled => true %>
     </div>
   </fieldset>
 
@@ -84,10 +96,18 @@
     <div class="field">
       <%= f.label :studied_medium %>
       <%= f.text_field :studied_medium, :disabled => true %>
-    </div>
+    </div><br />
     <div class="field">
       <%= f.label "SSLC %age" %>
       <%= f.text_field :sslc_percentage, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "CET Rank" %>
+      <%= f.text_field :cet_rank, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label "Exam Ticket #" %>
+      <%= f.text_field :exam_ticket_number, :disabled => true %>
     </div>
   </fieldset>
 
@@ -169,10 +189,26 @@
     <div class="field">
       <%= f.label :primary_phone %>
       <%= f.text_field :primary_phone, :disabled => true %>
-    </div>
+    </div><br />
     <div class="field">
       <%= f.label :additional_phone %>
       <%= f.text_field :additional_phone, :disabled => true %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+  <legend>Import Information</legend>
+    <div class="field">
+      <%= f.label "Ser No" %>
+      <%= f.text_field :ser_no, :disabled => true %>
+    </div>
+    <div class="field">
+      <%= f.label :last_year_donor %>
+      <%= f.text_field :last_year_donor, :disabled => true %>
+    </div><br />
+    <div class="field">
+      <%= f.label :present_year_donor %>
+      <%= f.text_field :present_year_donor, :disabled => true %>
     </div>
   </fieldset>
 
