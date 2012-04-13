@@ -130,6 +130,7 @@ class YearlyDetailsController < ApplicationController
       cur_yearly_detail.amount_total = row[9]
       cur_yearly_detail.chalan_number = row[10]
       cur_yearly_detail.vr_number = row[11]
+      
       # Books Given Condition
       if ((row[12] == "Yes") || (row[12] == "Y"))
       	cur_yearly_detail.books_given = true
@@ -150,7 +151,9 @@ class YearlyDetailsController < ApplicationController
       else
         cur_yearly_detail.camp_attended = false
       end
+      # Camp Date Condition
       cur_yearly_detail.camp_date = row[15]
+      
       cur_yearly_detail.camp_place = row[16]
       cur_yearly_detail.fac_full_address = row[17]
       
