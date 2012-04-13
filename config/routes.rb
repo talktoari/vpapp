@@ -1,5 +1,11 @@
 Vpapp::Application.routes.draw do
 
+  resources :countries
+
+  resources :states
+
+  resources :cities
+
   resources :student_talukas
 
   resources :student_districts

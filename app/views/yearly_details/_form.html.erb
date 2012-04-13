@@ -172,18 +172,24 @@
     </div>
     <div class="field">
       <%= f.label :coll_city %>
-      <%= f.select(:coll_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
-      		:prompt => "Select City", :include_blank => true) %>
+      <%= f.collection_select :coll_city,
+      		City.all(:order => 'city_name'),
+      		:city_name, :city_name,
+      		:prompt => "Select City", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :coll_state %>
-      <%= f.select(:coll_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
-      		:prompt => "Select State", :include_blank => true) %>
+      <%= f.collection_select :coll_state,
+      		State.all(:order => 'state_name'),
+      		:state_name, :state_name,
+      		:prompt => "Select State", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :coll_country %>
-      <%= f.select(:coll_country, %w{India USA China},
-      		:prompt => "Select Country", :include_blank => true) %>
+      <%= f.collection_select :coll_country,
+      		Country.all(:order => 'country_name'),
+      		:country_name, :country_name,
+      		:prompt => "Select Country", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :coll_pincode %>
@@ -223,18 +229,24 @@
     </div>
     <div class="field">
       <%= f.label :fac_city %>
-      <%= f.select(:fac_city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
-      		:prompt => "Select City", :include_blank => true) %>
+      <%= f.collection_select :fac_city,
+      		City.all(:order => 'city_name'),
+      		:city_name, :city_name,
+      		:prompt => "Select City", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :fac_state %>
-      <%= f.select(:fac_state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
-      		:prompt => "Select State", :include_blank => true) %>
+      <%= f.collection_select :fac_state,
+      		State.all(:order => 'state_name'),
+      		:state_name, :state_name,
+      		:prompt => "Select State", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :fac_country %>
-      <%= f.select(:fac_country, %w{India USA China},
-      		:prompt => "Select Country", :include_blank => true) %>
+      <%= f.collection_select :fac_country,
+      		Country.all(:order => 'country_name'),
+      		:country_name, :country_name,
+      		:prompt => "Select Country", :include_blank => true %>
     </div>
     <div class="field">
       <%= f.label :fac_pincode %>

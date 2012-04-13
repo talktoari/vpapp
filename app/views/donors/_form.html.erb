@@ -71,12 +71,20 @@
     <%= f.text_field :district %>
   </div>
   <div class="field">
-    <%= f.select(:city, %w{Bangalore Dharwad Belgaum Mumbai Ranchi NewYork Beijing},
-      :prompt => "Select City", :include_blank => true) %>
-    <%= f.select(:state, %w{Maharashtra Karnataka Bihar Charlotte Shanghai},
-      :prompt => "Select State", :include_blank => true) %>
-    <%= f.select(:country, %w{India USA China},
-      :prompt => "Select Country", :include_blank => true) %>
+    <%= f.collection_select :city,
+      		City.all(:order => 'city_name'),
+      		:city_name, :city_name,
+      		:prompt => "Select City", :include_blank => true %>
+
+    <%= f.collection_select :state,
+      		State.all(:order => 'state_name'),
+      		:state_name, :state_name,
+      		:prompt => "Select State", :include_blank => true %>
+
+    <%= f.collection_select :country,
+      		Country.all(:order => 'country_name'),
+      		:country_name, :country_name,
+      		:prompt => "Select Country", :include_blank => true %>
   </div>
   <div class="field">
     <%= f.label :pincode %>

@@ -31,6 +31,13 @@
 		  <% if (user_signed_in?) && (current_user.role == "admin") %>
 				<li><%= link_to "DropDowns &#8250;".html_safe, "#" %>
 					<ul>
+					  <li><%= link_to "&#8249; General".html_safe, "#" %>
+							<ul>
+								<li><%= link_to "City", cities_path %></li>
+								<li><%= link_to "State", states_path %></li>
+								<li><%= link_to "Country", countries_path %></li>
+							</ul>
+						</li>
 						<li><%= link_to "&#8249; Student".html_safe, "#" %>
 							<ul>
 								<li><%= link_to "District", student_districts_path %></li>

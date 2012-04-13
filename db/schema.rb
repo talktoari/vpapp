@@ -11,7 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120412112308) do
+ActiveRecord::Schema.define(:version => 20120413163959) do
+
+  create_table "cities", :force => true do |t|
+    t.string   "city_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "countries", :force => true do |t|
+    t.string   "country_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "donation_purposes", :force => true do |t|
     t.string    "donation_purpose"
@@ -108,6 +120,12 @@ ActiveRecord::Schema.define(:version => 20120412112308) do
   end
 
   add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
+  create_table "states", :force => true do |t|
+    t.string   "state_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "student_area_types", :force => true do |t|
     t.string    "area_type_name"
