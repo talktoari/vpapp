@@ -21,36 +21,10 @@
     <th>District</th>
     <th>Taluka</th>
     <th>VP ID</th>
-    <th>Father name</th>
-    <th>Date of birth</th>
-    <th>Email</th>
-    <th>Pmt address line1</th>
-    <th>Pmt address line2</th>
-    <th>Pmt landmark</th>
-    <th>Pmt city</th>
-    <th>Pmt state</th>
-    <th>Pmt country</th>
-    <th>Pmt pincode</th>
-    <th>Pmt full address</th>
-    <th>Cur address line1</th>
-    <th>Cur address line2</th>
-    <th>Cur landmark</th>
-    <th>Cur city</th>
-    <th>Cur state</th>
-    <th>Cur country</th>
-    <th>Cur pincode</th>
-    <th>Cur full address</th>
-    <th>Primary phone</th>
-    <th>Additional phone</th>
-    <th>Father occupation</th>
-    <th>Mother occupation</th>
-    <th>Total family income</th>
-    <th>Gender</th>
-    <th>Area type</th>
-    <th>Caste</th>
-    <th>Category</th>
-    <th>Studied medium</th>
-    <th>Sslc percentage</th>
+    <th>Current Full Address</th>
+    <th>Primary/Additional Phone</th>
+    <th>Total Family Income</th>
+    <th>SSLC %</th>
     <th>Comments</th>
     <th>Last Update</th>
     <% if can? :update, Student %>
@@ -67,35 +41,9 @@
     <td><%= student.district %></td>
     <td><%= student.taluka %></td>
     <td><%= student.vp_id %></td>
-    <td><%= student.father_name %></td>
-    <td><%= student.date_of_birth %></td>
-    <td><%= student.email %></td>
-    <td><%= student.pmt_address_line1 %></td>
-    <td><%= student.pmt_address_line2 %></td>
-    <td><%= student.pmt_landmark %></td>
-    <td><%= student.pmt_city %></td>
-    <td><%= student.pmt_state %></td>
-    <td><%= student.pmt_country %></td>
-    <td><%= student.pmt_pincode %></td>
-    <td><%= student.pmt_full_address %></td>
-    <td><%= student.cur_address_line1 %></td>
-    <td><%= student.cur_address_line2 %></td>
-    <td><%= student.cur_landmark %></td>
-    <td><%= student.cur_city %></td>
-    <td><%= student.cur_state %></td>
-    <td><%= student.cur_country %></td>
-    <td><%= student.cur_pincode %></td>
     <td><%= student.cur_full_address %></td>
-    <td><%= student.primary_phone %></td>
-    <td><%= student.additional_phone %></td>
-    <td><%= student.father_occupation %></td>
-    <td><%= student.mother_occupation %></td>
+    <td><%= student.primary_phone %>, <%= student.additional_phone %></td>
     <td><%= student.total_family_income %></td>
-    <td><%= student.gender %></td>
-    <td><%= student.area_type %></td>
-    <td><%= student.caste %></td>
-    <td><%= student.category %></td>
-    <td><%= student.studied_medium %></td>
     <td><%= student.sslc_percentage %></td>
     <td><%= student.comments %></td>
     <td><%= student.updated_at %></td>

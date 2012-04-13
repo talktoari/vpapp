@@ -131,20 +131,21 @@ class YearlyDetailsController < ApplicationController
       cur_yearly_detail.chalan_number = row[10]
       cur_yearly_detail.vr_number = row[11]
       # Books Given Condition
-      if row[12] == "Yes"
+      if ((row[12] == "Yes") || (row[12] == "Y"))
       	cur_yearly_detail.books_given = true
       else
       	cur_yearly_detail.books_given = false
       end
       
       # Camp Invited Condition
-      if row[13] == "Y"
+      if ((row[13] == "Yes") || (row[13] == "Y"))
         cur_yearly_detail.camp_invited = true
       else
         cur_yearly_detail.camp_invited = false
       end
+      
       # Camp Attended Condition
-      if row[14] == "Y"
+      if ((row[14] == "Yes") || (row[14] == "Y"))
         cur_yearly_detail.camp_attended = true
       else
         cur_yearly_detail.camp_attended = false

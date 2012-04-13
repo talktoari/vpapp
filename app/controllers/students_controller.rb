@@ -123,8 +123,24 @@ class StudentsController < ApplicationController
       cur_student.father_occupation = row[10]
       cur_student.mother_occupation = row[11]
       cur_student.total_family_income = row[12]
-      cur_student.gender = row[13]
-      cur_student.area_type = row[14]
+      # Gender format changes
+      if ((row[13] == "B") || (row[13] == "Boy") || (row[13] == "M") || (row[13] == "Male"))
+        cur_student.gender = "Boy"
+      elsif ((row[13] == "G") || (row[13] == "Girl") || (row[13] == "F") || (row[13] == "Female"))
+        cur_student.gender = "Girl"
+      else
+        cur_student.gender = row[13]
+      end
+      
+      # AreaType format changes
+      if ((row[14] == "R") || (row[14] == "Rural"))
+        cur_student.area_type = "Rural"
+      elsif ((row[14] == "U") || (row[14] == "Urban"))
+        cur_student.area_type = "Urban"
+      else
+        cur_student.area_type = row[14]
+      end
+      
       cur_student.caste = row[15]
       cur_student.studied_medium = row[16]
       cur_student.cet_rank = row[17]
