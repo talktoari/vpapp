@@ -1,8 +1,13 @@
 class YearlyDetailStreamsController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /yearly_detail_streams
   # GET /yearly_detail_streams.json
   def index
-    @yearly_detail_streams = YearlyDetailStream.all
+  #  @yearly_detail_streams = YearlyDetailStream.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class YearlyDetailStreamsController < ApplicationController
   # GET /yearly_detail_streams/1
   # GET /yearly_detail_streams/1.json
   def show
-    @yearly_detail_stream = YearlyDetailStream.find(params[:id])
+  #  @yearly_detail_stream = YearlyDetailStream.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class YearlyDetailStreamsController < ApplicationController
   # GET /yearly_detail_streams/new
   # GET /yearly_detail_streams/new.json
   def new
-    @yearly_detail_stream = YearlyDetailStream.new
+  #  @yearly_detail_stream = YearlyDetailStream.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class YearlyDetailStreamsController < ApplicationController
 
   # GET /yearly_detail_streams/1/edit
   def edit
-    @yearly_detail_stream = YearlyDetailStream.find(params[:id])
+  #  @yearly_detail_stream = YearlyDetailStream.find(params[:id])
   end
 
   # POST /yearly_detail_streams
   # POST /yearly_detail_streams.json
   def create
-    @yearly_detail_stream = YearlyDetailStream.new(params[:yearly_detail_stream])
+  #  @yearly_detail_stream = YearlyDetailStream.new(params[:yearly_detail_stream])
 
     respond_to do |format|
       if @yearly_detail_stream.save
@@ -56,7 +61,7 @@ class YearlyDetailStreamsController < ApplicationController
   # PUT /yearly_detail_streams/1
   # PUT /yearly_detail_streams/1.json
   def update
-    @yearly_detail_stream = YearlyDetailStream.find(params[:id])
+  #  @yearly_detail_stream = YearlyDetailStream.find(params[:id])
 
     respond_to do |format|
       if @yearly_detail_stream.update_attributes(params[:yearly_detail_stream])
@@ -72,7 +77,7 @@ class YearlyDetailStreamsController < ApplicationController
   # DELETE /yearly_detail_streams/1
   # DELETE /yearly_detail_streams/1.json
   def destroy
-    @yearly_detail_stream = YearlyDetailStream.find(params[:id])
+  #  @yearly_detail_stream = YearlyDetailStream.find(params[:id])
     @yearly_detail_stream.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class YearlyDetailStreamsController < ApplicationController
     end
   end
 end
+

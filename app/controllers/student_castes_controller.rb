@@ -1,8 +1,13 @@
 class StudentCastesController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /student_castes
   # GET /student_castes.json
   def index
-    @student_castes = StudentCaste.all
+  #  @student_castes = StudentCaste.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class StudentCastesController < ApplicationController
   # GET /student_castes/1
   # GET /student_castes/1.json
   def show
-    @student_caste = StudentCaste.find(params[:id])
+  #  @student_caste = StudentCaste.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class StudentCastesController < ApplicationController
   # GET /student_castes/new
   # GET /student_castes/new.json
   def new
-    @student_caste = StudentCaste.new
+  #  @student_caste = StudentCaste.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class StudentCastesController < ApplicationController
 
   # GET /student_castes/1/edit
   def edit
-    @student_caste = StudentCaste.find(params[:id])
+  #  @student_caste = StudentCaste.find(params[:id])
   end
 
   # POST /student_castes
   # POST /student_castes.json
   def create
-    @student_caste = StudentCaste.new(params[:student_caste])
+  #  @student_caste = StudentCaste.new(params[:student_caste])
 
     respond_to do |format|
       if @student_caste.save
@@ -56,7 +61,7 @@ class StudentCastesController < ApplicationController
   # PUT /student_castes/1
   # PUT /student_castes/1.json
   def update
-    @student_caste = StudentCaste.find(params[:id])
+  #  @student_caste = StudentCaste.find(params[:id])
 
     respond_to do |format|
       if @student_caste.update_attributes(params[:student_caste])
@@ -72,7 +77,7 @@ class StudentCastesController < ApplicationController
   # DELETE /student_castes/1
   # DELETE /student_castes/1.json
   def destroy
-    @student_caste = StudentCaste.find(params[:id])
+  #  @student_caste = StudentCaste.find(params[:id])
     @student_caste.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class StudentCastesController < ApplicationController
     end
   end
 end
+

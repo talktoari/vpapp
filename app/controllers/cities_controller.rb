@@ -1,8 +1,13 @@
 class CitiesController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /cities
   # GET /cities.json
   def index
-    @cities = City.all
+  #  @cities = City.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class CitiesController < ApplicationController
   # GET /cities/1
   # GET /cities/1.json
   def show
-    @city = City.find(params[:id])
+  #  @city = City.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class CitiesController < ApplicationController
   # GET /cities/new
   # GET /cities/new.json
   def new
-    @city = City.new
+  #  @city = City.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class CitiesController < ApplicationController
 
   # GET /cities/1/edit
   def edit
-    @city = City.find(params[:id])
+  #  @city = City.find(params[:id])
   end
 
   # POST /cities
   # POST /cities.json
   def create
-    @city = City.new(params[:city])
+  #  @city = City.new(params[:city])
 
     respond_to do |format|
       if @city.save
@@ -56,7 +61,7 @@ class CitiesController < ApplicationController
   # PUT /cities/1
   # PUT /cities/1.json
   def update
-    @city = City.find(params[:id])
+  #  @city = City.find(params[:id])
 
     respond_to do |format|
       if @city.update_attributes(params[:city])
@@ -72,7 +77,7 @@ class CitiesController < ApplicationController
   # DELETE /cities/1
   # DELETE /cities/1.json
   def destroy
-    @city = City.find(params[:id])
+  #  @city = City.find(params[:id])
     @city.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class CitiesController < ApplicationController
     end
   end
 end
+

@@ -1,8 +1,13 @@
 class DonationTypesController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /donation_types
   # GET /donation_types.json
   def index
-    @donation_types = DonationType.all
+  #  @donation_types = DonationType.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class DonationTypesController < ApplicationController
   # GET /donation_types/1
   # GET /donation_types/1.json
   def show
-    @donation_type = DonationType.find(params[:id])
+  #  @donation_type = DonationType.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class DonationTypesController < ApplicationController
   # GET /donation_types/new
   # GET /donation_types/new.json
   def new
-    @donation_type = DonationType.new
+  #  @donation_type = DonationType.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class DonationTypesController < ApplicationController
 
   # GET /donation_types/1/edit
   def edit
-    @donation_type = DonationType.find(params[:id])
+  #  @donation_type = DonationType.find(params[:id])
   end
 
   # POST /donation_types
   # POST /donation_types.json
   def create
-    @donation_type = DonationType.new(params[:donation_type])
+  #  @donation_type = DonationType.new(params[:donation_type])
 
     respond_to do |format|
       if @donation_type.save
@@ -56,7 +61,7 @@ class DonationTypesController < ApplicationController
   # PUT /donation_types/1
   # PUT /donation_types/1.json
   def update
-    @donation_type = DonationType.find(params[:id])
+  #  @donation_type = DonationType.find(params[:id])
 
     respond_to do |format|
       if @donation_type.update_attributes(params[:donation_type])
@@ -72,7 +77,7 @@ class DonationTypesController < ApplicationController
   # DELETE /donation_types/1
   # DELETE /donation_types/1.json
   def destroy
-    @donation_type = DonationType.find(params[:id])
+  #  @donation_type = DonationType.find(params[:id])
     @donation_type.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class DonationTypesController < ApplicationController
     end
   end
 end
+

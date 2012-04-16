@@ -1,8 +1,13 @@
 class YearlyDetailCoursesController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /yearly_detail_courses
   # GET /yearly_detail_courses.json
   def index
-    @yearly_detail_courses = YearlyDetailCourse.all
+  #  @yearly_detail_courses = YearlyDetailCourse.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class YearlyDetailCoursesController < ApplicationController
   # GET /yearly_detail_courses/1
   # GET /yearly_detail_courses/1.json
   def show
-    @yearly_detail_course = YearlyDetailCourse.find(params[:id])
+  #  @yearly_detail_course = YearlyDetailCourse.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class YearlyDetailCoursesController < ApplicationController
   # GET /yearly_detail_courses/new
   # GET /yearly_detail_courses/new.json
   def new
-    @yearly_detail_course = YearlyDetailCourse.new
+  #  @yearly_detail_course = YearlyDetailCourse.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class YearlyDetailCoursesController < ApplicationController
 
   # GET /yearly_detail_courses/1/edit
   def edit
-    @yearly_detail_course = YearlyDetailCourse.find(params[:id])
+  #  @yearly_detail_course = YearlyDetailCourse.find(params[:id])
   end
 
   # POST /yearly_detail_courses
   # POST /yearly_detail_courses.json
   def create
-    @yearly_detail_course = YearlyDetailCourse.new(params[:yearly_detail_course])
+  #  @yearly_detail_course = YearlyDetailCourse.new(params[:yearly_detail_course])
 
     respond_to do |format|
       if @yearly_detail_course.save
@@ -56,7 +61,7 @@ class YearlyDetailCoursesController < ApplicationController
   # PUT /yearly_detail_courses/1
   # PUT /yearly_detail_courses/1.json
   def update
-    @yearly_detail_course = YearlyDetailCourse.find(params[:id])
+  #  @yearly_detail_course = YearlyDetailCourse.find(params[:id])
 
     respond_to do |format|
       if @yearly_detail_course.update_attributes(params[:yearly_detail_course])
@@ -72,7 +77,7 @@ class YearlyDetailCoursesController < ApplicationController
   # DELETE /yearly_detail_courses/1
   # DELETE /yearly_detail_courses/1.json
   def destroy
-    @yearly_detail_course = YearlyDetailCourse.find(params[:id])
+  #  @yearly_detail_course = YearlyDetailCourse.find(params[:id])
     @yearly_detail_course.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class YearlyDetailCoursesController < ApplicationController
     end
   end
 end
+

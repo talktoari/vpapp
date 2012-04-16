@@ -1,8 +1,13 @@
 class DonationStatusesController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /donation_statuses
   # GET /donation_statuses.json
   def index
-    @donation_statuses = DonationStatus.all
+  #  @donation_statuses = DonationStatus.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class DonationStatusesController < ApplicationController
   # GET /donation_statuses/1
   # GET /donation_statuses/1.json
   def show
-    @donation_status = DonationStatus.find(params[:id])
+  #  @donation_status = DonationStatus.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class DonationStatusesController < ApplicationController
   # GET /donation_statuses/new
   # GET /donation_statuses/new.json
   def new
-    @donation_status = DonationStatus.new
+  #  @donation_status = DonationStatus.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class DonationStatusesController < ApplicationController
 
   # GET /donation_statuses/1/edit
   def edit
-    @donation_status = DonationStatus.find(params[:id])
+  #  @donation_status = DonationStatus.find(params[:id])
   end
 
   # POST /donation_statuses
   # POST /donation_statuses.json
   def create
-    @donation_status = DonationStatus.new(params[:donation_status])
+  #  @donation_status = DonationStatus.new(params[:donation_status])
 
     respond_to do |format|
       if @donation_status.save
@@ -56,7 +61,7 @@ class DonationStatusesController < ApplicationController
   # PUT /donation_statuses/1
   # PUT /donation_statuses/1.json
   def update
-    @donation_status = DonationStatus.find(params[:id])
+  #  @donation_status = DonationStatus.find(params[:id])
 
     respond_to do |format|
       if @donation_status.update_attributes(params[:donation_status])
@@ -72,7 +77,7 @@ class DonationStatusesController < ApplicationController
   # DELETE /donation_statuses/1
   # DELETE /donation_statuses/1.json
   def destroy
-    @donation_status = DonationStatus.find(params[:id])
+  #  @donation_status = DonationStatus.find(params[:id])
     @donation_status.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class DonationStatusesController < ApplicationController
     end
   end
 end
+

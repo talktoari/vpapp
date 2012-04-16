@@ -1,8 +1,13 @@
 class StudentStudyMedsController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /student_study_meds
   # GET /student_study_meds.json
   def index
-    @student_study_meds = StudentStudyMed.all
+  #  @student_study_meds = StudentStudyMed.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class StudentStudyMedsController < ApplicationController
   # GET /student_study_meds/1
   # GET /student_study_meds/1.json
   def show
-    @student_study_med = StudentStudyMed.find(params[:id])
+  #  @student_study_med = StudentStudyMed.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class StudentStudyMedsController < ApplicationController
   # GET /student_study_meds/new
   # GET /student_study_meds/new.json
   def new
-    @student_study_med = StudentStudyMed.new
+  #  @student_study_med = StudentStudyMed.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class StudentStudyMedsController < ApplicationController
 
   # GET /student_study_meds/1/edit
   def edit
-    @student_study_med = StudentStudyMed.find(params[:id])
+  #  @student_study_med = StudentStudyMed.find(params[:id])
   end
 
   # POST /student_study_meds
   # POST /student_study_meds.json
   def create
-    @student_study_med = StudentStudyMed.new(params[:student_study_med])
+  #  @student_study_med = StudentStudyMed.new(params[:student_study_med])
 
     respond_to do |format|
       if @student_study_med.save
@@ -56,7 +61,7 @@ class StudentStudyMedsController < ApplicationController
   # PUT /student_study_meds/1
   # PUT /student_study_meds/1.json
   def update
-    @student_study_med = StudentStudyMed.find(params[:id])
+  #  @student_study_med = StudentStudyMed.find(params[:id])
 
     respond_to do |format|
       if @student_study_med.update_attributes(params[:student_study_med])
@@ -72,7 +77,7 @@ class StudentStudyMedsController < ApplicationController
   # DELETE /student_study_meds/1
   # DELETE /student_study_meds/1.json
   def destroy
-    @student_study_med = StudentStudyMed.find(params[:id])
+  #  @student_study_med = StudentStudyMed.find(params[:id])
     @student_study_med.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class StudentStudyMedsController < ApplicationController
     end
   end
 end
+

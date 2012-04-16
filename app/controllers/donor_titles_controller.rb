@@ -1,8 +1,13 @@
 class DonorTitlesController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /donor_titles
   # GET /donor_titles.json
   def index
-    @donor_titles = DonorTitle.all
+  #  @donor_titles = DonorTitle.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class DonorTitlesController < ApplicationController
   # GET /donor_titles/1
   # GET /donor_titles/1.json
   def show
-    @donor_title = DonorTitle.find(params[:id])
+  #  @donor_title = DonorTitle.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class DonorTitlesController < ApplicationController
   # GET /donor_titles/new
   # GET /donor_titles/new.json
   def new
-    @donor_title = DonorTitle.new
+  #  @donor_title = DonorTitle.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class DonorTitlesController < ApplicationController
 
   # GET /donor_titles/1/edit
   def edit
-    @donor_title = DonorTitle.find(params[:id])
+  #  @donor_title = DonorTitle.find(params[:id])
   end
 
   # POST /donor_titles
   # POST /donor_titles.json
   def create
-    @donor_title = DonorTitle.new(params[:donor_title])
+  #  @donor_title = DonorTitle.new(params[:donor_title])
 
     respond_to do |format|
       if @donor_title.save
@@ -56,7 +61,7 @@ class DonorTitlesController < ApplicationController
   # PUT /donor_titles/1
   # PUT /donor_titles/1.json
   def update
-    @donor_title = DonorTitle.find(params[:id])
+  #  @donor_title = DonorTitle.find(params[:id])
 
     respond_to do |format|
       if @donor_title.update_attributes(params[:donor_title])
@@ -72,7 +77,7 @@ class DonorTitlesController < ApplicationController
   # DELETE /donor_titles/1
   # DELETE /donor_titles/1.json
   def destroy
-    @donor_title = DonorTitle.find(params[:id])
+  #  @donor_title = DonorTitle.find(params[:id])
     @donor_title.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class DonorTitlesController < ApplicationController
     end
   end
 end
+

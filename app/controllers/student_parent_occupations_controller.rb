@@ -1,8 +1,13 @@
 class StudentParentOccupationsController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /student_parent_occupations
   # GET /student_parent_occupations.json
   def index
-    @student_parent_occupations = StudentParentOccupation.all
+  #  @student_parent_occupations = StudentParentOccupation.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class StudentParentOccupationsController < ApplicationController
   # GET /student_parent_occupations/1
   # GET /student_parent_occupations/1.json
   def show
-    @student_parent_occupation = StudentParentOccupation.find(params[:id])
+  #  @student_parent_occupation = StudentParentOccupation.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class StudentParentOccupationsController < ApplicationController
   # GET /student_parent_occupations/new
   # GET /student_parent_occupations/new.json
   def new
-    @student_parent_occupation = StudentParentOccupation.new
+  #  @student_parent_occupation = StudentParentOccupation.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class StudentParentOccupationsController < ApplicationController
 
   # GET /student_parent_occupations/1/edit
   def edit
-    @student_parent_occupation = StudentParentOccupation.find(params[:id])
+  #  @student_parent_occupation = StudentParentOccupation.find(params[:id])
   end
 
   # POST /student_parent_occupations
   # POST /student_parent_occupations.json
   def create
-    @student_parent_occupation = StudentParentOccupation.new(params[:student_parent_occupation])
+  #  @student_parent_occupation = StudentParentOccupation.new(params[:student_parent_occupation])
 
     respond_to do |format|
       if @student_parent_occupation.save
@@ -56,7 +61,7 @@ class StudentParentOccupationsController < ApplicationController
   # PUT /student_parent_occupations/1
   # PUT /student_parent_occupations/1.json
   def update
-    @student_parent_occupation = StudentParentOccupation.find(params[:id])
+  #  @student_parent_occupation = StudentParentOccupation.find(params[:id])
 
     respond_to do |format|
       if @student_parent_occupation.update_attributes(params[:student_parent_occupation])
@@ -72,7 +77,7 @@ class StudentParentOccupationsController < ApplicationController
   # DELETE /student_parent_occupations/1
   # DELETE /student_parent_occupations/1.json
   def destroy
-    @student_parent_occupation = StudentParentOccupation.find(params[:id])
+  #  @student_parent_occupation = StudentParentOccupation.find(params[:id])
     @student_parent_occupation.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class StudentParentOccupationsController < ApplicationController
     end
   end
 end
+

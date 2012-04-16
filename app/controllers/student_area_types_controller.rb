@@ -1,8 +1,13 @@
 class StudentAreaTypesController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /student_area_types
   # GET /student_area_types.json
   def index
-    @student_area_types = StudentAreaType.all
+  #  @student_area_types = StudentAreaType.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class StudentAreaTypesController < ApplicationController
   # GET /student_area_types/1
   # GET /student_area_types/1.json
   def show
-    @student_area_type = StudentAreaType.find(params[:id])
+  #  @student_area_type = StudentAreaType.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class StudentAreaTypesController < ApplicationController
   # GET /student_area_types/new
   # GET /student_area_types/new.json
   def new
-    @student_area_type = StudentAreaType.new
+  #  @student_area_type = StudentAreaType.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class StudentAreaTypesController < ApplicationController
 
   # GET /student_area_types/1/edit
   def edit
-    @student_area_type = StudentAreaType.find(params[:id])
+  #  @student_area_type = StudentAreaType.find(params[:id])
   end
 
   # POST /student_area_types
   # POST /student_area_types.json
   def create
-    @student_area_type = StudentAreaType.new(params[:student_area_type])
+  #  @student_area_type = StudentAreaType.new(params[:student_area_type])
 
     respond_to do |format|
       if @student_area_type.save
@@ -56,7 +61,7 @@ class StudentAreaTypesController < ApplicationController
   # PUT /student_area_types/1
   # PUT /student_area_types/1.json
   def update
-    @student_area_type = StudentAreaType.find(params[:id])
+  #  @student_area_type = StudentAreaType.find(params[:id])
 
     respond_to do |format|
       if @student_area_type.update_attributes(params[:student_area_type])
@@ -72,7 +77,7 @@ class StudentAreaTypesController < ApplicationController
   # DELETE /student_area_types/1
   # DELETE /student_area_types/1.json
   def destroy
-    @student_area_type = StudentAreaType.find(params[:id])
+  #  @student_area_type = StudentAreaType.find(params[:id])
     @student_area_type.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class StudentAreaTypesController < ApplicationController
     end
   end
 end
+

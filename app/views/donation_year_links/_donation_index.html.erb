@@ -2,8 +2,6 @@
   <tr>
     <th>Donor Name</th>
     <th>Amount</th>
-    <th>Status</th>
-    <th>Type</th>
     <th>Purpose</th>
     <th>Comment</th>
     <th>Select</th>
@@ -13,8 +11,6 @@
   <tr>
     <td><%= link_to "#{donation.donor.first_name} #{donation.donor.last_name}", donation.donor %></td>
     <td><%= link_to "#{donation.amount}", donation %></td>
-    <td><%= donation.status %></td>
-    <td><%= donation.donation_type %></td>
     <td><%= donation.purpose %></td>
     <td><%= donation.comment %></td>
     <td><%= f.radio_button :donation_id, "#{donation.id}" %></td>

@@ -43,15 +43,18 @@ class Ability
     if user.role == "super_admin"
       can :manage, :all
     elsif user.role == "admin"
-      can :manage, [Donor, Donation, Student, YearlyDetail, DonationYearLink]
-      can [:read, :update], User
+      can :manage, :all
+      cannot [:destroy], User
     elsif user.role == "moderator"
-      can [:read, :update], [Donor, Donation, Student, YearlyDetail, DonationYearLink]
-      can :read, User
+      can [:read, :update], :all
+      cannot [:destroy], :all
+      cannot [:update, :destroy], User
     elsif user.role == "general"
-      can :read, [Donor, Donation, Student, YearlyDetail, DonationYearLink]
+      can :read, :all
+      cannot [:update, :destroy], :all
       cannot [:read, :update, :destroy], User
     else
+      cannot :manage, :all
 #      can :read, Donor do |donor|
 #        donor.try(:email) == user.email
 #      end

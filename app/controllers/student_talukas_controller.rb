@@ -1,8 +1,13 @@
 class StudentTalukasController < ApplicationController
+  # CanCan Specific Authorization. Doesn't need instance variables
+  # See all first line for actions commented except index
+  load_and_authorize_resource
+  before_filter :authenticate_user!
+
   # GET /student_talukas
   # GET /student_talukas.json
   def index
-    @student_talukas = StudentTaluka.all
+  #  @student_talukas = StudentTaluka.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +18,7 @@ class StudentTalukasController < ApplicationController
   # GET /student_talukas/1
   # GET /student_talukas/1.json
   def show
-    @student_taluka = StudentTaluka.find(params[:id])
+  #  @student_taluka = StudentTaluka.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +29,7 @@ class StudentTalukasController < ApplicationController
   # GET /student_talukas/new
   # GET /student_talukas/new.json
   def new
-    @student_taluka = StudentTaluka.new
+  #  @student_taluka = StudentTaluka.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +39,13 @@ class StudentTalukasController < ApplicationController
 
   # GET /student_talukas/1/edit
   def edit
-    @student_taluka = StudentTaluka.find(params[:id])
+  #  @student_taluka = StudentTaluka.find(params[:id])
   end
 
   # POST /student_talukas
   # POST /student_talukas.json
   def create
-    @student_taluka = StudentTaluka.new(params[:student_taluka])
+  #  @student_taluka = StudentTaluka.new(params[:student_taluka])
 
     respond_to do |format|
       if @student_taluka.save
@@ -56,7 +61,7 @@ class StudentTalukasController < ApplicationController
   # PUT /student_talukas/1
   # PUT /student_talukas/1.json
   def update
-    @student_taluka = StudentTaluka.find(params[:id])
+  #  @student_taluka = StudentTaluka.find(params[:id])
 
     respond_to do |format|
       if @student_taluka.update_attributes(params[:student_taluka])
@@ -72,7 +77,7 @@ class StudentTalukasController < ApplicationController
   # DELETE /student_talukas/1
   # DELETE /student_talukas/1.json
   def destroy
-    @student_taluka = StudentTaluka.find(params[:id])
+  #  @student_taluka = StudentTaluka.find(params[:id])
     @student_taluka.destroy
 
     respond_to do |format|
@@ -81,3 +86,4 @@ class StudentTalukasController < ApplicationController
     end
   end
 end
+
