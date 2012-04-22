@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120413163959) do
+ActiveRecord::Schema.define(:version => 20120422043719) do
 
   create_table "cities", :force => true do |t|
     t.string   "city_name"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(:version => 20120413163959) do
     t.string    "donor_type"
     t.string    "district"
     t.string    "title"
+    t.string    "ser_no"
   end
 
   create_table "posts", :force => true do |t|

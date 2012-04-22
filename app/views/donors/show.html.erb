@@ -11,6 +11,10 @@ ID: <%= @donor.id %>
 <fieldset>
 <legend>Personal Information</legend>
   <div class="field">
+    <%= f.label :ser_no %>
+    <%= f.text_field :ser_no, :disabled => true %>
+  </div>
+  <div class="field">
     <%= f.label :title %>
     <%= f.text_field :title, :disabled => true %>
   </div>

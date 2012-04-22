@@ -111,23 +111,38 @@ class DonorsController < ApplicationController
       @counter+=1
       cur_donor = Donor.new
       # Populate Fields
-      cur_donor.title = row[0]
-      cur_donor.first_name = row[1]
-      cur_donor.last_name = row[2]
-      cur_donor.gender = row[3]
-      cur_donor.email = row[4]
-      cur_donor.address_first_line = row[5]
-      cur_donor.address_second_line = row[6]
-      cur_donor.address_landmark = row[7]
-      cur_donor.district = row[8]
-      cur_donor.city = row[9]
-      cur_donor.state = row[10]
-      cur_donor.country = row[11]
-      cur_donor.pincode = row[12]
-      cur_donor.phone = row[13]
-      cur_donor.mobile = row[14]
-      cur_donor.donor_type = row[15]
-      cur_donor.comment = row[16]
+      cur_donor.ser_no = row[0]
+      cur_donor.title = row[1]
+      cur_donor.first_name = row[2]
+      # Last Name populate
+      if row[3] == ""
+        cur_donor.last_name = "."
+      else
+        cur_donor.last_name = row[3]
+      end
+
+      # Gender format changes
+      if ((row[4] == "B") || (row[4] == "Boy") || (row[4] == "M") || (row[4] == "Male"))
+        cur_student.gender = "Boy"
+      elsif ((row[4] == "G") || (row[4] == "Girl") || (row[4] == "F") || (row[4] == "Female"))
+        cur_student.gender = "Girl"
+      else
+        cur_student.gender = row[4]
+      end
+
+      cur_donor.email = row[5]
+      cur_donor.address_first_line = row[6]
+      cur_donor.address_second_line = row[7]
+      cur_donor.address_landmark = row[8]
+      cur_donor.district = row[9]
+      cur_donor.city = row[10]
+      cur_donor.state = row[11]
+      cur_donor.country = row[12]
+      cur_donor.pincode = row[13]
+      cur_donor.phone = row[14]
+      cur_donor.mobile = row[15]
+      cur_donor.donor_type = row[16]
+      cur_donor.comment = row[17]
 
       if cur_donor.valid?
         @donors << cur_donor
