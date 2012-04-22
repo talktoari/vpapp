@@ -114,20 +114,14 @@ class DonorsController < ApplicationController
       cur_donor.ser_no = row[0]
       cur_donor.title = row[1]
       cur_donor.first_name = row[2]
-      # Last Name populate
-      if row[3] == ""
-        cur_donor.last_name = "."
-      else
-        cur_donor.last_name = row[3]
-      end
 
       # Gender format changes
       if ((row[4] == "B") || (row[4] == "Boy") || (row[4] == "M") || (row[4] == "Male"))
-        cur_student.gender = "Boy"
+        cur_donor.gender = "Boy"
       elsif ((row[4] == "G") || (row[4] == "Girl") || (row[4] == "F") || (row[4] == "Female"))
-        cur_student.gender = "Girl"
+        cur_donor.gender = "Girl"
       else
-        cur_student.gender = row[4]
+        cur_donor.gender = row[4]
       end
 
       cur_donor.email = row[5]
@@ -143,6 +137,8 @@ class DonorsController < ApplicationController
       cur_donor.mobile = row[15]
       cur_donor.donor_type = row[16]
       cur_donor.comment = row[17]
+
+      cur_donor.last_name = "."
 
       if cur_donor.valid?
         @donors << cur_donor
