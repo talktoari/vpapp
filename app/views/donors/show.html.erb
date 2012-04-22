@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>
-SHOWING DONOR INFORMATION FOR
+SHOWING DONOR:
 <%= @donor.first_name %> <%= @donor.last_name %>
+<% if (user_signed_in?) && (current_user.role == "super_admin") %>
 ID: <%= @donor.id %>
+<% end %>
 </h1>
 <h3 id="alert">NOTE: You cannot change any Profile information here. However, you can DONATE newly</h3>
 

@@ -115,6 +115,13 @@ class DonorsController < ApplicationController
       cur_donor.title = row[1]
       cur_donor.first_name = row[2]
 
+      # Last Name formatting
+      if row[3].blank?
+        cur_donor.last_name = "."
+      else
+        cur_donor.last_name = row[3]
+      end
+
       # Gender format changes
       if ((row[4] == "B") || (row[4] == "Boy") || (row[4] == "M") || (row[4] == "Male"))
         cur_donor.gender = "Boy"
@@ -133,12 +140,10 @@ class DonorsController < ApplicationController
       cur_donor.state = row[11]
       cur_donor.country = row[12]
       cur_donor.pincode = row[13]
-      cur_donor.phone = row[14]
-      cur_donor.mobile = row[15]
+      cur_donor.phone = row[14].to_s
+      cur_donor.mobile = row[15].to_s.to_s
       cur_donor.donor_type = row[16]
       cur_donor.comment = row[17]
-
-      cur_donor.last_name = "."
 
       if cur_donor.valid?
         @donors << cur_donor
