@@ -8,9 +8,8 @@
   <%= f.text_field :first_name_or_last_name_cont %>
   <%= f.label :email_cont %>
   <%= f.text_field :email_cont %>
-  Gender Matches
-  <%# <%= f.label :gender_matches %>
-  <%= f.select(:gender_matches, %w{Male Female}, :include_blank => true) %>
+  <%= f.label :gender_cont %>
+  <%= f.text_field :gender_cont %>
   Donor Type Matches
   <%# <%= f.label :donor_type_eq %>
   <%= f.select(:donor_type_eq, %w{Individual VP_Alumni Institution Company Volunteer Overseas}, :include_blank => true) %>

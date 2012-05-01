@@ -124,9 +124,9 @@ class DonorsController < ApplicationController
 
       # Gender format changes
       if ((row[4] == "B") || (row[4] == "Boy") || (row[4] == "M") || (row[4] == "Male"))
-        cur_donor.gender = "Boy"
+        cur_donor.gender = "Male"
       elsif ((row[4] == "G") || (row[4] == "Girl") || (row[4] == "F") || (row[4] == "Female"))
-        cur_donor.gender = "Girl"
+        cur_donor.gender = "Female"
       else
         cur_donor.gender = row[4]
       end
