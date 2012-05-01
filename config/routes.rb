@@ -65,12 +65,12 @@ Vpapp::Application.routes.draw do
     get "upload_validate_student", :on => :collection
     get "search", :on => :collection
     get "search_results", :on => :collection
-    #get "remove_all", :on => :collection
+    get "remove_all_records", :on => :collection
     post "upload_student", :on => :collection
     post "upload_validate_student", :on => :collection
     post "search", :on => :collection
     post "search_results", :on => :collection
-    #post "remove_all", :on => :collection
+    post "remove_all_records", :on => :collection
   end
 
   resources :students
@@ -106,12 +106,12 @@ Vpapp::Application.routes.draw do
     get "upload_validate_donor", :on => :collection
     get "search", :on => :collection
     get "search_results", :on => :collection
-    #get "remove_all", :on => :collection
+    get "remove_all_records", :on => :collection
     post "upload_donor", :on => :collection
     post "upload_validate_donor", :on => :collection
     post "search", :on => :collection
     post "search_results", :on => :collection
-    #post "remove_all", :on => :collection
+    post "remove_all_records", :on => :collection
   end
 
   resources :donors

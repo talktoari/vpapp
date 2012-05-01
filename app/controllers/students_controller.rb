@@ -131,7 +131,7 @@ class StudentsController < ApplicationController
       else
         cur_student.gender = row[13]
       end
-      
+
       # AreaType format changes
       if ((row[14] == "R") || (row[14] == "Rural"))
         cur_student.area_type = "Rural"
@@ -140,7 +140,7 @@ class StudentsController < ApplicationController
       else
         cur_student.area_type = row[14]
       end
-      
+
       cur_student.caste = row[15]
       cur_student.studied_medium = row[16]
       cur_student.cet_rank = row[17]
@@ -154,7 +154,7 @@ class StudentsController < ApplicationController
       cur_student.comments = row[25]
 			# For passing validations
 			cur_student.last_name = "."
-			
+
 			# Check validity
       if cur_student.valid?
         @students << cur_student
@@ -190,6 +190,16 @@ class StudentsController < ApplicationController
               :cell_format => {:color => :blue},
               :header_format => {:weight => :bold, :color => :red}),
               :filename => 'Found_Students.xls' }
+    end
+  end
+
+  # Destroy all records
+  def remove_all_records
+    Student.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to students_url, notice: 'All Students deleted successfully.' }
+      format.json { head :ok }
     end
   end
 

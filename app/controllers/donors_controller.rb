@@ -181,5 +181,15 @@ class DonorsController < ApplicationController
     end
   end
 
+  # Destroy all records
+  def remove_all_records
+    Donor.destroy_all
+
+    respond_to do |format|
+      format.html { redirect_to donors_url, notice: 'All Donors deleted successfully.' }
+      format.json { head :ok }
+    end
+  end
+
 end
 

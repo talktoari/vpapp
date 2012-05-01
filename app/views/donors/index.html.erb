@@ -7,6 +7,11 @@
 <% if can? :create, Donor %>
   <%= link_to 'Add New Donor', new_donor_path %>
 <% end %>
+
+<% if user_signed_in? && current_user.role == "super_admin" %>
+  <%= link_to 'DESTROY ALL', remove_all_records_donors_path, confirm: 'Are you sure?  Records once deleted cannot be recovered by any means.' %>
+<% end %>
+
 <hr />
 <%= paginate @donors %>
 <hr />

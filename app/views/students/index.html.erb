@@ -8,6 +8,10 @@
   <%= link_to 'Add New Student', new_student_path %>
 <% end %>
 
+<% if user_signed_in? && current_user.role == "super_admin" %>
+  <%= link_to 'DESTROY ALL', remove_all_records_students_path, confirm: 'Are you sure? Records once deleted cannot be recovered by any means.' %>
+<% end %>
+
 <hr />
 <%= paginate @students %>
 <hr />
