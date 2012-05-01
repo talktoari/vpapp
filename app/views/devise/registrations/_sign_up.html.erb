@@ -1,4 +1,7 @@
 <h2>New User Sign Up Here</h2>
+<h3>You can contact VidyaPoshak Admins to register a new account.</h3>
+<h3>Please go back to Home Page by Clicking above</h3>
+
 
 <fieldset>
 <legend>Fill this Sign Up Form</legend>
@@ -18,7 +21,7 @@
   <% if (user_signed_in?) && (current_user.role == "super_admin") %>
     <%= f.collection_select :role, User::ROLESADM, :to_s, :humanize %></div>
   <% else %>
-    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %></div>
+    <%= f.collection_select :role, User::ROLESADM, :to_s, :humanize %></div>
   <% end %>
 
   <br />

@@ -89,7 +89,8 @@ Vpapp::Application.routes.draw do
   get "home/choosepage"
 
   #devise_for :users, :controllers  => { :registrations => 'my_devise/registrations' }
-  devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout", :sign_up => "register" }
+  devise_for :user, :path => '', :path_names => { :sign_in => "login", :sign_out => "logout" }
+  #, :sign_up => "register" }
 
   #devise_for :users, :controllers  => { :registrations => 'users/registrations' }
   # http://www.tonyamoyal.com/2010/09/29/rails-authentication-with-devise-and-cancan-part-2-restful-resources-for-administrators/
