@@ -29,13 +29,13 @@ class CreateStudents < ActiveRecord::Migration
       t.string :additional_phone
       t.string :father_occupation
       t.string :mother_occupation
-      t.string :total_family_income
+      t.decimal :total_family_income, :precision => 12, :scale => 2
       t.string :gender
       t.string :area_type
       t.string :caste
       t.string :category
       t.string :studied_medium
-      t.string :sslc_percentage
+      t.decimal :sslc_percentage, :precision => 4, :scale => 2
       t.string :coll_name
       t.string :coll_address_line1
       t.string :coll_address_line2

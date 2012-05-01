@@ -2,7 +2,7 @@ class CreateYearlyDetails < ActiveRecord::Migration
   def change
     create_table :yearly_details do |t|
       t.integer :student_id
-      t.string :year
+      t.integer :year
       t.string :coll_name
       t.string :coll_address_line1
       t.string :coll_address_line2
@@ -14,10 +14,10 @@ class CreateYearlyDetails < ActiveRecord::Migration
       t.text :coll_full_address
       t.string :coll_primary_phone
       t.string :coll_additional_phone
-      t.string :result_odd
-      t.string :result_even
-      t.string :result_aggregate
-      t.string :result_year
+      t.decimal :result_odd, :precision => 4, :scale => 2
+      t.decimal :result_even, :precision => 4, :scale => 2
+      t.decimal :result_aggregate, :precision => 4, :scale => 2
+      t.integer :result_year
       t.string :course
       t.string :stream
       t.decimal :amount_fees, :precision => 10, :scale => 2
