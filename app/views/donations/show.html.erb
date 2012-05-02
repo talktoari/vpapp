@@ -22,11 +22,15 @@
       <%= f.text_field :purpose, :disabled => true %>
     </div>
     <div class="field">
+      <%= f.label :donation_date %>
+      <%= f.text_field :donation_date, :disabled => true %>
+    </div>
+    <div class="field">
       <%= f.label :comment %>
       <%= f.text_area :comment, :disabled => true %>
     </div>
     <%= link_to 'Edit', edit_donation_path(@donation) %> |
-    <%= link_to 'Back', donations_path %>
+    <%= link_to 'Back', :back %>
   </fieldset>
 <% end %>
 

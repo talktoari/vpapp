@@ -51,6 +51,13 @@
     <%= f.hidden_field :donation_type, :value => "Online" %>
   <% end %>
     <div class="field">
+      <%= f.label :donation_date %>
+      <%= f.date_select :donation_date,
+    	  	:start_year => 2001, :end_year => Time.now.year + 1,
+          :order => [:day, :month, :year],
+          :prompt => true %>
+    </div>
+    <div class="field">
       <%= f.label :comment %>
       <%= f.text_area :comment %>
     </div>

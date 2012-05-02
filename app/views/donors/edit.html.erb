@@ -1,6 +1,8 @@
 <h1>CHANGE DONOR INFORMATION FOR
 <%= @donor.first_name %> <%= @donor.last_name %>
+<% if (user_signed_in?) && (current_user.role == "super_admin") %>
 ID: <%= @donor.id %>
+<% end %>
 </h1>
 
 <%= render 'form' %>

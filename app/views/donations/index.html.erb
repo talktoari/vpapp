@@ -17,6 +17,7 @@
     <th>Status</th>
     <th>Donation Type</th>
     <th>Purpose</th>
+    <th>Donation Date</th>
     <th>Comment</th>
     <% if can? :update, Donation %>
       <th>Actions</th>
@@ -34,6 +35,7 @@
     <td><%= donation.status %></td>
     <td><%= donation.donation_type %></td>
     <td><%= donation.purpose %></td>
+    <td><%= donation.donation_date %></td>
     <td><%= donation.comment %></td>
     <% if can? :update, Donation %>
       <td>

@@ -7,8 +7,8 @@
     <th>Status</th>
     <th>Donation Type</th>
     <th>Purpose</th>
-    <th>Comment</th>
     <th>Donated At</th>
+    <th>Comment</th>
     <% if can? :update, Donation %>
       <th>Actions</th>
     <% end %>
@@ -20,8 +20,8 @@
     <td><%= donation.status %></td>
     <td><%= donation.donation_type %></td>
     <td><%= donation.purpose %></td>
+    <td><%= donation.donation_date %></td>
     <td><%= donation.comment %></td>
-    <td><%= donation.created_at %></td>
     <% if can? :update, Donation %>
       <td>
       <%= link_to 'Edit', edit_donation_path(donation) %>
