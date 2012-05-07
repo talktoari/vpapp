@@ -3,6 +3,7 @@
 
 <table id="donations">
   <tr>
+    <th>ID</th>
     <th>Amount</th>
     <th>Status</th>
     <th>Donation Type</th>
@@ -16,6 +17,7 @@
 
 <% donations.each do |donation| %>
   <tr>
+    <td><%= donation.id %></td>
     <td><%= donation.amount %></td>
     <td><%= donation.status %></td>
     <td><%= donation.donation_type %></td>
